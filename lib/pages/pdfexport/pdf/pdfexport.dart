@@ -6,7 +6,7 @@ import 'package:pdf/widgets.dart';
 import 'dart:io';
 import 'package:flutter/services.dart' show rootBundle;
 
-Future<Uint8List> makePdf(Invoice invoice) async {
+Future<Uint8List> makePdf(HazardT hazardT) async {
   final pdf = Document();
   final imageLogo = MemoryImage((await rootBundle.load('assets/dhec.png')).buffer.asUint8List());
   pdf.addPage(
@@ -38,7 +38,7 @@ Future<Uint8List> makePdf(Invoice invoice) async {
               border: TableBorder.all(color: PdfColors.black),
               children: [
 
-                ...invoice.items.map(
+                ...hazardT.items.map(
                   (e) => TableRow(
                     children: [
                       Expanded(
@@ -49,21 +49,7 @@ Future<Uint8List> makePdf(Invoice invoice) async {
                       Expanded(
                         child: PaddedText(e.elements),
                         flex: 2,
-                      )/*,
-                      Expanded(
-                        child: PaddedText(e.description),
-                        flex: 2,
-                      ),
-
-                      Expanded(
-                        child: PaddedText(e.howAffectMe),
-                        flex: 2,
-                      ),
-
-                      Expanded(
-                        child: PaddedText(e.howAffectCommunity),
-                        flex: 2,
-                      )*/
+                      )
                     ],
                   ),
                 )
