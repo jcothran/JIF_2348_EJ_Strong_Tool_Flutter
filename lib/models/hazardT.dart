@@ -1,9 +1,35 @@
 class HazardT {
   final String name;
-  List<LineItem> items;
+  String headers;
+  String origin;
+  String force;
+  String warning;
+  String forewarning;
+  String speed;
+  String freq;
+  String period;
+  String duration;
+  String desc;
+  String affectMe;
+  String affectCommunity;
+
+
+
+
   HazardT({
-    required this.items,
     required this.name,
+    required this.headers,
+    required this.origin,
+    required this.force,
+    required this.warning,
+    required this.forewarning,
+    required this.speed,
+    required this.freq,
+    required this.period,
+    required this.duration,
+    required this.desc,
+    required this.affectMe,
+    required this.affectCommunity,
   });
 }
 

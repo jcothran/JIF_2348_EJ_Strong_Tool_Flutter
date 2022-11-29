@@ -33,26 +33,178 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                 )
               ],
             ),
+
             Container(height: 50),
             Table(
               border: TableBorder.all(color: PdfColors.black),
               children: [
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('Characteristics of Hazard'),
+                      flex: 3,
+                    ),
 
-                ...hazardT.items.map(
-                  (e) => TableRow(
-                    children: [
-                      Expanded(
-                        child: PaddedText(e.characteristics),
-                        flex: 3,
-                      ),
+                    Expanded(
+                      child: PaddedText('Elements of Hazard'),
+                      flex: 2,
+                    ),
+                  ],
+                ),
 
-                      Expanded(
-                        child: PaddedText(e.elements),
-                        flex: 2,
-                      )
-                    ],
-                  ),
-                )
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('Cause/Origin'),
+                      flex: 3,
+                    ),
+
+                    Expanded(
+                      child: PaddedText('Cause/Origin'),
+                      flex: 2,
+                    ),
+                  ],
+                ),
+
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('Force'),
+                      flex: 3,
+                    ),
+
+                    Expanded(
+                      child: PaddedText('Force'),
+                      flex: 2,
+                    ),
+                  ],
+                ),
+
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('Warning Signs and Signals'),
+                      flex: 3,
+                    ),
+
+                    Expanded(
+                      child: PaddedText('Warning Signs and Signals'),
+                      flex: 2,
+                    ),
+                  ],
+                ),
+
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('Forewarning'),
+                      flex: 3,
+                    ),
+
+                    Expanded(
+                      child: PaddedText('Forewarning'),
+                      flex: 2,
+                    ),
+                  ],
+                ),
+
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('Speed of Onset'),
+                      flex: 3,
+                    ),
+
+                    Expanded(
+                      child: PaddedText('Speed of Onset'),
+                      flex: 2,
+                    ),
+                  ],
+                ),
+
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('Frequency'),
+                      flex: 3,
+                    ),
+
+                    Expanded(
+                      child: PaddedText('Frequency'),
+                      flex: 2,
+                    ),
+                  ],
+                ),
+
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('Period of Occurence'),
+                      flex: 3,
+                    ),
+
+                    Expanded(
+                      child: PaddedText('Period of Occurence'),
+                      flex: 2,
+                    ),
+                  ],
+                ),
+
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('Duration'),
+                      flex: 3,
+                    ),
+
+                    Expanded(
+                      child: PaddedText('Duration'),
+                      flex: 2,
+                    ),
+                  ],
+                ),
+
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('Analytical description of the hazard:'),
+                      flex: 3,
+                    ),
+
+                    Expanded(
+                      child: PaddedText('Analytical description of the hazard:'),
+                      flex: 2,
+                    ),
+                  ],
+                ),
+
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('How will it affect me?'),
+                      flex: 2,
+                    ),
+
+                    Expanded(
+                      child: PaddedText('How will it affect me?'),
+                      flex: 2,
+                    ),
+                  ],
+                ),
+
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('How will it affect my community?'),
+                      flex: 2,
+                    ),
+
+                    Expanded(
+                      child: PaddedText('How will it affect my community?'),
+                      flex: 2,
+                    ),
+                  ],
+                ),
               ],
             ),
             Container(height: 50),

@@ -8,32 +8,55 @@ class InvoicePage extends StatelessWidget {
 
   final invoices = <HazardT>[
     HazardT(
-        items: [
-          LineItem('Characteristics of Hazard', 'Elements of Hazard'),
-          LineItem('Cause / Origin', ''),
-          LineItem('Force', ''),
-          LineItem('Warning Signs and signals', ''),
-          LineItem('Forewarning', ''),
-          LineItem('Speed of onset', ''),
-          LineItem('Frequency', ''),
-          LineItem('Period of occurence', ''),
-          LineItem('Duration', ''),
-        ],
-        name: 'Hazard Assessment Form'),
 
+        name: 'Hazard Assessment Form',
+      headers: '',
+      origin: '',
+      force:  '',
+      warning: '',
+      forewarning: '',
+      speed: '',
+      freq: '',
+      period: '',
+      duration: '',
+      desc: '',
+      affectMe: '',
+      affectCommunity: '',
+
+
+
+    ),
 
     HazardT(
-
-      items: [
-
-      ],
+      headers: '',
+      origin: '',
+      force:  '',
+      warning: '',
+      forewarning: '',
+      speed: '',
+      freq: '',
+      period: '',
+      duration: '',
+      desc: '',
+      affectMe: '',
+      affectCommunity: '',
       name: 'Vulnerability Assessment Form',
     ),
     HazardT(
+      headers: '',
+      origin: '',
+      force:  '',
+      warning: '',
+      forewarning: '',
+      speed: '',
+      freq: '',
+      period: '',
+      duration: '',
+      desc: '',
+      affectMe: '',
+      affectCommunity: '',
       name: 'Capacity Assessment Form',
-      items: [
 
-      ],
     )
   ];
 
@@ -48,8 +71,6 @@ class InvoicePage extends StatelessWidget {
           ...invoices.map(
             (e) => ListTile(
               title: Text(e.name),
-              //subtitle: Text(e.customer),
-              //trailing: Text('\$${e.totalCost().toStringAsFixed(2)}'),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
