@@ -60,7 +60,7 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('Cause/Origin'),
+                      child: PaddedText(hazardT.origin),
                       flex: 2,
                     ),
                   ],

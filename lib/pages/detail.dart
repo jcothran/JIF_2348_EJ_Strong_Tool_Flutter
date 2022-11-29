@@ -120,6 +120,18 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+
+          hazardT.origin = originController.text;
+          hazardT.force = forceController.text;
+          hazardT.warning = warningController.text;
+          hazardT.forewarning = forewarningController.text;
+          hazardT.speed = speedController.text;
+          hazardT.freq = freqController.text;
+          hazardT.period = periodController.text;
+          hazardT.duration = durationController.text;
+          hazardT.desc = descController.text;
+          hazardT.affectMe = affectMeController.text;
+          hazardT.affectCommunity = affectCommunityController.text;
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => PdfPreviewPage(hazardT: hazardT),
