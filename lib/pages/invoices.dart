@@ -8,24 +8,21 @@ class InvoicePage extends StatelessWidget {
 
   final invoices = <HazardT>[
     HazardT(
-        customer: 'HAF',
         items: [
-          LineItem('Characteristics of Hazard', 'Elements of Hazard', 'Analytical description of hazard',
-            'How will it affect me?', 'How will it affect my community?'),
-          LineItem('Cause / Origin', 'Flood', ' ', ' ', ' '),
-          LineItem('Force', 'Rough', ' ', ' ', ' '),
-          LineItem('Warning Signs and signals', 'Weather Alerts', ' ', ' ', ' '),
-          LineItem('Forewarning', 'Clouds', ' ', ' ', ' '),
-          LineItem('Speed of onset', 'Fast', ' ', ' ', ' '),
-          LineItem('Frequency', 'Whenever it rains really hard', ' ', ' ', ' '),
-          LineItem('Period of occurence', 'However long it rains', ' ', ' ', ' '),
-          LineItem('Duration', 'Three days', ' ', ' ', ' '),
+          LineItem('Characteristics of Hazard', 'Elements of Hazard'),
+          LineItem('Cause / Origin', 'Flood'),
+          LineItem('Force', 'Rough'),
+          LineItem('Warning Signs and signals', 'Weather Alerts'),
+          LineItem('Forewarning', 'Clouds'),
+          LineItem('Speed of onset', 'Fast'),
+          LineItem('Frequency', 'Whenever it rains really hard'),
+          LineItem('Period of occurence', 'However long it rains'),
+          LineItem('Duration', 'Three days'),
         ],
         name: 'Hazard Assessment Form'),
 
 
     HazardT(
-      customer: 'VAF',
 
       items: [
 
@@ -37,7 +34,6 @@ class InvoicePage extends StatelessWidget {
       items: [
 
       ],
-      customer: 'CAF',
     )
   ];
 
@@ -52,7 +48,7 @@ class InvoicePage extends StatelessWidget {
           ...invoices.map(
             (e) => ListTile(
               title: Text(e.name),
-              subtitle: Text(e.customer),
+              //subtitle: Text(e.customer),
               //trailing: Text('\$${e.totalCost().toStringAsFixed(2)}'),
               onTap: () {
                 Navigator.of(context).push(
