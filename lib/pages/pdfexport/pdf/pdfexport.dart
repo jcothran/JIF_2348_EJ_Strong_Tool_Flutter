@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:makepdfs/models/invoice.dart';
+import 'package:makepdfs/models/hazardT.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 import 'dart:io';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:makepdfs/models/invoice.dart';
+import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/pages/pdfexport/pdf/pdfexport.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview.dart';
 import 'package:printing/printing.dart';

@@ -1,6 +1,6 @@
 class HazardT {
   final String name;
-  final List<LineItem> items;
+  List<LineItem> items;
   HazardT({
     required this.items,
     required this.name,
@@ -10,6 +10,6 @@ class HazardT {
 
 class LineItem {
   final String characteristics;
-  final String elements;
+  String elements;
   LineItem(this.characteristics, this.elements);
 }

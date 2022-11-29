@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:makepdfs/models/invoice.dart';
+import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/pages/detail.dart';
 
 class InvoicePage extends StatelessWidget {
@@ -10,14 +10,14 @@ class InvoicePage extends StatelessWidget {
     HazardT(
         items: [
           LineItem('Characteristics of Hazard', 'Elements of Hazard'),
-          LineItem('Cause / Origin', 'Flood'),
-          LineItem('Force', 'Rough'),
-          LineItem('Warning Signs and signals', 'Weather Alerts'),
-          LineItem('Forewarning', 'Clouds'),
-          LineItem('Speed of onset', 'Fast'),
-          LineItem('Frequency', 'Whenever it rains really hard'),
-          LineItem('Period of occurence', 'However long it rains'),
-          LineItem('Duration', 'Three days'),
+          LineItem('Cause / Origin', ''),
+          LineItem('Force', ''),
+          LineItem('Warning Signs and signals', ''),
+          LineItem('Forewarning', ''),
+          LineItem('Speed of onset', ''),
+          LineItem('Frequency', ''),
+          LineItem('Period of occurence', ''),
+          LineItem('Duration', ''),
         ],
         name: 'Hazard Assessment Form'),
 

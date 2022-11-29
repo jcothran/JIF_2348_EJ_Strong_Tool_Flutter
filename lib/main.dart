@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:makepdfs/pages/invoices.dart';
+import 'package:makepdfs/pages/hazardTs.dart';
 
 void main() {
   runApp(const MyApp());
