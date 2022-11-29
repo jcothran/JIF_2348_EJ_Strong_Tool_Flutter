@@ -13,9 +13,6 @@ class HazardT {
   String affectMe;
   String affectCommunity;
 
-
-
-
   HazardT({
     required this.name,
     required this.headers,

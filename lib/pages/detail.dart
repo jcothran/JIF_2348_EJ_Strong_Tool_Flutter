@@ -120,7 +120,6 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-
           hazardT.origin = originController.text;
           hazardT.force = forceController.text;
           hazardT.warning = warningController.text;

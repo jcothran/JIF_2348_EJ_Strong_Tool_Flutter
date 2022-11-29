@@ -207,38 +207,6 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                 ),
               ],
             ),
-            Container(height: 50),
-            Table(
-              border: TableBorder.all(color: PdfColors.black),
-              children: [
-                TableRow(
-                  children: [
-                    PaddedText('Analytical Description of Hazard'),
-                    PaddedText(
-                      'Due to extreme amounts of accumulated rainfall, my house was whisked away off of its foundation',
-                    )
-                  ],
-                ),
-                TableRow(
-                  children: [
-                    PaddedText(
-                      'How will it affect me?',
-                    ),
-                    PaddedText(
-                      'Extremely',
-                    )
-                  ],
-                ),
-                TableRow(
-                  children: [
-                    PaddedText(
-                      'How will it affect my community?',
-                    ),
-                    PaddedText('Sadly')
-                  ],
-                )
-              ],
-            ),
           ],
         );
       },

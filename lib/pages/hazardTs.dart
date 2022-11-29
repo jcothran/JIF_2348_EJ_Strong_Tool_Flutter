@@ -22,9 +22,6 @@ class InvoicePage extends StatelessWidget {
       desc: '',
       affectMe: '',
       affectCommunity: '',
-
-
-
     ),
 
     HazardT(
