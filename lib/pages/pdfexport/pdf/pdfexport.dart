@@ -60,7 +60,7 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('Cause/Origin'),
+                      child: PaddedText(hazardT.origin),
                       flex: 2,
                     ),
                   ],
@@ -74,7 +74,7 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('Force'),
+                      child: PaddedText(hazardT.force),
                       flex: 2,
                     ),
                   ],
@@ -88,7 +88,7 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('Warning Signs and Signals'),
+                      child: PaddedText(hazardT.warning),
                       flex: 2,
                     ),
                   ],
@@ -102,7 +102,7 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('Forewarning'),
+                      child: PaddedText(hazardT.forewarning),
                       flex: 2,
                     ),
                   ],
@@ -116,7 +116,7 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('Speed of Onset'),
+                      child: PaddedText(hazardT.speed),
                       flex: 2,
                     ),
                   ],
@@ -130,7 +130,7 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('Frequency'),
+                      child: PaddedText(hazardT.freq),
                       flex: 2,
                     ),
                   ],
@@ -144,7 +144,7 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('Period of Occurence'),
+                      child: PaddedText(hazardT.period),
                       flex: 2,
                     ),
                   ],
@@ -158,7 +158,7 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('Duration'),
+                      child: PaddedText(hazardT.duration),
                       flex: 2,
                     ),
                   ],
@@ -172,7 +172,7 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('Analytical description of the hazard:'),
+                      child: PaddedText(hazardT.desc),
                       flex: 2,
                     ),
                   ],
@@ -186,7 +186,7 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('How will it affect me?'),
+                      child: PaddedText(hazardT.affectMe),
                       flex: 2,
                     ),
                   ],
@@ -200,7 +200,7 @@ Future<Uint8List> makePdf(HazardT hazardT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('How will it affect my community?'),
+                      child: PaddedText(hazardT.affectCommunity),
                       flex: 2,
                     ),
                   ],
