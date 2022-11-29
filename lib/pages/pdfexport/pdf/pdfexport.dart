@@ -3,7 +3,6 @@ import 'dart:typed_data';
 import 'package:makepdfs/models/hazardT.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
-import 'dart:io';
 import 'package:flutter/services.dart' show rootBundle;
 
 Future<Uint8List> makePdf(HazardT hazardT) async {

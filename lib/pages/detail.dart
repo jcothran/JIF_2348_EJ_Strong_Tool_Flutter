@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:makepdfs/models/hazardT.dart';
-import 'package:makepdfs/pages/pdfexport/pdf/pdfexport.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview.dart';
-import 'package:printing/printing.dart';
-import 'package:pdf/pdf.dart';
+
 
 final originController = TextEditingController();
 
