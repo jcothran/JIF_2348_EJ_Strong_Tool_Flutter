@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/pages/detail.dart';
 
-class InvoicePage extends StatelessWidget {
-  InvoicePage({Key? key}) : super(key: key);
+class FormsPage extends StatelessWidget {
+  FormsPage({Key? key}) : super(key: key);
 
-  final invoices = <HazardT>[
+  final forms= <HazardT>[
     HazardT(
-
-        name: 'Hazard Assessment Form',
+      name: 'Hazard Assessment Form',
       headers: '',
       origin: '',
       force:  '',
@@ -64,7 +63,7 @@ class InvoicePage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          ...invoices.map(
+          ...forms.map(
             (e) => ListTile(
               title: Text(e.name),
               onTap: () {
