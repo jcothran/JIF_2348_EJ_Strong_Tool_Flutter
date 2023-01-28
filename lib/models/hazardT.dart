@@ -26,13 +26,6 @@ class HazardT {
     required this.duration,
     required this.desc,
     required this.affectMe,
-    required this.affectCommunity,
+    required this.affectCommunity
   });
-}
-
-
-class LineItem {
-  final String characteristics;
-  String elements;
-  LineItem(this.characteristics, this.elements);
 }
