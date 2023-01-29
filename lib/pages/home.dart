@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:makepdfs/pages/hazardTs.dart';
+import 'package:makepdfs/pages/forms.dart';
 
 class HomePage extends StatelessWidget
 {
