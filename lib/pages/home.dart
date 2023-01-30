@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget
     (
       appBar: AppBar
       (
-        title: Text('Communtiy Assestment Tool'),
+        title: Text('Communtiy Assessment Tool'),
       ),
       body: Center
       (
