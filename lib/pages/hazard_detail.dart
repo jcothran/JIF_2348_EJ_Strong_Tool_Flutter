@@ -103,9 +103,9 @@ void affectCommunityDispose() {
 }
 
 
-class DetailPage extends StatelessWidget {
+class HazardDetailPage extends StatelessWidget {
   final HazardT hazardT;
-  const DetailPage({
+  const HazardDetailPage({
     Key? key,
     required this.hazardT,
   }) : super(key: key);
