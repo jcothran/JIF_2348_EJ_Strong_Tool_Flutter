@@ -3,82 +3,117 @@ import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/models/vulnerableT.dart';
 import 'package:makepdfs/models/capacityT.dart';
 import 'package:makepdfs/models/disasterT.dart';
-import 'package:makepdfs/pages/detail.dart';
+import 'package:makepdfs/pages/hazard_detail.dart';
 
-class FormsPage extends StatelessWidget {
-  FormsPage({Key? key}) : super(key: key);
-
-  final forms= <HazardT>[
-    HazardT(
-      name: 'Hazard Assessment Form',
-      headers: '',
-      origin: '',
-      force:  '',
-      warning: '',
-      forewarning: '',
-      speed: '',
-      freq: '',
-      period: '',
-      duration: '',
-      desc: '',
-      affectMe: '',
-      affectCommunity: '',
-    ),
-
-    HazardT(
-      headers: '',
-      origin: '',
-      force:  '',
-      warning: '',
-      forewarning: '',
-      speed: '',
-      freq: '',
-      period: '',
-      duration: '',
-      desc: '',
-      affectMe: '',
-      affectCommunity: '',
-      name: 'Vulnerability Assessment Form',
-    ),
-    HazardT(
-      headers: '',
-      origin: '',
-      force:  '',
-      warning: '',
-      forewarning: '',
-      speed: '',
-      freq: '',
-      period: '',
-      duration: '',
-      desc: '',
-      affectMe: '',
-      affectCommunity: '',
-      name: 'Capacity Assessment Form',
-
-    )
-  ];
+class FormsPage extends StatelessWidget 
+{
+  final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), fixedSize: Size(240, 80));
+  final HazardT blank = new HazardT(name: 'name', headers: '', origin: '', force: '', warning: '', forewarning: '', speed: '', freq: '', period: '', duration: '', desc: '', affectMe: '', affectCommunity: '');
+  final TextStyle text_style = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+  Widget build(BuildContext context) 
+  {
+    return Scaffold
+    (
+      appBar: AppBar
+      (
         title: Text('Forms'),
       ),
-      body: ListView(
-        children: [
-          ...forms.map(
-            (e) => ListTile(
-              title: Text(e.name),
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (builder) => DetailPage(hazardT: e),
-                  ),
-                );
-              },
+      body: Center
+      (
+        child: Column
+        (
+          children: <Widget>
+          [
+            Container
+            (
+              child: Text
+              (
+                "Select a type of form",
+                style: text_style,
+              ),
+              
             ),
-          )
-        ],
+            Container
+            (
+              child: Divider(),
+            ),
+
+            Container
+            (
+              margin: EdgeInsets.only(top: 8),
+              child: ElevatedButton
+              (
+                child: Text("Hazard Assessment Form",),
+                style: style,
+                onPressed:()
+                {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HazardDetailPage(hazardT: blank)));
+                },
+              ),
+            ),
+            Container
+            (
+              child: Divider(),
+            ),
+            
+            Container
+            (
+              margin: EdgeInsets.only(top: 8),
+              child: ElevatedButton
+              (
+                child: Text("Vulnerability Assessment Form",),
+                style: style,
+                onPressed:()
+                {
+                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); go to vulnerability details page
+                },
+              ),
+            ),
+            Container
+            (
+              child: Divider(),
+            ),
+
+            Container
+            (
+              margin: EdgeInsets.only(top: 8),
+              child: ElevatedButton
+              (
+                child: Text("Click here to fill out a capacity form",),
+                style: style,
+                onPressed:()
+                {
+                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); go to vulnerability details page
+                },
+              ),
+            ),
+
+            Container
+            (
+              child: Divider(),
+            ),
+
+            Container
+            (
+              margin: EdgeInsets.only(top: 8),
+              child: ElevatedButton
+              (
+                child: Text("Disaster Risk Analysis Form"),
+                style: style,
+                onPressed:()
+                {
+                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); go to vulnerability details page
+                },
+              ),
+            ),
+            Container
+            (
+              child: Divider(),
+            ),
+          ],
+        ),
       ),
     );
   }
