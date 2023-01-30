@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:makepdfs/models/hazardT.dart';
+import 'package:makepdfs/models/vulnerableT.dart';
+import 'package:makepdfs/models/capacityT.dart';
+import 'package:makepdfs/models/disasterT.dart';
 import 'package:makepdfs/pages/detail.dart';
 
 class FormsPage extends StatelessWidget {
