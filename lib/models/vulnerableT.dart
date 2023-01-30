@@ -1,5 +1,6 @@
 class VulnerableT{
   final String name;
+  String hazardProf;
   String popHigh;
   String popMed;
   String popLow;
@@ -52,6 +53,7 @@ class VulnerableT{
 
   VulnerableT({
     required this.name,
+    required this.hazardProf,
     required this.popHigh,
     required this.popMed,
     required this.popLow,
