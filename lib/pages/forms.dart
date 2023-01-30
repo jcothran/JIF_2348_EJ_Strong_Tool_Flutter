@@ -8,7 +8,7 @@ import 'package:makepdfs/pages/hazard_detail.dart';
 class FormsPage extends StatelessWidget 
 {
   final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), fixedSize: Size(240, 80));
-  final HazardT blank = new HazardT(name: 'name', headers: '', origin: '', force: '', warning: '', forewarning: '', speed: '', freq: '', period: '', duration: '', desc: '', affectMe: '', affectCommunity: '');
+  final HazardT blank = new HazardT(name: 'Hazard Assessment Form', headers: '', origin: '', force: '', warning: '', forewarning: '', speed: '', freq: '', period: '', duration: '', desc: '', affectMe: '', affectCommunity: '');
   final TextStyle text_style = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
   @override
@@ -81,7 +81,7 @@ class FormsPage extends StatelessWidget
               margin: EdgeInsets.only(top: 8),
               child: ElevatedButton
               (
-                child: Text("Click here to fill out a capacity form",),
+                child: Text("Capacity Assessment Form",),
                 style: style,
                 onPressed:()
                 {
