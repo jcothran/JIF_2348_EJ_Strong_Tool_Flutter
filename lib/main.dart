@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:makepdfs/pages/hazardTs.dart';
 import 'package:makepdfs/pages/home.dart';
 
 void main() {
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'EJ Strong Community Assessment Tool',
       theme: ThemeData(
         // This is the theme of your application.
         //
