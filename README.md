@@ -5,8 +5,24 @@ We are working with the South Carolina Department of Health and Control (DHEC) i
 <h2>Version 0.1.0</h2>
 
 <h3>Features</h3>
-*asdfasdf
+<ul style - "list-style-type: square">
+<li> X </li>
+<li> X </li>
+</ul>
 <h3>Bug Fixes</h3>
-asdfasdf
-<h3>Known Issues</h3>
-asdfasdf
+<ul style - "list-style-type: square">
+<li> X </li>
+<li> X </li>
+</ul>
+
+<h2>Version 0.0.1</h2>
+<h3>Features</h3>
+<ul style - "list-style-type: square">
+<li> X </li>
+<li> X </li>
+</ul>
+<h3>Bug Fixes</h3>
+<ul style - "list-style-type: square">
+<li> X </li>
+<li> X </li>
+</ul>
