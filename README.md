@@ -1,1 +1,2 @@
-
+<h1>Building a Weather Ready Nation for All </h1>
+Low income communities are more vulerable during inclement weather event. The South Carolina Department of Health and Control (DHEC) currently addresses these issues by hand through paper forms analyzing community preparedness. We are designin an app that fills out and stores foorms digitally in order to educate users on preparation for hazards. Users will be able to upload photos to shows damage within communities, and fill out forms in order to get their prepardness documented. Coded in Flutter using REST Architecture, Firebase Database, Backend Springboot, and Google Cloud
