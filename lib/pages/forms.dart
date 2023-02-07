@@ -5,12 +5,14 @@ import 'package:makepdfs/models/capacityT.dart';
 import 'package:makepdfs/models/disasterT.dart';
 import 'package:makepdfs/pages/hazard_detail.dart';
 import 'package:makepdfs/pages/vulnerability_detail.dart';
+import 'package:makepdfs/pages/capacity_detail.dart';
 
 class FormsPage extends StatelessWidget 
 {
   final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), fixedSize: Size(240, 80));
   final HazardT blank = new HazardT(name: 'Hazard Assessment Form', headers: '', origin: '', force: '', warning: '', forewarning: '', speed: '', freq: '', period: '', duration: '', desc: '', affectMe: '', affectCommunity: '');
   final VulnerableT blankV = new VulnerableT(name: "Vulnerability Assessment Form", hazardProf: '', popHigh: '', popMed: '', popLow: '', elderHigh: '', elderMed: '', elderLow: '', childHigh: '', childMed: '', childLow: '', hsEdHigh: '', hsEdMed: '', hsEdLow: '', linIsoHigh: '', linIsoMed: '', linIsoLow: '', pocHigh: '', pocMed: '', pocLow: '', lincHigh: '', lincMed: '', lincLow: '', nheHigh: '', nheMed: '', nheLow: '', housingHigh: '', housingMed: '', housingLow: '', schoolsHigh: '', schoolsMed: '', schoolsLow: '', hospHigh: '', hospMed: '', hospLow: '', wasteHigh: '', wasteMed: '', wasteLow: '', elecHigh: '', elecMed: '', elecLow: '', waterHigh: '', waterMed: '', waterLow: '', wasteWaterHigh: '', wasteWaterMed: '', wasteWaterLow: '', essenHigh: '', essenMed: '', essenLow: '', summary: '');
+  final CapacityT blankC = new CapacityT(name: "Capacity Assessment Form", prevExist: '', prevReq: '', prevGaps: '', mitiExist: '', mitiReq: '', mitiGaps: '', heExistHigh: '', heReqHigh: '', heGapsHigh: '', nonHeExistHigh: '', nonHeReqHigh: '', nonHeGapsHigh: '', heExistMed: '', heReqMed: '', heGapsMed: '', nonHeExistMed: '', nonHeReqMed: '', nonHeGapsMed: '', heExistLowBef: '', heReqLowBef: '', heGapsLowBef: '', nonHeExistLowBef: '', nonHeReqLowBef: '', nonHeGapsLowBef: '', heExistLowDur: '', heReqLowDur: '', heGapsLowDur: '', nonHeExistLowDur: '', nonHeReqLowDur: '', nonHeGapsLowDur: '', commReadyBefReq: '', commReadyBefGaps: '', commReadyDurReq: '', commReadyDurGaps: '');
   final TextStyle text_style = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
   @override
@@ -69,7 +71,7 @@ class FormsPage extends StatelessWidget
                 style: style,
                 onPressed:()
                 {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>VulnerabilityDetailPage(vulnerableT: blankV)));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: blankV)));
                 },
               ),
             ),
@@ -87,7 +89,7 @@ class FormsPage extends StatelessWidget
                 style: style,
                 onPressed:()
                 {
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); go to vulnerability details page
+                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: blankC)));
                 },
               ),
             ),
@@ -106,7 +108,7 @@ class FormsPage extends StatelessWidget
                 style: style,
                 onPressed:()
                 {
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); go to vulnerability details page
+                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); edit to go to disaster details page
                 },
               ),
             ),
