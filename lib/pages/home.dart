@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:makepdfs/pages/forms.dart';
+import 'package:makepdfs/services/auth.dart';
 
 class HomePage extends StatelessWidget
 {
   final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), fixedSize: Size(240, 80));
+  final ButtonStyle style2 = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 15), fixedSize: Size(150, 50));
+  final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) 
@@ -73,6 +76,22 @@ class HomePage extends StatelessWidget
                 onPressed:()
                 {
                   // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO EDUCATION PAGE
+                },
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.all(30.0),
+            ),
+
+            Container(
+              margin: EdgeInsets.only(top: 8),
+              child: ElevatedButton
+                (
+                child: Text("Signout"),
+                style: style2,
+                onPressed:() async {
+                  await _auth.signOut();
                 },
               ),
             )
