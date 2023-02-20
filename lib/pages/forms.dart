@@ -6,6 +6,7 @@ import 'package:makepdfs/models/disasterT.dart';
 import 'package:makepdfs/pages/hazard_detail.dart';
 import 'package:makepdfs/pages/vulnerability_detail.dart';
 import 'package:makepdfs/pages/capacity_detail.dart';
+import 'package:makepdfs/pages/disaster_detail.dart';
 
 class FormsPage extends StatelessWidget 
 {
@@ -108,7 +109,7 @@ class FormsPage extends StatelessWidget
                 style: style,
                 onPressed:()
                 {
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); edit to go to disaster details page
+                  //Navigator.of(context).push(MaterialPageRoute(builder: (context)=> DisasterDetailPage(disasterT: blank)));
                 },
               ),
             ),
