@@ -4,7 +4,6 @@ import 'package:makepdfs/pages/home.dart';
 import 'package:makepdfs/pages/wrapper.dart';
 import 'package:makepdfs/services/auth.dart';
 import 'package:provider/provider.dart';
-import 'package:makepdfs/models/user.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
