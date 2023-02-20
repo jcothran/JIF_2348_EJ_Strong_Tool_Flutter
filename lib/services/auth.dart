@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:makepdfs/services/database.dart';
 
 class AuthService {
 
@@ -9,7 +10,13 @@ class AuthService {
     try {
       UserCredential result = await _auth.signInAnonymously();
       User? user = result.user;
-      return user;
+      //creates an initial blank document for each form in the database when user starts the program
+      await DatabaseService().updateHazardData('Hazard Data Form');
+      await DatabaseService().updateVulnerableData('Vulnerability Data Form');
+      await DatabaseService().updateCapacityData('Capacity Data Form');
+      await DatabaseService().updateDisasterData('Disaster Data Form');
+
+    return user;
     } catch(e) {
       print(e.toString());
       return null;
