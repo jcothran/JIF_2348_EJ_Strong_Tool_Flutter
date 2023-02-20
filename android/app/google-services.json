@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "162079509610",
+    "project_id": "ej-strong-project",
+    "storage_bucket": "ej-strong-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162079509610:android:70dd112a383a6d9900ce13",
+        "android_client_info": {
+          "package_name": "com.example.makepdfs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162079509610-u8ipbp2d8b28o86nf72j19igeae3a58s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs5vlP7elU04ija6TxyGDSj305HJ6tEPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162079509610-u8ipbp2d8b28o86nf72j19igeae3a58s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
