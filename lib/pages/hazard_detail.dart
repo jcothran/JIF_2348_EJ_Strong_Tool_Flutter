@@ -103,14 +103,14 @@ void affectCommunityDispose() {
 }
 
 
+const List<String> keyword_list = <String>['Rapid', 'Fast', 'Example'];   // list of keywords for the dropdown menus (may need different lists depending on type)
+
 class HazardDetailPage extends StatelessWidget {
   final HazardT hazardT;
   const HazardDetailPage({
     Key? key,
     required this.hazardT,
   }) : super(key: key);
-
-
 
   @override
   Widget build(BuildContext context) {
