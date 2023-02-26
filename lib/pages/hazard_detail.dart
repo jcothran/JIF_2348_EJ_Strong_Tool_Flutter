@@ -102,6 +102,42 @@ void affectCommunityDispose() {
   //super.dispose();
 }
 
+class DropdownHazard extends StatefulWidget {
+  // const DropdownHazard({super.key});
+
+  @override
+  State<DropdownHazard> createState() => _DropdownHazardState();
+}
+
+class _DropdownHazardState extends State<DropdownHazard> {
+  String dropdownValue = keyword_list.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_downward),
+      elevation: 16,
+      style: const TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
+      ),
+      onChanged: (String? value) {
+        // This is called when the user selects an item.
+        setState(() {
+          dropdownValue = value!;
+        });
+      },
+      items: keyword_list.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }
+}
 
 const List<String> keyword_list = <String>['Rapid', 'Fast', 'Example'];   // list of keywords for the dropdown menus (may need different lists depending on type)
 
@@ -110,7 +146,7 @@ class HazardDetailPage extends StatelessWidget {
   const HazardDetailPage({
     Key? key,
     required this.hazardT,
-  }) : super(key: key);
+  }) : super(key: key);  
 
   @override
   Widget build(BuildContext context) {
@@ -169,7 +205,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: TextField(controller: originController,),
+                    child: DropdownHazard(),
                     flex: 2,
                   ),
                 ],
