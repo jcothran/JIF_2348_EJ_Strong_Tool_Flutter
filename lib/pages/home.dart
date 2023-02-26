@@ -67,19 +67,6 @@ class HomePage extends StatelessWidget
               ),
             ),
 
-            Container
-            (
-              margin: EdgeInsets.only(top: 8),
-              child: ElevatedButton
-              (
-                child: Text("Learn"),
-                style: style,
-                onPressed:()
-                {
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO EDUCATION PAGE
-                },
-              ),
-            ),
 
             Padding(
               padding: EdgeInsets.all(30.0),
