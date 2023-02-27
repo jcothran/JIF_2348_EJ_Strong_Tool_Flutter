@@ -3,6 +3,8 @@ import 'package:makepdfs/pages/forms.dart';
 import 'package:makepdfs/pages/start.dart';
 import 'package:makepdfs/services/auth.dart';
 
+
+      //page for navigating to the various landing pages
 class HomePage extends StatelessWidget
 {
   final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), fixedSize: Size(240, 80));

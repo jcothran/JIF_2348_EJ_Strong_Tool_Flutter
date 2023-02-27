@@ -117,6 +117,7 @@ class HazardDetailPage extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          //sending the data from the text controllers to the pdf handler
           hazardT.origin = originController.text;
           hazardT.force = forceController.text;
           hazardT.warning = warningController.text;
