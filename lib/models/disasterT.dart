@@ -62,9 +62,9 @@ class DisasterT{
   String essenMed;
   String essenLow;
   String essenIndv;
-  String readyGaps;
-  String prevGaps;
-  String mitiGaps;
+  //String readyGaps;
+  //String prevGaps;
+  //String mitiGaps;
   String summary;
   String recommendation;
 
@@ -132,9 +132,9 @@ class DisasterT{
     required this.essenMed,
     required this.essenLow,
     required this.essenIndv,
-    required this.readyGaps,
-    required this.prevGaps,
-    required this.mitiGaps,
+    //required this.readyGaps,
+    //required this.prevGaps,
+    //required this.mitiGaps,
     required this.summary,
     required this.recommendation,
   });
