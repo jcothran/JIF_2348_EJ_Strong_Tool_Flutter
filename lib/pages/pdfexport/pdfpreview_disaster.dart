@@ -1,7 +1,9 @@
+
 import 'package:flutter/material.dart';
 import 'package:makepdfs/models/disasterT.dart';
+import 'package:makepdfs/pages/pdfexport/pdf/pdfexportDisast.dart';
 import 'package:printing/printing.dart';
-import 'pdf/pdfexportDisast.dart';
+
 
 class PdfPreviewDisasterPage extends StatelessWidget {
   final DisasterT disasterT;

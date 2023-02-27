@@ -326,9 +326,6 @@ class DisasterDetailPage extends StatelessWidget {
         onPressed: () {
           //sending the data from the text controllers to the pdf handler
           disasterT.hazardProf = hazardProfController.text;
-          disasterT.popHigh = popHighController.text;
-          disasterT.popMed = popMedController.text;
-          disasterT.popLow = popLowController.text;
           disasterT.elderHigh = elderHighController.text;
           disasterT.elderMed = elderMedController.text;
           disasterT.elderLow = elderLowController.text;
