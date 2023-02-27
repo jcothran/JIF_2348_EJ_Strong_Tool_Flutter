@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:makepdfs/pages/home.dart';
 import 'package:makepdfs/services/auth.dart';
-
 import '../services/database.dart';
 
 class StartPage extends StatefulWidget {
@@ -49,10 +48,10 @@ class _StartPageState extends State<StartPage> {
                     print(result);
                   }
                 }
-              ),
-            )
-          ],
-    ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

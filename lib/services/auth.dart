@@ -11,10 +11,6 @@ class AuthService {
       UserCredential result = await _auth.signInAnonymously();
       User? user = result.user;
       //creates an initial blank document for each form in the database when user starts the program
-      await DatabaseService().updateHazardData('Hazard Data Form');
-      await DatabaseService().updateVulnerableData('Vulnerability Data Form');
-      await DatabaseService().updateCapacityData('Capacity Data Form');
-      await DatabaseService().updateDisasterData('Disaster Data Form');
 
     return user;
     } catch(e) {
