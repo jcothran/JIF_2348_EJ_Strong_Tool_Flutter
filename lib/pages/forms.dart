@@ -32,6 +32,7 @@ class FormsPage extends StatelessWidget
       (
         child: Column
         (
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>
           [
             Container
