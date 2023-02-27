@@ -3,6 +3,8 @@ import 'package:makepdfs/models/capacityT.dart';
 import 'package:makepdfs/pages/hazard_detail.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview_capacity.dart';
 
+
+      //All the necessary text controllers
 final prevExistController = TextEditingController();
 final prevReqController = TextEditingController();
 final prevGapsController = TextEditingController();
@@ -56,6 +58,7 @@ class CapacityDetailPage extends StatelessWidget {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
+              //sending the data from the text controllers to the pdf handler
             capacityT.prevExist = prevExistController.text;
             capacityT.prevReq = prevReqController.text;
             capacityT.prevGaps = prevGapsController.text;
