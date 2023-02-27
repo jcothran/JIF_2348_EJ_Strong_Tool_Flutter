@@ -11,6 +11,18 @@ class AuthService {
       UserCredential result = await _auth.signInAnonymously();
       User? user = result.user;
       //creates an initial blank document for each form in the database when user starts the program
+      await DatabaseService().updateHazardData('', '', '', '',  '', '', '', '', '','', '', '');
+      await DatabaseService().updateVulnerableData('', '', '','', '', '', '', '', '',
+          '','', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '','',  '',
+          '', '', '', '', '', '', '', '', '', '', '', '');
+      await DatabaseService().updateCapacityData('', '', '','', '', '', '', '', '',
+          '', '', '', '','', '', '', '', '', '', '', '', '', '','', '', '', '', '',
+          '', '', '','', '','');
+      await DatabaseService().updateDisasterData('', '', '','', '', '', '', '', '',
+          '', '', '', '','', '', '', '', '', '', '', '', '', '','', '', '', '', '',
+          '', '', '','', '','','', '', '','', '', '', '', '', '',
+          '', '', '', '','', '', '', '', '', '', '', '', '', '','', '', '', '', '',
+          '', '', '','', '');
 
     return user;
     } catch(e) {
