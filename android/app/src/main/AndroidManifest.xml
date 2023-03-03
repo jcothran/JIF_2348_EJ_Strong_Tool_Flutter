@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.makepdfs">
    <application
-        android:label="makepdfs"
+        android:label="EJ Strong Tool"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
