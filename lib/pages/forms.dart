@@ -8,6 +8,8 @@ import 'package:makepdfs/pages/vulnerability_detail.dart';
 import 'package:makepdfs/pages/capacity_detail.dart';
 import 'package:makepdfs/pages/disaster_detail.dart';
 
+import '../services/database.dart';
+
       //page for navigating to the various form pages
 
 class FormsPage extends StatelessWidget 
@@ -18,6 +20,8 @@ class FormsPage extends StatelessWidget
   final CapacityT blankC = new CapacityT(name: "Capacity Assessment Form", prevExist: '', prevReq: '', prevGaps: '', mitiExist: '', mitiReq: '', mitiGaps: '', heExistHigh: '', heReqHigh: '', heGapsHigh: '', nonHeExistHigh: '', nonHeReqHigh: '', nonHeGapsHigh: '', heExistMed: '', heReqMed: '', heGapsMed: '', nonHeExistMed: '', nonHeReqMed: '', nonHeGapsMed: '', heExistLowBef: '', heReqLowBef: '', heGapsLowBef: '', nonHeExistLowBef: '', nonHeReqLowBef: '', nonHeGapsLowBef: '', heExistLowDur: '', heReqLowDur: '', heGapsLowDur: '', nonHeExistLowDur: '', nonHeReqLowDur: '', nonHeGapsLowDur: '', commReadyBefReq: '', commReadyBefGaps: '', commReadyDurReq: '', commReadyDurGaps: '');
   final DisasterT blankD = new DisasterT(name: "Disaster Assessment Form", communityProf: '', hazardProf: '', elderHigh: '', elderMed: '', elderLow: '', elderIndv: '', childHigh: '', childMed: '', childLow: '', childIndv: '', hsEdHigh: '', hsEdMed: '', hsEdLow: '', hsEdIndv: '', linIsoHigh: '', linIsoMed: '', linIsoLow: '', linIsoIndv: '', pocHigh: '', pocMed: '', pocLow: '', pocIndv: '', lincHigh: '', lincMed: '', lincLow: '', lincIndv: '', nheHigh: '', nheMed: '', nheLow: '', nheIndv: '', housingHigh: '', housingMed: '', housingLow: '', housingIndv: '', schoolsHigh: '', schoolsMed: '', schoolsLow: '', schoolsIndv: '', hospHigh: '', hospMed: '', hospLow: '', hospIndv: '', wasteHigh: '', wasteMed: '', wasteLow: '', wasteIndv: '', elecHigh: '', elecMed: '', elecLow: '', elecIndv: '', waterHigh: '', waterMed: '', waterLow: '', waterIndv: '', wasteWaterHigh: '', wasteWaterMed: '', wasteWaterLow: '', wasteWaterIndv: '', essenHigh: '', essenMed: '', essenLow: '', essenIndv: '', summary: '', recommendation: '');
   final TextStyle text_style = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
+
+  String location = "filler_location";
 
   @override
   Widget build(BuildContext context) 
@@ -56,9 +60,10 @@ class FormsPage extends StatelessWidget
               (
                 child: Text("Hazard Assessment Form",),
                 style: style,
-                onPressed:()
+                onPressed:() async
                 {
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HazardDetailPage(hazardT: blank)));
+                  await DatabaseService().addHazardData(location);
                 },
               ),
             ),
@@ -74,9 +79,10 @@ class FormsPage extends StatelessWidget
               (
                 child: Text("Vulnerability Assessment Form",),
                 style: style,
-                onPressed:()
+                onPressed:() async
                 {
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: blankV)));
+                  await DatabaseService().addVulnerableData(location);
                 },
               ),
             ),
@@ -92,9 +98,10 @@ class FormsPage extends StatelessWidget
               (
                 child: Text("Capacity Assessment Form",),
                 style: style,
-                onPressed:()
+                onPressed:() async
                 {
                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: blankC)));
+                   await DatabaseService().addCapacityData(location);
                 },
               ),
             ),
@@ -114,6 +121,7 @@ class FormsPage extends StatelessWidget
                 onPressed:()
                 {
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: blankD)));
+                  DatabaseService().addDisasterData(location);
                 },
               ),
             ),
