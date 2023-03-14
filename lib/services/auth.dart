@@ -12,12 +12,11 @@ class AuthService {
     return uid;
   }
 
-  //sign in anon
+  //sign in anonymously
   Future signInAnon() async {
     try {
       UserCredential result = await _auth.signInAnonymously();
       User? user = result.user;
-      //creates an initial blank document for each form in the database when user starts the program
 
     return user;
     } catch(e) {
@@ -26,7 +25,7 @@ class AuthService {
     }
   }
 
-  //change user stream authentication
+  //checks for changes in user stream authentication
   Stream<User?> get user => _auth.authStateChanges();
 
   //sign out

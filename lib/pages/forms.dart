@@ -7,10 +7,9 @@ import 'package:makepdfs/pages/hazard_detail.dart';
 import 'package:makepdfs/pages/vulnerability_detail.dart';
 import 'package:makepdfs/pages/capacity_detail.dart';
 import 'package:makepdfs/pages/disaster_detail.dart';
-
 import '../services/database.dart';
 
-      //page for navigating to the various form pages
+//page for navigating to the various form pages
 
 class FormsPage extends StatelessWidget 
 {
