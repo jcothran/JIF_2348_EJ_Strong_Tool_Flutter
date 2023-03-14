@@ -4,6 +4,7 @@ import 'package:makepdfs/models/vulnerableT.dart';
 import 'package:makepdfs/models/capacityT.dart';
 import 'package:makepdfs/models/disasterT.dart';
 import 'package:makepdfs/pages/hazard_detail.dart';
+import 'package:makepdfs/pages/location.dart';
 import 'package:makepdfs/pages/vulnerability_detail.dart';
 import 'package:makepdfs/pages/capacity_detail.dart';
 import 'package:makepdfs/pages/disaster_detail.dart';
@@ -20,7 +21,7 @@ class FormsPage extends StatelessWidget
   final DisasterT blankD = new DisasterT(name: "Disaster Assessment Form", communityProf: '', hazardProf: '', elderHigh: '', elderMed: '', elderLow: '', elderIndv: '', childHigh: '', childMed: '', childLow: '', childIndv: '', hsEdHigh: '', hsEdMed: '', hsEdLow: '', hsEdIndv: '', linIsoHigh: '', linIsoMed: '', linIsoLow: '', linIsoIndv: '', pocHigh: '', pocMed: '', pocLow: '', pocIndv: '', lincHigh: '', lincMed: '', lincLow: '', lincIndv: '', nheHigh: '', nheMed: '', nheLow: '', nheIndv: '', housingHigh: '', housingMed: '', housingLow: '', housingIndv: '', schoolsHigh: '', schoolsMed: '', schoolsLow: '', schoolsIndv: '', hospHigh: '', hospMed: '', hospLow: '', hospIndv: '', wasteHigh: '', wasteMed: '', wasteLow: '', wasteIndv: '', elecHigh: '', elecMed: '', elecLow: '', elecIndv: '', waterHigh: '', waterMed: '', waterLow: '', waterIndv: '', wasteWaterHigh: '', wasteWaterMed: '', wasteWaterLow: '', wasteWaterIndv: '', essenHigh: '', essenMed: '', essenLow: '', essenIndv: '', summary: '', recommendation: '');
   final TextStyle text_style = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
-  String location = "filler_location";
+  String location = LocationPage().getLocation();
 
   @override
   Widget build(BuildContext context) 
@@ -38,6 +39,38 @@ class FormsPage extends StatelessWidget
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>
           [
+            Container
+              (
+              child: Text
+                (
+                "Location: " + location,
+                style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+              ),
+
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LocationPage())
+                );
+              },
+              icon: Icon(
+                Icons.location_on,
+                size: 40.0,
+              ),
+            ),
+            Container
+              (
+              child: Text
+                (
+                "Update Location",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+            ),
             Container
             (
               child: Text
