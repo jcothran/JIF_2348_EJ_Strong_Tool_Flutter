@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:makepdfs/models/disasterT.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview_disaster.dart';
 
+import '../services/database.dart';
+import 'location.dart';
+
 //All the necessary text controllers
 
 final hazardProfController = TextEditingController();
@@ -323,7 +326,7 @@ class DisasterDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: () async {
           //sending the data from the text controllers to the pdf handler
           disasterT.hazardProf = hazardProfController.text;
           disasterT.elderHigh = elderHighController.text;
@@ -379,6 +382,15 @@ class DisasterDetailPage extends StatelessWidget {
             builder: (context) => PdfPreviewDisasterPage(disasterT: disasterT),
           ),
           );
+
+          String location = LocationPage().getLocation();
+
+          /*TODO: Implement the updateDisasterData() function after the disaster form has been completed
+                  and all of the controllers have been added
+           */
+          //update form in database
+          //await DatabaseService().updateDisasterData(...);
+
           // rootBundle.
         },
         child: Icon(Icons.picture_as_pdf),

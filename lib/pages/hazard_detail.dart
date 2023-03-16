@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview.dart';
 
 import '../services/database.dart';
+import 'location.dart';
 
 
 final originController = TextEditingController();
@@ -168,18 +170,19 @@ class HazardDetailPage extends StatelessWidget {
           hazardT.affectMe = affectMeController.text;
           hazardT.affectCommunity = affectCommunityController.text;
 
-          String location = 'filler_location';
-
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => PdfPreviewPage(hazardT: hazardT),
             ),
           );
 
+          String location = LocationPage().getLocation();
+
           //update form in database
-          await DatabaseService().updateHazardData(location, hazardT.origin, hazardT.force,
-              hazardT.warning, hazardT.forewarning, hazardT.speed, hazardT.freq,
-              hazardT.period, hazardT.duration, hazardT.desc, hazardT.affectMe, hazardT.affectCommunity);
+          await DatabaseService().updateHazardData(location, hazardT.origin,
+              hazardT.force, hazardT.warning, hazardT.forewarning, hazardT.speed, hazardT.freq,
+              hazardT.period, hazardT.duration, hazardT.desc, hazardT.affectMe, hazardT.affectCommunity
+          );
 
           // rootBundle.
         },

@@ -3,6 +3,9 @@ import 'package:makepdfs/models/capacityT.dart';
 import 'package:makepdfs/pages/hazard_detail.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview_capacity.dart';
 
+import '../services/database.dart';
+import 'location.dart';
+
 
       //All the necessary text controllers
 final prevExistController = TextEditingController();
@@ -57,7 +60,7 @@ class CapacityDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
+          onPressed: () async {
               //sending the data from the text controllers to the pdf handler
             capacityT.prevExist = prevExistController.text;
             capacityT.prevReq = prevReqController.text;
@@ -98,6 +101,48 @@ class CapacityDetailPage extends StatelessWidget {
               builder: (context) => PdfPreviewCapacityPage(capacityT : capacityT),
               ),
             );
+
+            String location = LocationPage().getLocation();
+
+            //update form in database
+            await DatabaseService().updateCapacityData(
+              location,
+              prevExistController.text,
+              prevReqController.text,
+              prevGapsController.text,
+              mitiExistController.text,
+              mitiReqController.text,
+              mitiGapsController.text,
+              heExistHighController.text,
+              heReqHighController.text,
+              heGapsHighController.text,
+              nonHeExistHighController.text,
+              nonHeReqHighController.text,
+              nonHeGapsHighController.text,
+              heExistMedController.text,
+              heReqMedController.text,
+              heGapsMedController.text,
+              nonHeExistMedController.text,
+              nonHeReqMedController.text,
+              nonHeGapsMedController.text,
+              heExistLowBefController.text,
+              heReqLowBefController.text,
+              heGapsLowBefController.text,
+              nonHeExistLowBefController.text,
+              nonHeReqLowBefController.text,
+              nonHeGapsLowBefController.text,
+              heExistLowDurController.text,
+              heReqLowDurController.text,
+              heGapsLowDurController.text,
+              nonHeExistLowDurController.text,
+              nonHeReqLowDurController.text,
+              nonHeGapsLowDurController.text,
+              commReadyBefReqController.text,
+              commReadyBefGapsController.text,
+              commReadyDurReqController.text,
+              commReadyDurGapsController.text,
+            );
+
           },
           child: Icon(Icons.picture_as_pdf),
         ),

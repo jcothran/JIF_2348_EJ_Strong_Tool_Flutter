@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/models/vulnerableT.dart';
@@ -46,7 +47,6 @@ class FormsPage extends StatelessWidget
                 "Location: " + location,
                 style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
               ),
-
             ),
             IconButton(
               onPressed: () {
@@ -94,8 +94,18 @@ class FormsPage extends StatelessWidget
                 style: style,
                 onPressed:() async
                 {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HazardDetailPage(hazardT: blank)));
-                  await DatabaseService().addHazardData(location);
+                  FirebaseFirestore db = FirebaseFirestore.instance;
+                  DocumentReference data = db.collection("hazard_form").doc(location);
+                  data.get().then(
+                        (dataSnapshot) => {
+                      if (!dataSnapshot.exists) {
+                        DatabaseService().addHazardData(location),
+                      }
+                    },
+                    onError: (e) => print("Error completing: $e"),
+                  );
+
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HazardDetailPage(hazardT: blank)));
                 },
               ),
             ),
@@ -113,6 +123,16 @@ class FormsPage extends StatelessWidget
                 style: style,
                 onPressed:() async
                 {
+                  FirebaseFirestore db = FirebaseFirestore.instance;
+                  DocumentReference data = db.collection("vulnerability_form").doc(location);
+                  data.get().then(
+                        (dataSnapshot) => {
+                      if (!dataSnapshot.exists) {
+                        DatabaseService().addVulnerableData(location),
+                      }
+                    },
+                    onError: (e) => print("Error completing: $e"),
+                  );
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: blankV)));
                   await DatabaseService().addVulnerableData(location);
                 },
@@ -132,6 +152,16 @@ class FormsPage extends StatelessWidget
                 style: style,
                 onPressed:() async
                 {
+                  FirebaseFirestore db = FirebaseFirestore.instance;
+                  DocumentReference data = db.collection("capacity_form").doc(location);
+                  data.get().then(
+                        (dataSnapshot) => {
+                      if (!dataSnapshot.exists) {
+                        DatabaseService().addCapacityData(location),
+                      }
+                    },
+                    onError: (e) => print("Error completing: $e"),
+                  );
                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: blankC)));
                    await DatabaseService().addCapacityData(location);
                 },
@@ -152,6 +182,16 @@ class FormsPage extends StatelessWidget
                 style: style,
                 onPressed:()
                 {
+                  FirebaseFirestore db = FirebaseFirestore.instance;
+                  DocumentReference data = db.collection("disaster_form").doc(location);
+                  data.get().then(
+                        (dataSnapshot) => {
+                      if (!dataSnapshot.exists) {
+                        DatabaseService().addDisasterData(location),
+                      }
+                    },
+                    onError: (e) => print("Error completing: $e"),
+                  );
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: blankD)));
                   DatabaseService().addDisasterData(location);
                 },
