@@ -3,6 +3,16 @@ We are working with the South Carolina Department of Health and Control (DHEC) i
 
 <h1>Release Notes</h1>
 
+<h2>Version 0.3.0</h2>
+<h3>Features</h3>
+<ul style - "list-style-type: square">
+<li>Database functionality added to sort forms entered by location</li>
+<li>functionality added to edit and revise forms submitted to the database previously</li>
+<li>Added page to specify location of user for the purpose of sorting and data analytics</li>
+</ul>
+
+
+
 <h2>Version 0.2.0</h2>
 
 <h3>Features</h3>
@@ -17,7 +27,6 @@ We are working with the South Carolina Department of Health and Control (DHEC) i
 </ul>
 
 <h2>Version 0.1.0</h2>
-
 <h3>Features</h3>
 <ul style - "list-style-type: square">
 <li> Functioning access to all forms needed ("Hazard Assessment Form", "Vulnerability Form", "Capacity Assessment Form", and "Disaster Risk Analysis Form").  </li>
