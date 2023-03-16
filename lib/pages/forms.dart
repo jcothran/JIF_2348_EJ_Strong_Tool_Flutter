@@ -1,14 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/models/vulnerableT.dart';
 import 'package:makepdfs/models/capacityT.dart';
 import 'package:makepdfs/models/disasterT.dart';
 import 'package:makepdfs/pages/hazard_detail.dart';
+import 'package:makepdfs/pages/location.dart';
 import 'package:makepdfs/pages/vulnerability_detail.dart';
 import 'package:makepdfs/pages/capacity_detail.dart';
 import 'package:makepdfs/pages/disaster_detail.dart';
+import '../services/database.dart';
 
-      //page for navigating to the various form pages
+//page for navigating to the various form pages
 
 class FormsPage extends StatelessWidget 
 {
@@ -18,6 +21,8 @@ class FormsPage extends StatelessWidget
   final CapacityT blankC = new CapacityT(name: "Capacity Assessment Form", prevExist: '', prevReq: '', prevGaps: '', mitiExist: '', mitiReq: '', mitiGaps: '', heExistHigh: '', heReqHigh: '', heGapsHigh: '', nonHeExistHigh: '', nonHeReqHigh: '', nonHeGapsHigh: '', heExistMed: '', heReqMed: '', heGapsMed: '', nonHeExistMed: '', nonHeReqMed: '', nonHeGapsMed: '', heExistLowBef: '', heReqLowBef: '', heGapsLowBef: '', nonHeExistLowBef: '', nonHeReqLowBef: '', nonHeGapsLowBef: '', heExistLowDur: '', heReqLowDur: '', heGapsLowDur: '', nonHeExistLowDur: '', nonHeReqLowDur: '', nonHeGapsLowDur: '', commReadyBefReq: '', commReadyBefGaps: '', commReadyDurReq: '', commReadyDurGaps: '');
   final DisasterT blankD = new DisasterT(name: "Disaster Assessment Form", communityProf: '', hazardProf: '', elderHigh: '', elderMed: '', elderLow: '', elderIndv: '', childHigh: '', childMed: '', childLow: '', childIndv: '', hsEdHigh: '', hsEdMed: '', hsEdLow: '', hsEdIndv: '', linIsoHigh: '', linIsoMed: '', linIsoLow: '', linIsoIndv: '', pocHigh: '', pocMed: '', pocLow: '', pocIndv: '', lincHigh: '', lincMed: '', lincLow: '', lincIndv: '', nheHigh: '', nheMed: '', nheLow: '', nheIndv: '', housingHigh: '', housingMed: '', housingLow: '', housingIndv: '', schoolsHigh: '', schoolsMed: '', schoolsLow: '', schoolsIndv: '', hospHigh: '', hospMed: '', hospLow: '', hospIndv: '', wasteHigh: '', wasteMed: '', wasteLow: '', wasteIndv: '', elecHigh: '', elecMed: '', elecLow: '', elecIndv: '', waterHigh: '', waterMed: '', waterLow: '', waterIndv: '', wasteWaterHigh: '', wasteWaterMed: '', wasteWaterLow: '', wasteWaterIndv: '', essenHigh: '', essenMed: '', essenLow: '', essenIndv: '', summary: '', recommendation: '');
   final TextStyle text_style = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
+
+  String location = LocationPage().getLocation();
 
   @override
   Widget build(BuildContext context) 
@@ -35,6 +40,37 @@ class FormsPage extends StatelessWidget
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>
           [
+            Container
+              (
+              child: Text
+                (
+                "Location: " + location,
+                style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LocationPage())
+                );
+              },
+              icon: Icon(
+                Icons.location_on,
+                size: 40.0,
+              ),
+            ),
+            Container
+              (
+              child: Text
+                (
+                "Update Location",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+            ),
             Container
             (
               child: Text
@@ -56,9 +92,20 @@ class FormsPage extends StatelessWidget
               (
                 child: Text("Hazard Assessment Form",),
                 style: style,
-                onPressed:()
+                onPressed:() async
                 {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HazardDetailPage(hazardT: blank)));
+                  FirebaseFirestore db = FirebaseFirestore.instance;
+                  DocumentReference data = db.collection("hazard_form").doc(location);
+                  data.get().then(
+                        (dataSnapshot) => {
+                      if (!dataSnapshot.exists) {
+                        DatabaseService().addHazardData(location),
+                      }
+                    },
+                    onError: (e) => print("Error completing: $e"),
+                  );
+
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HazardDetailPage(hazardT: blank)));
                 },
               ),
             ),
@@ -74,9 +121,20 @@ class FormsPage extends StatelessWidget
               (
                 child: Text("Vulnerability Assessment Form",),
                 style: style,
-                onPressed:()
+                onPressed:() async
                 {
+                  FirebaseFirestore db = FirebaseFirestore.instance;
+                  DocumentReference data = db.collection("vulnerability_form").doc(location);
+                  data.get().then(
+                        (dataSnapshot) => {
+                      if (!dataSnapshot.exists) {
+                        DatabaseService().addVulnerableData(location),
+                      }
+                    },
+                    onError: (e) => print("Error completing: $e"),
+                  );
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: blankV)));
+                  await DatabaseService().addVulnerableData(location);
                 },
               ),
             ),
@@ -92,9 +150,20 @@ class FormsPage extends StatelessWidget
               (
                 child: Text("Capacity Assessment Form",),
                 style: style,
-                onPressed:()
+                onPressed:() async
                 {
+                  FirebaseFirestore db = FirebaseFirestore.instance;
+                  DocumentReference data = db.collection("capacity_form").doc(location);
+                  data.get().then(
+                        (dataSnapshot) => {
+                      if (!dataSnapshot.exists) {
+                        DatabaseService().addCapacityData(location),
+                      }
+                    },
+                    onError: (e) => print("Error completing: $e"),
+                  );
                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: blankC)));
+                   await DatabaseService().addCapacityData(location);
                 },
               ),
             ),
@@ -113,7 +182,18 @@ class FormsPage extends StatelessWidget
                 style: style,
                 onPressed:()
                 {
+                  FirebaseFirestore db = FirebaseFirestore.instance;
+                  DocumentReference data = db.collection("disaster_form").doc(location);
+                  data.get().then(
+                        (dataSnapshot) => {
+                      if (!dataSnapshot.exists) {
+                        DatabaseService().addDisasterData(location),
+                      }
+                    },
+                    onError: (e) => print("Error completing: $e"),
+                  );
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: blankD)));
+                  DatabaseService().addDisasterData(location);
                 },
               ),
             ),

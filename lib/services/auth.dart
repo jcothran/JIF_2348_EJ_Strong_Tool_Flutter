@@ -5,24 +5,18 @@ class AuthService {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  //sign in anon
+  //getter for user id
+  Future getUserId() async{
+    final User? user = _auth.currentUser;
+    String uid = await user!.getIdToken();
+    return uid;
+  }
+
+  //sign in anonymously
   Future signInAnon() async {
     try {
       UserCredential result = await _auth.signInAnonymously();
       User? user = result.user;
-      //creates an initial blank document for each form in the database when user starts the program
-      await DatabaseService().updateHazardData('', '', '', '',  '', '', '', '', '','', '', '');
-      await DatabaseService().updateVulnerableData('', '', '','', '', '', '', '', '',
-          '','', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '','',  '',
-          '', '', '', '', '', '', '', '', '', '', '', '');
-      await DatabaseService().updateCapacityData('', '', '','', '', '', '', '', '',
-          '', '', '', '','', '', '', '', '', '', '', '', '', '','', '', '', '', '',
-          '', '', '','', '','');
-      await DatabaseService().updateDisasterData('', '', '','', '', '', '', '', '',
-          '', '', '', '','', '', '', '', '', '', '', '', '', '','', '', '', '', '',
-          '', '', '','', '','','', '', '','', '', '', '', '', '',
-          '', '', '', '','', '', '', '', '', '', '', '', '', '','', '', '', '', '',
-          '', '', '','', '');
 
     return user;
     } catch(e) {
@@ -31,7 +25,7 @@ class AuthService {
     }
   }
 
-  //change user stream authentication
+  //checks for changes in user stream authentication
   Stream<User?> get user => _auth.authStateChanges();
 
   //sign out

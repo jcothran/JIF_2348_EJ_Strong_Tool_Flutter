@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:makepdfs/services/auth.dart';
 
 class DatabaseService {
 
@@ -12,8 +12,55 @@ class DatabaseService {
   final CollectionReference disasterDataColRef = FirebaseFirestore
       .instance.collection('disaster_form');
 
+ Future addHazardData<DocumentReference>(String location) {
+   return hazardDataColRef.doc(location).set({
+      'origin': '', 'force': '', 'warning': '', 'forewarning': '', 'speed': '',
+      'freq': '', 'period': '', 'duration': '', 'desc': '', 'affectMe': '', 'affectCommunity': '',
+   });
+ }
+
+  Future addVulnerableData<DocumentReference>(String location) {
+    return vulnerableDataColRef.doc(location).set({
+      'hazardProf': '', 'popHigh': '', 'popMed': '', 'popLow': '', 'elderHigh': '', 'elderMed': '',
+      'elderLow': '', 'childHigh': '', 'childMed': '', 'childLow': '', 'hsEdHigh': '', 'hsEdMed': '',
+      'hsEdLow': '', 'linIsoHigh': '', 'linIsoMed': '', 'linIsoLow': '', 'pocHigh': '', 'pocMed': '',
+      'pocLow': '', 'lincHigh': '', 'lincMed': '', 'lincLow': '', 'nheHigh': '', 'nheMed': '', 'nheLow': '',
+      'housingHigh': '', 'housingMed': '', 'housingLow': '', 'schoolsHigh': '', 'schoolsMed': '', 'schoolsLow': '',
+      'hospHigh': '', 'hospMed': '', 'hospLow': '', 'wasteHigh': '', 'wasteMed': '', 'wasteLow': '', 'elecHigh': '',
+      'elecMed': '', 'elecLow': '', 'waterHigh': '', 'waterMed': '', 'waterLow': '', 'wasteWaterHigh': '', 'wasteWaterMed': '',
+      'wasteWaterLow': '', 'essenHigh': '', 'essenMed': '', 'essenLow': '', 'summary': '',
+    });
+  }
+
+  Future addCapacityData<DocumentReference>(String location) async {
+    return await capacityDataColRef.doc(location).set({
+      'prevExist': '', 'prevReq': '', 'prevGaps': '', 'mitiExist': '', 'mitiReq': '', 'mitiGaps': '',
+      'heExistHigh': '', 'heReqHigh': '', 'heGapsHigh': '', 'nonHeExistHigh': '', 'nonHeReqHigh': '',
+      'nonHeGapsHigh': '', 'heExistMed': '', 'heReqMed': '', 'heGapsMed': '', 'nonHeExistMed': '', 'nonHeReqMed': '',
+      'nonHeGapsMed': '', 'heExistLowBef': '', 'heReqLowBef': '', 'heGapsLowBef': '', 'nonHeExistLowBef': '', 'nonHeReqLowBef': '',
+      'nonHeGapsLowBef': '', 'heExistLowDur': '', 'heReqLowDur': '', 'heGapsLowDur': '', 'nonHeExistLowDur': '', 'nonHeReqLowDur': '',
+      'nonHeGapsLowDur': '', 'commReadyBefReq': '', 'commReadyBefGaps': '', 'commReadyDurReq': '', 'commReadyDurGaps': '',
+    });
+  }
+
+  Future addDisasterData<DocumentReference>(String location) async {
+    return await disasterDataColRef.doc(location).set({
+      'communityProf': '', 'hazardProf': '', 'elderHigh': '', 'elderMed': '', 'elderLow': '',
+      'elderIndv': '', 'childHigh': '', 'childMed': '', 'childLow': '', 'childIndv': '', 'hsEdHigh': '',
+      'hsEdMed': '', 'hsEdLow': '', 'hsEdIndv': '', 'linIsoHigh': '', 'linIsoMed': '', 'linIsoLow': '',
+      'linIsoIndv': '', 'pocHigh': '', 'pocMed': '', 'pocLow': '', 'pocIndv': '', 'lincHigh': '',
+      'lincMed': '', 'lincLow': '', 'lincIndv': '', 'nheHigh': '', 'nheMed': '', 'nheLow': '', 'nheIndv': '',
+      'housingHigh': '', 'housingMed': '', 'housingLow': '', 'housingIndv': '', 'schoolsHigh': '', 'schoolsMed': '',
+      'schoolsLow': '', 'schoolsIndv': '', 'hospHigh': '', 'hospMed': '', 'hospLow': '', 'hospIndv': '', 'wasteHigh': '',
+      'wasteMed': '', 'wasteLow': '', 'wasteIndv': '', 'elecHigh': '', 'elecMed': '', 'elecLow': '', 'elecIndv': '',
+      'waterHigh': '', 'waterMed': '', 'waterLow': '', 'waterIndv': '', 'wasteWaterHigh': '', 'wasteWaterMed': '',
+      'wasteWaterLow': '', 'wasteWaterIndv': '', 'essenHigh': '', 'essenMed': '', 'essenLow': '', 'essenIndv': '',
+      'summary': '', 'recommendation': '',
+    });
+  }
+
   Future updateHazardData(
-  String headers,
+  String location,
   String origin,
   String force,
   String warning,
@@ -25,9 +72,8 @@ class DatabaseService {
   String desc,
   String affectMe,
   String affectCommunity,
-  ) async {
-    return await hazardDataColRef.add({
-      'headers': headers,
+  ) {
+    return hazardDataColRef.doc(location).update({
       'origin': origin,
       'force': force,
       'warning': warning,
@@ -43,6 +89,7 @@ class DatabaseService {
   }
 
   Future updateVulnerableData(
+  String location,
   String hazardProf,
   String popHigh,
   String popMed,
@@ -93,8 +140,8 @@ class DatabaseService {
   String essenMed,
   String essenLow,
   String summary,
-  ) async {
-    return await vulnerableDataColRef.add({
+  ) {
+    return vulnerableDataColRef.doc(location).update({
       'hazardProf': hazardProf,
       'popHigh': popHigh,
       'popMed': popMed,
@@ -161,6 +208,7 @@ class DatabaseService {
   }
 
   Future updateCapacityData(
+  String location,
   String prevExist,
   String prevReq,
   String prevGaps,
@@ -195,8 +243,8 @@ class DatabaseService {
   String commReadyBefGaps,
   String commReadyDurReq,
   String commReadyDurGaps,
-  ) async {
-    return await capacityDataColRef.add({
+  ) {
+    return capacityDataColRef.doc(location).update({
       'prevExist': prevExist,
       'prevReq': prevReq,
       'prevGaps': prevGaps,
@@ -234,6 +282,7 @@ class DatabaseService {
   }
 
   Future updateDisasterData(
+  String location,
   String communityProf,
   String hazardProf,
   String elderHigh,
@@ -301,8 +350,8 @@ class DatabaseService {
   String mitiGaps,
   String summary,
   String recommendation,
-    ) async {
-    return await disasterDataColRef.add({
+    ) {
+    return disasterDataColRef.doc(location).update({
       'communityProf': communityProf,
       'hazardProf': hazardProf,
       'elderHigh': elderHigh,

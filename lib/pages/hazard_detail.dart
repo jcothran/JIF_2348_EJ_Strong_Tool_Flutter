@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview.dart';
+
+import '../services/database.dart';
+import 'location.dart';
 
 
 final originController = TextEditingController();
@@ -146,13 +150,13 @@ class HazardDetailPage extends StatelessWidget {
   const HazardDetailPage({
     Key? key,
     required this.hazardT,
-  }) : super(key: key);  
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: () async {
           //sending the data from the text controllers to the pdf handler
           hazardT.origin = originController.text;
           hazardT.force = forceController.text;
@@ -165,11 +169,21 @@ class HazardDetailPage extends StatelessWidget {
           hazardT.desc = descController.text;
           hazardT.affectMe = affectMeController.text;
           hazardT.affectCommunity = affectCommunityController.text;
+
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => PdfPreviewPage(hazardT: hazardT),
             ),
           );
+
+          String location = LocationPage().getLocation();
+
+          //update form in database
+          await DatabaseService().updateHazardData(location, hazardT.origin,
+              hazardT.force, hazardT.warning, hazardT.forewarning, hazardT.speed, hazardT.freq,
+              hazardT.period, hazardT.duration, hazardT.desc, hazardT.affectMe, hazardT.affectCommunity
+          );
+
           // rootBundle.
         },
         child: Icon(Icons.picture_as_pdf),
