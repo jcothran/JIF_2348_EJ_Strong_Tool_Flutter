@@ -106,15 +106,18 @@ void affectCommunityDispose() {
   //super.dispose();
 }
 
-class DropdownHazard extends StatefulWidget {
+
+
+
+class DropdownOrigin extends StatefulWidget {
   // const DropdownHazard({super.key});
 
   @override
-  State<DropdownHazard> createState() => _DropdownHazardState();
+  State<DropdownOrigin> createState() => _DropdownOriginState();
 }
-
-class _DropdownHazardState extends State<DropdownHazard> {
-  String dropdownValue = keyword_list.first;
+String originDrop = "";
+class _DropdownOriginState extends State<DropdownOrigin> {
+  String dropdownValue = origin_keywords.first;
 
   @override
   Widget build(BuildContext context) {
@@ -131,9 +134,10 @@ class _DropdownHazardState extends State<DropdownHazard> {
         // This is called when the user selects an item.
         setState(() {
           dropdownValue = value!;
+          originDrop = dropdownValue;
         });
       },
-      items: keyword_list.map<DropdownMenuItem<String>>((String value) {
+      items: origin_keywords.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
@@ -143,7 +147,13 @@ class _DropdownHazardState extends State<DropdownHazard> {
   }
 }
 
-const List<String> keyword_list = <String>['Rapid', 'Fast', 'Example'];   // list of keywords for the dropdown menus (may need different lists depending on type)
+const List<String> origin_keywords = <String>['Accidental Fire', 'Act of Negligence', 'Air emissions', 'Airborne Equipment Malfunction', 'Burning Debris', 'climate change', 'Clogged Drains', 'Construction', 'damaged dams or levees', 'deforestation', 'development and infrastructure', 'Droughts', 'Electrical power', 'Fireworks', 'Heavy Rainfall', 'human-caused', 'improper drainage system', 'Improper toxic disposal', 'Inaccurate Procedures', 'Industrial Activity', 'Intentional (arson)', 'King Tide', 'Lack of Drains', 'Leaching', 'Lightning', 'Oil Spill', 'overflow of rivers', 'Pot Holes', 'thunderstorms', 'Uneven Roads', 'weather conditions', 'OTHER'];  // keywords for the origin dropdown
+const List<String> warning_keywords = <String>['Accumulation of water', 'Air Monitoring Alarm', 'Air Quality Notifictions', 'Cannot foresee until it happens', 'Heavy Rain', 'Meter signs', 'Smoke', 'Warning sirens from chemical plant', 'OTHER'];  // keywords for the warning dropdown
+const List<String> forewarning_keywords = <String>['Seconds', 'Minutes', 'Hours', 'Days', 'Weeks', 'Months', 'OTHER'];  // keywords for the origin dropdown
+const List<String> onset_speed_keywords = <String>['gradually', 'quickly', 'Rapid', 'Slow', 'suddenly', 'OTHER'];  // keywords for the onset speed dropdown
+const List<String> frequency_keywords = <String>['episodic', 'everyday', 'frequent', 'from time to time', 'hardly ever', 'not often', 'occasionally', 'often', 'once in a while', 'periodically', 'rarely', 'recurring', 'scarcely', 'seasonal', 'seldom', 'semi-occasionally', 'sometimes', 'sporadically', 'varies', 'OTHER'];  // keywords for the frequency dropdown
+const List<String> period_keywords = <String>['Afternoon hours', 'Anytime', 'During commute', 'During industry/plant operation', 'Evening hours', 'Everyday', 'Fall time', 'Morning hours', 'Random', 'Seasonal', 'Spring time', 'Summer time', 'Throughout the day', 'Winter time', 'Year Round', 'OTHER'];  // keywords for the period dropdown
+const List<String> duration_keywords = <String>['Annually', 'Days', 'minutes to hours', 'Months', 'Seasonal', 'Throughout the entire year', 'Varies', 'weeks', 'OTHER'];  // keywords for the duration dropdown
 
 class HazardDetailPage extends StatelessWidget {
   final HazardT hazardT;
@@ -158,7 +168,7 @@ class HazardDetailPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           //sending the data from the text controllers to the pdf handler
-          hazardT.origin = originController.text;
+          hazardT.origin = originDrop;
           hazardT.force = forceController.text;
           hazardT.warning = warningController.text;
           hazardT.forewarning = forewarningController.text;
@@ -220,7 +230,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownHazard(),
+                    child: DropdownOrigin(),
                     flex: 2,
                   ),
                 ],
