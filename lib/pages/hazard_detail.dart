@@ -6,7 +6,6 @@ import 'package:makepdfs/pages/pdfexport/pdfpreview.dart';
 import '../services/database.dart';
 import 'location.dart';
 
-final forceController = TextEditingController();
 final descController = TextEditingController();
 final affectMeController = TextEditingController();
 final affectCommunityController = TextEditingController();
@@ -277,7 +276,45 @@ class _DropdownDurationState extends State<DropdownDuration> {
   }
 }
 
+class DropdownForce extends StatefulWidget {
+  // const DropdownHazard({super.key});
 
+  @override
+  State<DropdownForce> createState() => _DropdownForceState();
+}
+String forceDrop = force_keywords.first;
+class _DropdownForceState extends State<DropdownForce> {
+  String dropdownValue = force_keywords.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_downward),
+      elevation: 16,
+      style: const TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
+      ),
+      onChanged: (String? value) {
+        // This is called when the user selects an item.
+        setState(() {
+          dropdownValue = value!;
+          forceDrop = dropdownValue;
+        });
+      },
+      items: force_keywords.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }
+}
+
+const List<String> force_keywords = <String>['Air Emissions','Air Movement', 'Explosive', 'Flashfloods', 'King Tide', 'Water', 'Wind Movement', 'OTHER']; // keywords for the force dropdown
 const List<String> origin_keywords = <String>['Accidental Fire', 'Act of Negligence', 'Air emissions', 'Airborne Equipment Malfunction', 'Burning Debris', 'climate change', 'Clogged Drains', 'Construction', 'damaged dams or levees', 'deforestation', 'development and infrastructure', 'Droughts', 'Electrical power', 'Fireworks', 'Heavy Rainfall', 'human-caused', 'improper drainage system', 'Improper toxic disposal', 'Inaccurate Procedures', 'Industrial Activity', 'Intentional (arson)', 'King Tide', 'Lack of Drains', 'Leaching', 'Lightning', 'Oil Spill', 'overflow of rivers', 'Pot Holes', 'thunderstorms', 'Uneven Roads', 'weather conditions', 'OTHER'];  // keywords for the origin dropdown
 const List<String> warning_keywords = <String>['Accumulation of water', 'Air Monitoring Alarm', 'Air Quality Notifictions', 'Cannot foresee until it happens', 'Heavy Rain', 'Meter signs', 'Smoke', 'Warning sirens from chemical plant', 'OTHER'];  // keywords for the warning dropdown
 const List<String> forewarning_keywords = <String>['Seconds', 'Minutes', 'Hours', 'Days', 'Weeks', 'Months', 'OTHER'];  // keywords for the origin dropdown
@@ -300,7 +337,7 @@ class HazardDetailPage extends StatelessWidget {
         onPressed: () async {
           //sending the data from the text controllers to the pdf handler
           hazardT.origin = originDrop;
-          hazardT.force = forceController.text;
+          hazardT.force = forceDrop;
           hazardT.warning = warningDrop;
           hazardT.forewarning = forewarningDrop;
           hazardT.speed = speedDrop;
@@ -375,7 +412,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: TextField(controller: forceController,),
+                    child: DropdownForce(),
                     flex: 2,
                   ),
                 ],
