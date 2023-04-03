@@ -4,7 +4,7 @@ import 'package:makepdfs/models/disasterT.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview_disaster.dart';
 
 import '../services/database.dart';
-import 'location.dart';
+import 'location_date.dart';
 
 //All the necessary text controllers
 
@@ -383,7 +383,7 @@ class DisasterDetailPage extends StatelessWidget {
           ),
           );
 
-          String location = LocationPage().getLocation();
+          String location_date = LocationDatePage().getLocation() + "_" + LocationDatePage().getDate();
 
           /*TODO: Implement the updateDisasterData() function after the disaster form has been completed
                   and all of the controllers have been added

@@ -12,15 +12,15 @@ class DatabaseService {
   final CollectionReference disasterDataColRef = FirebaseFirestore
       .instance.collection('disaster_form');
 
- Future addHazardData<DocumentReference>(String location) {
-   return hazardDataColRef.doc(location).set({
+ Future addHazardData<DocumentReference>(String location_date) {
+   return hazardDataColRef.doc(location_date).set({
       'origin': '', 'force': '', 'warning': '', 'forewarning': '', 'speed': '',
       'freq': '', 'period': '', 'duration': '', 'desc': '', 'affectMe': '', 'affectCommunity': '',
    });
  }
 
-  Future addVulnerableData<DocumentReference>(String location) {
-    return vulnerableDataColRef.doc(location).set({
+  Future addVulnerableData<DocumentReference>(String location_date) {
+    return vulnerableDataColRef.doc(location_date).set({
       'hazardProf': '', 'popHigh': '', 'popMed': '', 'popLow': '', 'elderHigh': '', 'elderMed': '',
       'elderLow': '', 'childHigh': '', 'childMed': '', 'childLow': '', 'hsEdHigh': '', 'hsEdMed': '',
       'hsEdLow': '', 'linIsoHigh': '', 'linIsoMed': '', 'linIsoLow': '', 'pocHigh': '', 'pocMed': '',
@@ -32,8 +32,8 @@ class DatabaseService {
     });
   }
 
-  Future addCapacityData<DocumentReference>(String location) async {
-    return await capacityDataColRef.doc(location).set({
+  Future addCapacityData<DocumentReference>(String location_date) async {
+    return await capacityDataColRef.doc(location_date).set({
       'prevExist': '', 'prevReq': '', 'prevGaps': '', 'mitiExist': '', 'mitiReq': '', 'mitiGaps': '',
       'heExistHigh': '', 'heReqHigh': '', 'heGapsHigh': '', 'nonHeExistHigh': '', 'nonHeReqHigh': '',
       'nonHeGapsHigh': '', 'heExistMed': '', 'heReqMed': '', 'heGapsMed': '', 'nonHeExistMed': '', 'nonHeReqMed': '',
@@ -43,8 +43,8 @@ class DatabaseService {
     });
   }
 
-  Future addDisasterData<DocumentReference>(String location) async {
-    return await disasterDataColRef.doc(location).set({
+  Future addDisasterData<DocumentReference>(String location_date) async {
+    return await disasterDataColRef.doc(location_date).set({
       'communityProf': '', 'hazardProf': '', 'elderHigh': '', 'elderMed': '', 'elderLow': '',
       'elderIndv': '', 'childHigh': '', 'childMed': '', 'childLow': '', 'childIndv': '', 'hsEdHigh': '',
       'hsEdMed': '', 'hsEdLow': '', 'hsEdIndv': '', 'linIsoHigh': '', 'linIsoMed': '', 'linIsoLow': '',
@@ -60,7 +60,7 @@ class DatabaseService {
   }
 
   Future updateHazardData(
-  String location,
+  String location_date,
   String origin,
   String force,
   String warning,
@@ -73,7 +73,7 @@ class DatabaseService {
   String affectMe,
   String affectCommunity,
   ) {
-    return hazardDataColRef.doc(location).update({
+    return hazardDataColRef.doc(location_date).update({
       'origin': origin,
       'force': force,
       'warning': warning,
@@ -89,7 +89,7 @@ class DatabaseService {
   }
 
   Future updateVulnerableData(
-  String location,
+  String location_date,
   String hazardProf,
   String popHigh,
   String popMed,
@@ -141,7 +141,7 @@ class DatabaseService {
   String essenLow,
   String summary,
   ) {
-    return vulnerableDataColRef.doc(location).update({
+    return vulnerableDataColRef.doc(location_date).update({
       'hazardProf': hazardProf,
       'popHigh': popHigh,
       'popMed': popMed,
@@ -208,7 +208,7 @@ class DatabaseService {
   }
 
   Future updateCapacityData(
-  String location,
+  String location_date,
   String prevExist,
   String prevReq,
   String prevGaps,
@@ -244,7 +244,7 @@ class DatabaseService {
   String commReadyDurReq,
   String commReadyDurGaps,
   ) {
-    return capacityDataColRef.doc(location).update({
+    return capacityDataColRef.doc(location_date).update({
       'prevExist': prevExist,
       'prevReq': prevReq,
       'prevGaps': prevGaps,
@@ -282,7 +282,7 @@ class DatabaseService {
   }
 
   Future updateDisasterData(
-  String location,
+  String location_date,
   String communityProf,
   String hazardProf,
   String elderHigh,
@@ -351,7 +351,7 @@ class DatabaseService {
   String summary,
   String recommendation,
     ) {
-    return disasterDataColRef.doc(location).update({
+    return disasterDataColRef.doc(location_date).update({
       'communityProf': communityProf,
       'hazardProf': hazardProf,
       'elderHigh': elderHigh,

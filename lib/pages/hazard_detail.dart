@@ -4,7 +4,7 @@ import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview.dart';
 
 import '../services/database.dart';
-import 'location.dart';
+import 'location_date.dart';
 
 
 final originController = TextEditingController();
@@ -182,10 +182,10 @@ class HazardDetailPage extends StatelessWidget {
             ),
           );
 
-          String location = LocationPage().getLocation();
+          String location_date = LocationDatePage().getLocation() + "_" + LocationDatePage().getDate();
 
           //update form in database
-          await DatabaseService().updateHazardData(location, hazardT.origin,
+          await DatabaseService().updateHazardData(location_date, hazardT.origin,
               hazardT.force, hazardT.warning, hazardT.forewarning, hazardT.speed, hazardT.freq,
               hazardT.period, hazardT.duration, hazardT.desc, hazardT.affectMe, hazardT.affectCommunity
           );
