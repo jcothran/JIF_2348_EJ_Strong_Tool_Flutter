@@ -1,4 +1,4 @@
-class CapacityT{
+class CapacityT {
   final String name;
   String prevExist;
   String prevReq;
@@ -6,6 +6,7 @@ class CapacityT{
   String mitiExist;
   String mitiReq;
   String mitiGaps;
+  String heElement;
   String heExistHigh;
   String heReqHigh;
   String heGapsHigh;
@@ -43,6 +44,7 @@ class CapacityT{
     required this.mitiExist,
     required this.mitiReq,
     required this.mitiGaps,
+    required this.heElement,
     required this.heExistHigh,
     required this.heReqHigh,
     required this.heGapsHigh,
@@ -71,6 +73,5 @@ class CapacityT{
     required this.commReadyBefGaps,
     required this.commReadyDurReq,
     required this.commReadyDurGaps,
-
   });
 }

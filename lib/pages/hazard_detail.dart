@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview.dart';
 
-
 final originController = TextEditingController();
 
 @override
@@ -123,10 +122,10 @@ class _DropdownHazardState extends State<DropdownHazard> {
         height: 2,
         color: Colors.deepPurpleAccent,
       ),
-      onChanged: (String? value) {
+      onChanged: (String? newValue) {
         // This is called when the user selects an item.
         setState(() {
-          dropdownValue = value!;
+          dropdownValue = newValue!;
         });
       },
       items: keyword_list.map<DropdownMenuItem<String>>((String value) {
@@ -139,14 +138,18 @@ class _DropdownHazardState extends State<DropdownHazard> {
   }
 }
 
-const List<String> keyword_list = <String>['Rapid', 'Fast', 'Example'];   // list of keywords for the dropdown menus (may need different lists depending on type)
+const List<String> keyword_list = <String>[
+  'Rapid',
+  'Fast',
+  'Example'
+]; // list of keywords for the dropdown menus (may need different lists depending on type)
 
 class HazardDetailPage extends StatelessWidget {
   final HazardT hazardT;
   const HazardDetailPage({
     Key? key,
     required this.hazardT,
-  }) : super(key: key);  
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -179,174 +182,170 @@ class HazardDetailPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-
           Container(height: 50),
           Table(
             //border: TableBorder.all(color: PdfColors.black),
             children: [
               TableRow(
-                  children: [
-                    Expanded(
-                      child: PaddedText('Characteristics of Hazard'),
-                      flex: 3,
-                    ),
-
-                    Expanded(
-                      child: PaddedText('Elements of Hazard'),
-                      flex: 2,
-                    ),
-                  ],
-                ),
-
+                children: [
+                  Expanded(
+                    child: PaddedText('Characteristics of Hazard'),
+                    flex: 3,
+                  ),
+                  Expanded(
+                    child: PaddedText('Elements of Hazard'),
+                    flex: 2,
+                  ),
+                ],
+              ),
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Cause/Origin'),
                     flex: 3,
                   ),
-
                   Expanded(
                     child: DropdownHazard(),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Force'),
                     flex: 3,
                   ),
-
                   Expanded(
-                    child: TextField(controller: forceController,),
+                    child: TextField(
+                      controller: forceController,
+                    ),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Warning Signs and Signals'),
                     flex: 3,
                   ),
-
                   Expanded(
-                    child: TextField(controller: warningController,),
+                    child: TextField(
+                      controller: warningController,
+                    ),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Forewarning'),
                     flex: 3,
                   ),
-
                   Expanded(
-                    child: TextField(controller: forewarningController,),
+                    child: TextField(
+                      controller: forewarningController,
+                    ),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Speed of Onset'),
                     flex: 3,
                   ),
-
                   Expanded(
-                    child: TextField(controller: speedController,),
+                    child: TextField(
+                      controller: speedController,
+                    ),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Frequency'),
                     flex: 3,
                   ),
-
                   Expanded(
-                    child: TextField(controller: freqController,),
+                    child: TextField(
+                      controller: freqController,
+                    ),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Period of Occurence'),
                     flex: 3,
                   ),
-
                   Expanded(
-                    child: TextField(controller: periodController,),
+                    child: TextField(
+                      controller: periodController,
+                    ),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Duration'),
                     flex: 3,
                   ),
-
                   Expanded(
-                    child: TextField(controller: durationController,),
+                    child: TextField(
+                      controller: durationController,
+                    ),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Analytical description of the hazard:'),
                     flex: 3,
                   ),
-
                   Expanded(
-                    child: TextField(controller: descController,),
+                    child: TextField(
+                      controller: descController,
+                    ),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('How will it affect me?'),
                     flex: 2,
                   ),
-
                   Expanded(
-                    child: TextField(controller: affectMeController,),
+                    child: TextField(
+                      controller: affectMeController,
+                    ),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('How will it affect my community?'),
                     flex: 2,
                   ),
-
                   Expanded(
-                    child: TextField(controller: affectCommunityController,),
+                    child: TextField(
+                      controller: affectCommunityController,
+                    ),
                     flex: 2,
                   ),
                 ],
@@ -360,9 +359,9 @@ class HazardDetailPage extends StatelessWidget {
 }
 
 Widget PaddedText(
-    final String text, {
-      final TextAlign align = TextAlign.left,
-    }) =>
+  final String text, {
+  final TextAlign align = TextAlign.left,
+}) =>
     Padding(
       padding: EdgeInsets.all(10),
       child: Text(
@@ -370,4 +369,3 @@ Widget PaddedText(
         textAlign: align,
       ),
     );
-
