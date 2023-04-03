@@ -12,7 +12,7 @@ We are working with the South Carolina Department of Health and Control (DHEC) i
 </ul>
 <h3>Bug Fixes</h3>
 <ul style - "list-style-type: square">
-<li> The "Hazard Assessment Form" was one big button with the other descriptions as placeholders. This is now multiple different buttons leading to different forms.</li>
+<li> The Disaster form is now running and working now. The disaster form has all of the added features and extra information than the vulnerability form. </li>
 </ul>
 
 <h2>Version 0.3.0</h2>
