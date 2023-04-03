@@ -13,6 +13,7 @@ We are working with the South Carolina Department of Health and Control (DHEC) i
 <h3>Bug Fixes</h3>
 <ul style - "list-style-type: square">
 <li> The "Hazard Assessment Form" was one big button with the other descriptions as placeholders. This is now multiple different buttons leading to different forms.</li>
+</ul>
 
 <h2>Version 0.3.0</h2>
 <h3>Features</h3>
@@ -47,7 +48,7 @@ We are working with the South Carolina Department of Health and Control (DHEC) i
 <ul style - "list-style-type: square">
 <li> The "Hazard Assessment Form" was one big button with the other descriptions as placeholders. This is now multiple different buttons leading to different forms.</li>
 <li> The "Vulnerability Form", "Capacity Assessment Form", and "Disaster Risk Analysis Form"  have been created and are functional similar to the "Hazard Assessment Form" in the previous version.</li>
-</ul>
+
 
 <h2>Version 0.0.1</h2>
 <h3>Features</h3>
