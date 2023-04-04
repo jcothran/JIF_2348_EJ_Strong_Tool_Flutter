@@ -10,13 +10,6 @@ We are working with the South Carolina Department of Health and Control (DHEC) i
 <li>Implementation of dropdown menus in parts that need to be changed from text boxes </li>
 <li>Database functionality added to store data by the date as well as location  </li>
 </ul>
-<h3>Known Bugs/Issues</h3>
-<ul style - "list-style-type: square">
-<li> The dropdown menus create a slight pixel overflow, going a bit offscreen. </li>
-<li> The Disaster form currently accepts nonnumerical data along with numerical data. </li>
-<li> The Capacity form currently has merging issues (file conflicts) and more affecting the  implementation of dropdown menus for the Capacity form. </li>
-</ul>
-</ul>
 <h3>Bug Fixes</h3>
 <ul style - "list-style-type: square">
 <li> The Disaster form is running and working now. The disaster form has all of the added features and extra information that is connected to the vulnerability form. </li>
