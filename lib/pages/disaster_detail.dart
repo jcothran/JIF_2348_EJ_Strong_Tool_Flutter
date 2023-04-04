@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:makepdfs/models/disasterT.dart';
 import 'package:makepdfs/pages/hazard_detail.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview_disaster.dart';
+import '../services/database.dart';
+import 'location_date.dart';
 
+//All the necessary text controllers
 final communityProfController = TextEditingController();
 @override
 void communityProfDispose() {
@@ -499,6 +502,14 @@ class DisasterDetailPage extends StatelessWidget {
             builder: (context) => PdfPreviewDisasterPage(disasterT: disasterT),
           ),
           );
+
+          String location_date = LocationDatePage().getLocation() + "_" + LocationDatePage().getDate();
+
+          /*TODO: Implement the updateDisasterData() function after the disaster form has been completed
+                  and all of the controllers have been added
+           */
+          //update form in database
+          //await DatabaseService().updateDisasterData(...);
           // rootBundle.
         },
         child: Icon(Icons.picture_as_pdf),

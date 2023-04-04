@@ -5,7 +5,7 @@ import 'package:makepdfs/models/vulnerableT.dart';
 import 'package:makepdfs/models/capacityT.dart';
 import 'package:makepdfs/models/disasterT.dart';
 import 'package:makepdfs/pages/hazard_detail.dart';
-import 'package:makepdfs/pages/location.dart';
+import 'package:makepdfs/pages/location_date.dart';
 import 'package:makepdfs/pages/vulnerability_detail.dart';
 import 'package:makepdfs/pages/capacity_detail.dart';
 import 'package:makepdfs/pages/disaster_detail.dart';
@@ -22,7 +22,9 @@ class FormsPage extends StatelessWidget
   final DisasterT blankD = new DisasterT(name: "Disaster Assessment Form", communityProf: '', hazardProf: '', elderHigh: '', elderMed: '', elderLow: '', elderIndv: '', childHigh: '', childMed: '', childLow: '', childIndv: '', hsEdHigh: '', hsEdMed: '', hsEdLow: '', hsEdIndv: '', linIsoHigh: '', linIsoMed: '', linIsoLow: '', linIsoIndv: '', pocHigh: '', pocMed: '', pocLow: '', pocIndv: '', lincHigh: '', lincMed: '', lincLow: '', lincIndv: '', nheHigh: '', nheMed: '', nheLow: '', nheIndv: '', housingHigh: '', housingMed: '', housingLow: '', housingIndv: '', schoolsHigh: '', schoolsMed: '', schoolsLow: '', schoolsIndv: '', hospHigh: '', hospMed: '', hospLow: '', hospIndv: '', wasteHigh: '', wasteMed: '', wasteLow: '', wasteIndv: '', elecHigh: '', elecMed: '', elecLow: '', elecIndv: '', waterHigh: '', waterMed: '', waterLow: '', waterIndv: '', wasteWaterHigh: '', wasteWaterMed: '', wasteWaterLow: '', wasteWaterIndv: '', essenHigh: '', essenMed: '', essenLow: '', essenIndv: '', readyGaps: '', prevGaps: '', mitiGaps: '', summary: '', recommendation: '');
   final TextStyle text_style = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
-  String location = LocationPage().getLocation();
+  String loc = LocationDatePage().getLocation();
+  String date = LocationDatePage().getDate();
+  String location_date = LocationDatePage().getLocation() + "_" + LocationDatePage().getDate();
 
   @override
   Widget build(BuildContext context) 
@@ -44,15 +46,16 @@ class FormsPage extends StatelessWidget
               (
               child: Text
                 (
-                "Location: " + location,
+                loc + '\n' + date,
                 style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
             ),
             IconButton(
               onPressed: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LocationPage())
+                    MaterialPageRoute(builder: (context) => LocationDatePage())
                 );
               },
               icon: Icon(
@@ -64,12 +67,12 @@ class FormsPage extends StatelessWidget
               (
               child: Text
                 (
-                "Update Location",
+                "Update Loc/Date",
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(15),
             ),
             Container
             (
@@ -95,11 +98,11 @@ class FormsPage extends StatelessWidget
                 onPressed:() async
                 {
                   FirebaseFirestore db = FirebaseFirestore.instance;
-                  DocumentReference data = db.collection("hazard_form").doc(location);
+                  DocumentReference data = db.collection("hazard_form").doc(location_date);
                   data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
-                        DatabaseService().addHazardData(location),
+                        DatabaseService().addHazardData(location_date),
                       }
                     },
                     onError: (e) => print("Error completing: $e"),
@@ -124,17 +127,17 @@ class FormsPage extends StatelessWidget
                 onPressed:() async
                 {
                   FirebaseFirestore db = FirebaseFirestore.instance;
-                  DocumentReference data = db.collection("vulnerability_form").doc(location);
+                  DocumentReference data = db.collection("vulnerability_form").doc(location_date);
                   data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
-                        DatabaseService().addVulnerableData(location),
+                        DatabaseService().addVulnerableData(location_date),
                       }
                     },
                     onError: (e) => print("Error completing: $e"),
                   );
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: blankV)));
-                  await DatabaseService().addVulnerableData(location);
+                  await DatabaseService().addVulnerableData(location_date);
                 },
               ),
             ),
@@ -153,17 +156,17 @@ class FormsPage extends StatelessWidget
                 onPressed:() async
                 {
                   FirebaseFirestore db = FirebaseFirestore.instance;
-                  DocumentReference data = db.collection("capacity_form").doc(location);
+                  DocumentReference data = db.collection("capacity_form").doc(location_date);
                   data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
-                        DatabaseService().addCapacityData(location),
+                        DatabaseService().addCapacityData(location_date),
                       }
                     },
                     onError: (e) => print("Error completing: $e"),
                   );
                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: blankC)));
-                   await DatabaseService().addCapacityData(location);
+                   await DatabaseService().addCapacityData(location_date);
                 },
               ),
             ),
@@ -183,17 +186,17 @@ class FormsPage extends StatelessWidget
                 onPressed:()
                 {
                   FirebaseFirestore db = FirebaseFirestore.instance;
-                  DocumentReference data = db.collection("disaster_form").doc(location);
+                  DocumentReference data = db.collection("disaster_form").doc(location_date);
                   data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
-                        DatabaseService().addDisasterData(location),
+                        DatabaseService().addDisasterData(location_date),
                       }
                     },
                     onError: (e) => print("Error completing: $e"),
                   );
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: blankD)));
-                  DatabaseService().addDisasterData(location);
+                  DatabaseService().addDisasterData(location_date);
                 },
               ),
             ),

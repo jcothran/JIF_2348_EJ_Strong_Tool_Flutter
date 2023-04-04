@@ -4,7 +4,7 @@ import 'package:makepdfs/pages/hazard_detail.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview_capacity.dart';
 
 import '../services/database.dart';
-import 'location.dart';
+import 'location_date.dart';
 
 
       //All the necessary text controllers
@@ -102,11 +102,11 @@ class CapacityDetailPage extends StatelessWidget {
               ),
             );
 
-            String location = LocationPage().getLocation();
+            String location_date = LocationDatePage().getLocation() + "_" + LocationDatePage().getDate();
 
             //update form in database
             await DatabaseService().updateCapacityData(
-              location,
+              location_date,
               prevExistController.text,
               prevReqController.text,
               prevGapsController.text,
