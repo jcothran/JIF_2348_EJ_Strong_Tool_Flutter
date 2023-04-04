@@ -9,9 +9,14 @@ We are working with the South Carolina Department of Health and Control (DHEC) i
 <li>Completed Disaster form with proper formatting and such.</li>
 <li>Implementation of dropdown menus in parts that need to be changed from text boxes </li>
 </ul>
+<h3>Known Bugs</h3>
+<ul style - "list-style-type: square">
+<li> The dropdown menus create a pixel overflow error. </li>
+</ul>
+</ul>
 <h3>Bug Fixes</h3>
 <ul style - "list-style-type: square">
-<li> The Disaster form is now running and working now. The disaster form has all of the added features and extra information than the vulnerability form. </li>
+<li> The Disaster form is running and working now. The disaster form has all of the added features and extra information that is connected to the vulnerability form. </li>
 </ul>
 
 <h2>Version 0.3.0</h2>
