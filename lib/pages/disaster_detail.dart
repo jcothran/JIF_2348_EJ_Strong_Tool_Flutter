@@ -1,12 +1,14 @@
-
 import 'package:flutter/material.dart';
 import 'package:makepdfs/models/disasterT.dart';
+import 'package:makepdfs/pages/hazard_detail.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview_disaster.dart';
 
-import '../services/database.dart';
-import 'location.dart';
-
-//All the necessary text controllers
+final communityProfController = TextEditingController();
+@override
+void communityProfDispose() {
+  // Clean up the controller when the widget is disposed.
+  communityProfController.dispose();
+}
 
 final hazardProfController = TextEditingController();
 
@@ -14,25 +16,6 @@ final hazardProfController = TextEditingController();
 void hazardProfDispose() {
   // Clean up the controller when the widget is disposed.
   hazardProfController.dispose();
-}
-
-final popHighController = TextEditingController();
-@override
-void popHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  popHighController.dispose();
-}
-final popMedController = TextEditingController();
-@override
-void popMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  popMedController.dispose();
-}
-final popLowController = TextEditingController();
-@override
-void popLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  popLowController.dispose();
 }
 final elderHighController = TextEditingController();
 @override
@@ -52,6 +35,13 @@ void elderLowDispose() {
   // Clean up the controller when the widget is disposed.
   elderLowController.dispose();
 }
+final elderIndvController = TextEditingController();
+@override
+void elderIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  elderIndvController.dispose();
+}
+
 final childHighController = TextEditingController();
 @override
 void childHighDispose() {
@@ -69,6 +59,12 @@ final childLowController = TextEditingController();
 void childLowDispose() {
   // Clean up the controller when the widget is disposed.
   childLowController.dispose();
+}
+final childIndvController = TextEditingController();
+@override
+void childIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  childIndvController.dispose();
 }
 final hsEdHighController = TextEditingController();
 @override
@@ -88,6 +84,12 @@ void hsEdLowDispose() {
   // Clean up the controller when the widget is disposed.
   hsEdLowController.dispose();
 }
+final hsEdIndvController = TextEditingController();
+@override
+void hsEdIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  hsEdIndvController.dispose();
+}
 final linIsoHighController = TextEditingController();
 @override
 void linIsoHighDispose() {
@@ -105,6 +107,12 @@ final linIsoLowController = TextEditingController();
 void linIsoLowDispose() {
   // Clean up the controller when the widget is disposed.
   linIsoLowController.dispose();
+}
+final linIsoIndvController = TextEditingController();
+@override
+void linIsoIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  linIsoIndvController.dispose();
 }
 final pocHighController = TextEditingController();
 @override
@@ -124,6 +132,12 @@ void pocLowDispose() {
   // Clean up the controller when the widget is disposed.
   pocLowController.dispose();
 }
+final pocIndvController = TextEditingController();
+@override
+void pocIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  pocIndvController.dispose();
+}
 final lincHighController = TextEditingController();
 @override
 void lincHighDispose() {
@@ -141,6 +155,12 @@ final lincLowController = TextEditingController();
 void lincLowDispose() {
   // Clean up the controller when the widget is disposed.
   lincLowController.dispose();
+}
+final lincIndvController = TextEditingController();
+@override
+void lincIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  lincIndvController.dispose();
 }
 final nheHighController = TextEditingController();
 @override
@@ -160,6 +180,12 @@ void nheLowDispose() {
   // Clean up the controller when the widget is disposed.
   nheLowController.dispose();
 }
+final nheIndvController = TextEditingController();
+@override
+void nheIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  nheIndvController.dispose();
+}
 final housingHighController = TextEditingController();
 @override
 void housingHighDispose() {
@@ -177,6 +203,12 @@ final housingLowController = TextEditingController();
 void housingLowDispose() {
   // Clean up the controller when the widget is disposed.
   housingLowController.dispose();
+}
+final housingIndvController = TextEditingController();
+@override
+void housingIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  housingIndvController.dispose();
 }
 final schoolsHighController = TextEditingController();
 @override
@@ -196,6 +228,13 @@ void schoolsLowDispose() {
   // Clean up the controller when the widget is disposed.
   schoolsLowController.dispose();
 }
+
+final schoolsIndvController = TextEditingController();
+@override
+void schoolsIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  schoolsIndvController.dispose();
+}
 final hospHighController = TextEditingController();
 @override
 void hospHighDispose() {
@@ -213,6 +252,12 @@ final hospLowController = TextEditingController();
 void hospLowDispose() {
   // Clean up the controller when the widget is disposed.
   hospLowController.dispose();
+}
+final hospIndvController = TextEditingController();
+@override
+void hospIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  hospIndvController.dispose();
 }
 final wasteHighController = TextEditingController();
 @override
@@ -232,6 +277,12 @@ void wasteLowDispose() {
   // Clean up the controller when the widget is disposed.
   wasteLowController.dispose();
 }
+final wasteIndvController = TextEditingController();
+@override
+void wasteIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  wasteIndvController.dispose();
+}
 final elecHighController = TextEditingController();
 @override
 void elecHighDispose() {
@@ -249,6 +300,12 @@ final elecLowController = TextEditingController();
 void elecLowDispose() {
   // Clean up the controller when the widget is disposed.
   elecLowController.dispose();
+}
+final elecIndvController = TextEditingController();
+@override
+void elecIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  elecIndvController.dispose();
 }
 final waterHighController = TextEditingController();
 @override
@@ -268,6 +325,12 @@ void waterLowDispose() {
   // Clean up the controller when the widget is disposed.
   waterLowController.dispose();
 }
+final waterIndvController = TextEditingController();
+@override
+void waterIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  waterIndvController.dispose();
+}
 final wasteWaterHighController = TextEditingController();
 @override
 void wasteWaterHighDispose() {
@@ -285,6 +348,12 @@ final wasteWaterLowController = TextEditingController();
 void wasteWaterLowDispose() {
   // Clean up the controller when the widget is disposed.
   wasteWaterLowController.dispose();
+}
+final wasteWaterIndvController = TextEditingController();
+@override
+void wasteWaterIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  wasteWaterIndvController.dispose();
 }
 final essenHighController = TextEditingController();
 @override
@@ -304,13 +373,42 @@ void essenLowDispose() {
   // Clean up the controller when the widget is disposed.
   essenLowController.dispose();
 }
+final essenIndvController = TextEditingController();
+@override
+void essenIndvDispose() {
+  // Clean up the controller when the widget is disposed.
+  essenIndvController.dispose();
+}
+final readyGapsController = TextEditingController();
+@override
+void readyGapsDispose() {
+  // Clean up the controller when the widget is disposed.
+  readyGapsController.dispose();
+}
+final prevGapsController = TextEditingController();
+@override
+void prevGapsDispose() {
+  // Clean up the controller when the widget is disposed.
+  prevGapsController.dispose();
+}
+final mitiGapsController = TextEditingController();
+@override
+void mitiGapsDispose() {
+  // Clean up the controller when the widget is disposed.
+  mitiGapsController.dispose();
+}
 final summaryController = TextEditingController();
 @override
 void summaryDispose() {
   // Clean up the controller when the widget is disposed.
   summaryController.dispose();
 }
-
+final recommendationController = TextEditingController();
+@override
+void recommendationDispose() {
+  // Clean up the controller when the widget is disposed.
+  recommendationController.dispose();
+}
 
 
 class DisasterDetailPage extends StatelessWidget {
@@ -326,55 +424,74 @@ class DisasterDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          //sending the data from the text controllers to the pdf handler
+        onPressed: () {
+          disasterT.communityProf = communityProfController.text;
           disasterT.hazardProf = hazardProfController.text;
           disasterT.elderHigh = elderHighController.text;
           disasterT.elderMed = elderMedController.text;
           disasterT.elderLow = elderLowController.text;
+          disasterT.elderIndv = elderIndvController.text;
           disasterT.childHigh = childHighController.text;
           disasterT.childMed = childMedController.text;
           disasterT.childLow = childLowController.text;
+          disasterT.childIndv = childIndvController.text;
           disasterT.hsEdHigh = hsEdHighController.text;
           disasterT.hsEdMed = hsEdMedController.text;
           disasterT.hsEdLow = hsEdLowController.text;
+          disasterT.hsEdIndv = hsEdIndvController.text;
           disasterT.linIsoHigh = linIsoHighController.text;
           disasterT.linIsoMed = linIsoMedController.text;
           disasterT.linIsoLow = linIsoLowController.text;
+          disasterT.linIsoIndv = linIsoIndvController.text;
           disasterT.pocHigh = pocHighController.text;
           disasterT.pocMed = pocMedController.text;
           disasterT.pocLow = pocLowController.text;
+          disasterT.pocIndv = pocIndvController.text;
           disasterT.lincHigh = lincHighController.text;
           disasterT.lincMed = lincMedController.text;
           disasterT.lincLow = lincLowController.text;
+          disasterT.lincIndv = lincIndvController.text;
           disasterT.nheHigh = nheHighController.text;
           disasterT.nheMed = nheMedController.text;
           disasterT.nheLow = nheLowController.text;
+          disasterT.nheIndv = nheIndvController.text;
           disasterT.housingHigh = housingHighController.text;
           disasterT.housingMed = housingMedController.text;
           disasterT.housingLow = housingLowController.text;
+          disasterT.housingIndv = housingIndvController.text;
           disasterT.schoolsHigh = schoolsHighController.text;
           disasterT.schoolsMed = schoolsMedController.text;
           disasterT.schoolsLow = schoolsLowController.text;
+          disasterT.schoolsIndv = schoolsIndvController.text;
           disasterT.hospHigh = hospHighController.text;
           disasterT.hospMed = hospMedController.text;
           disasterT.hospLow = hospLowController.text;
+          disasterT.hospIndv = hospIndvController.text;
           disasterT.wasteHigh = wasteHighController.text;
           disasterT.wasteMed = wasteMedController.text;
           disasterT.wasteLow = wasteLowController.text;
+          disasterT.wasteIndv = wasteIndvController.text;
           disasterT.elecHigh = elecHighController.text;
           disasterT.elecMed = elecMedController.text;
           disasterT.elecLow = elecLowController.text;
+          disasterT.elecIndv = elecIndvController.text;
           disasterT.waterHigh = waterHighController.text;
           disasterT.waterMed = waterMedController.text;
           disasterT.waterLow = waterLowController.text;
+          disasterT.waterIndv = waterIndvController.text;
           disasterT.wasteWaterHigh = wasteWaterHighController.text;
           disasterT.wasteWaterMed = wasteWaterMedController.text;
           disasterT.wasteWaterLow = wasteWaterLowController.text;
+          disasterT.wasteWaterIndv = wasteWaterIndvController.text;
           disasterT.essenHigh = essenHighController.text;
           disasterT.essenMed = essenMedController.text;
           disasterT.essenLow = essenLowController.text;
+          disasterT.essenIndv = essenIndvController.text;
+          disasterT.readyGaps = readyGapsController.text;
+          disasterT.prevGaps = prevGapsController.text;
+          disasterT.mitiGaps = mitiGapsController.text;
           disasterT.summary = summaryController.text;
+          disasterT.recommendation = recommendationController.text;
 
 
 
@@ -382,15 +499,6 @@ class DisasterDetailPage extends StatelessWidget {
             builder: (context) => PdfPreviewDisasterPage(disasterT: disasterT),
           ),
           );
-
-          String location = LocationPage().getLocation();
-
-          /*TODO: Implement the updateDisasterData() function after the disaster form has been completed
-                  and all of the controllers have been added
-           */
-          //update form in database
-          //await DatabaseService().updateDisasterData(...);
-
           // rootBundle.
         },
         child: Icon(Icons.picture_as_pdf),
@@ -407,12 +515,24 @@ class DisasterDetailPage extends StatelessWidget {
               TableRow(
                 children: [
                   Expanded(
+                    child: PaddedText("Community Profile:"),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: communityProfController,),
+                    flex: 4,
+                  ),
+                ],
+              ),
+              TableRow(
+                children: [
+                  Expanded(
                     child: PaddedText("Hazard Profile:"),
                     flex: 1,
                   ),
                   Expanded(
                     child: TextField(controller: hazardProfController,),
-                    flex: 3,
+                    flex: 4,
                   ),
                 ],
               ),
@@ -424,7 +544,7 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: PaddedText("Locations of elements at risk specific to the hazard"),
-                    flex: 3,
+                    flex: 4,
                   ),
                 ],
               ),
@@ -453,6 +573,10 @@ class DisasterDetailPage extends StatelessWidget {
                     child: PaddedText("Low Vul."),
                     flex: 1,
                   ),
+                  Expanded(
+                    child: PaddedText("Indv. Vul."),
+                    flex: 1,
+                  ),
                 ],
               ),
               TableRow(
@@ -473,25 +597,8 @@ class DisasterDetailPage extends StatelessWidget {
                     child: PaddedText(">1.0 mi."),
                     flex: 1,
                   ),
-                ],
-              ),
-
-              TableRow(
-                children: [
                   Expanded(
-                    child: PaddedText("Total Population"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(controller: popHighController),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(controller: popMedController),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(controller: popLowController),
+                    child: PaddedText("        "),
                     flex: 1,
                   ),
                 ],
@@ -515,6 +622,10 @@ class DisasterDetailPage extends StatelessWidget {
                     child: TextField(controller: elderLowController),
                     flex: 1,
                   ),
+                  Expanded(
+                    child: TextField(controller: elderIndvController),
+                    flex: 1,
+                  ),
                 ],
               ),
               TableRow(
@@ -533,6 +644,10 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: childLowController),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: childIndvController),
                     flex: 1,
                   ),
                 ],
@@ -555,6 +670,10 @@ class DisasterDetailPage extends StatelessWidget {
                     child: TextField(controller: hsEdLowController),
                     flex: 1,
                   ),
+                  Expanded(
+                    child: TextField(controller: hsEdIndvController),
+                    flex: 1,
+                  ),
                 ],
               ),
               TableRow(
@@ -573,6 +692,10 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: linIsoLowController),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: linIsoIndvController),
                     flex: 1,
                   ),
                 ],
@@ -595,6 +718,10 @@ class DisasterDetailPage extends StatelessWidget {
                     child: TextField(controller: pocLowController),
                     flex: 1,
                   ),
+                  Expanded(
+                    child: TextField(controller: pocIndvController),
+                    flex: 1,
+                  ),
                 ],
               ),
               TableRow(
@@ -613,6 +740,10 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: lincLowController),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: lincIndvController),
                     flex: 1,
                   ),
                 ],
@@ -635,6 +766,10 @@ class DisasterDetailPage extends StatelessWidget {
                     child: TextField(controller: nheLowController),
                     flex: 1,
                   ),
+                  Expanded(
+                    child: TextField(controller: nheIndvController),
+                    flex: 1,
+                  ),
                 ],
               ),
               TableRow(
@@ -653,6 +788,10 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: housingLowController),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: housingIndvController),
                     flex: 1,
                   ),
                 ],
@@ -675,6 +814,10 @@ class DisasterDetailPage extends StatelessWidget {
                     child: TextField(controller: schoolsLowController),
                     flex: 1,
                   ),
+                  Expanded(
+                    child: TextField(controller: schoolsIndvController),
+                    flex: 1,
+                  ),
                 ],
               ),
               TableRow(
@@ -693,6 +836,10 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: hospLowController),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: hospIndvController),
                     flex: 1,
                   ),
                 ],
@@ -715,6 +862,10 @@ class DisasterDetailPage extends StatelessWidget {
                     child: TextField(controller: wasteLowController),
                     flex: 1,
                   ),
+                  Expanded(
+                    child: TextField(controller: wasteIndvController),
+                    flex: 1,
+                  ),
                 ],
               ),
               TableRow(
@@ -733,6 +884,10 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: elecLowController),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: elecIndvController),
                     flex: 1,
                   ),
                 ],
@@ -755,6 +910,10 @@ class DisasterDetailPage extends StatelessWidget {
                     child: TextField(controller: waterLowController),
                     flex: 1,
                   ),
+                  Expanded(
+                    child: TextField(controller: waterIndvController),
+                    flex: 1,
+                  ),
                 ],
               ),
               TableRow(
@@ -773,6 +932,10 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: wasteWaterLowController),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: wasteWaterIndvController),
                     flex: 1,
                   ),
                 ],
@@ -795,25 +958,73 @@ class DisasterDetailPage extends StatelessWidget {
                     child: TextField(controller: essenLowController),
                     flex: 1,
                   ),
+                  Expanded(
+                    child: TextField(controller: essenIndvController),
+                    flex: 1,
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Table(
+            children: [
+              TableRow(
+                children: [
+                  Expanded(
+                    child: PaddedText("Readiness Gaps:"),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: readyGapsController),
+                    flex: 4,
+                  ),
                 ],
               ),
               TableRow(
                 children: [
                   Expanded(
-                    child: PaddedText("Summary of the Vulnerability Assessment:"),
+                    child: PaddedText("Prevention Gaps"),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: prevGapsController),
+                    flex: 4,
+                  ),
+                ],
+              ),
+              TableRow(
+                children: [
+                  Expanded(
+                    child: PaddedText("Mitigation Gaps"),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: mitiGapsController),
+                    flex: 4,
+                  ),
+                ],
+              ),
+              TableRow(
+                children: [
+                  Expanded(
+                    child: PaddedText("Recommendations of the Disaster Assessment:"),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: recommendationController),
+                    flex: 4,
+                  ),
+                ],
+              ),
+              TableRow(
+                children: [
+                  Expanded(
+                    child: PaddedText("Summary of the Disaster Assessment:"),
                     flex: 1,
                   ),
                   Expanded(
                     child: TextField(controller: summaryController),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText(""),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText(""),
-                    flex: 1,
+                    flex: 4,
                   ),
                 ],
               ),
