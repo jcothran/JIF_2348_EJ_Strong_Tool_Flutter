@@ -23,8 +23,9 @@ class _DropdownOriginState extends State<DropdownOrigin> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      isExpanded: true,
       value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
+      icon: const Icon(Icons.arrow_drop_down),
       elevation: 16,
       style: const TextStyle(color: Colors.deepPurple),
       underline: Container(
@@ -61,8 +62,9 @@ class _DropdownWarningState extends State<DropdownWarning> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      isExpanded: true,
       value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
+      icon: const Icon(Icons.arrow_drop_down),
       elevation: 16,
       style: const TextStyle(color: Colors.deepPurple),
       underline: Container(
@@ -99,8 +101,9 @@ class _DropdownForewarningState extends State<DropdownForewarning> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      isExpanded: true,
       value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
+      icon: const Icon(Icons.arrow_drop_down),
       elevation: 16,
       style: const TextStyle(color: Colors.deepPurple),
       underline: Container(
@@ -137,8 +140,9 @@ class _DropdownSpeedState extends State<DropdownSpeed> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      isExpanded: true,
       value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
+      icon: const Icon(Icons.arrow_drop_down),
       elevation: 16,
       style: const TextStyle(color: Colors.deepPurple),
       underline: Container(
@@ -175,8 +179,9 @@ class _DropdownFreqState extends State<DropdownFreq> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      isExpanded: true,
       value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
+      icon: const Icon(Icons.arrow_drop_down),
       elevation: 16,
       style: const TextStyle(color: Colors.deepPurple),
       underline: Container(
@@ -213,8 +218,9 @@ class _DropdownPeriodState extends State<DropdownPeriod> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      isExpanded: true,
       value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
+      icon: const Icon(Icons.arrow_drop_down),
       elevation: 16,
       style: const TextStyle(color: Colors.deepPurple),
       underline: Container(
@@ -251,8 +257,9 @@ class _DropdownDurationState extends State<DropdownDuration> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      isExpanded: true,
       value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
+      icon: const Icon(Icons.arrow_drop_down),
       elevation: 16,
       style: const TextStyle(color: Colors.deepPurple),
       underline: Container(
@@ -289,8 +296,9 @@ class _DropdownForceState extends State<DropdownForce> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      isExpanded: true,
       value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
+      icon: const Icon(Icons.arrow_drop_down),
       elevation: 16,
       style: const TextStyle(color: Colors.deepPurple),
       underline: Container(
@@ -335,7 +343,7 @@ class HazardDetailPage extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          //sending the data from the text controllers to the pdf handler
+          //sending the data from the dropdowns to the pdf handler
           hazardT.origin = originDrop;
           hazardT.force = forceDrop;
           hazardT.warning = warningDrop;
