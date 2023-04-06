@@ -427,7 +427,7 @@ class DisasterDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: () async {
           disasterT.communityProf = communityProfController.text;
           disasterT.hazardProf = hazardProfController.text;
           disasterT.elderHigh = elderHighController.text;
@@ -505,12 +505,76 @@ class DisasterDetailPage extends StatelessWidget {
 
           String location_date = LocationDatePage().getLocation() + "_" + LocationDatePage().getDate();
 
-          /*TODO: Implement the updateDisasterData() function after the disaster form has been completed
-                  and all of the controllers have been added
-           */
-          //update form in database
-          //await DatabaseService().updateDisasterData(...);
-          // rootBundle.
+          await DatabaseService().updateDisasterData(
+              location_date,
+              communityProfController.text,
+              hazardProfController.text,
+              elderHighController.text,
+              elderMedController.text,
+              elderLowController.text,
+              elderIndvController.text,
+              childHighController.text,
+              childMedController.text,
+              childLowController.text,
+              childIndvController.text,
+              hsEdHighController.text,
+              hsEdMedController.text,
+              hsEdLowController.text,
+              hsEdIndvController.text,
+              linIsoHighController.text,
+              linIsoMedController.text,
+              linIsoLowController.text,
+              linIsoIndvController.text,
+              pocHighController.text,
+              pocMedController.text,
+              pocLowController.text,
+              pocIndvController.text,
+              lincHighController.text,
+              lincMedController.text,
+              lincLowController.text,
+              lincIndvController.text,
+              nheHighController.text,
+              nheMedController.text,
+              nheLowController.text,
+              nheIndvController.text,
+              housingHighController.text,
+              housingMedController.text,
+              housingLowController.text,
+              housingIndvController.text,
+              schoolsHighController.text,
+              schoolsMedController.text,
+              schoolsLowController.text,
+              schoolsIndvController.text,
+              hospHighController.text,
+              hospMedController.text,
+              hospLowController.text,
+              hospIndvController.text,
+              wasteHighController.text,
+              wasteMedController.text,
+              wasteLowController.text,
+              wasteIndvController.text,
+              elecHighController.text,
+              elecMedController.text,
+              elecLowController.text,
+              elecIndvController.text,
+              waterHighController.text,
+              waterMedController.text,
+              waterLowController.text,
+              waterIndvController.text,
+              wasteWaterHighController.text,
+              wasteWaterMedController.text,
+              wasteWaterLowController.text,
+              wasteWaterIndvController.text,
+              essenHighController.text,
+              essenMedController.text,
+              essenLowController.text,
+              essenIndvController.text,
+              readyGapsController.text,
+              prevGapsController.text,
+              mitiGapsController.text,
+              summaryController.text,
+              recommendationController.text,
+          );
         },
         child: Icon(Icons.picture_as_pdf),
       ),
