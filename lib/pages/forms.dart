@@ -99,7 +99,7 @@ class FormsPage extends StatelessWidget
                 {
                   FirebaseFirestore db = FirebaseFirestore.instance;
                   DocumentReference data = db.collection("hazard_form").doc(location_date);
-                  data.get().then(
+                  await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
                         DatabaseService().addHazardData(location_date),
@@ -128,7 +128,7 @@ class FormsPage extends StatelessWidget
                 {
                   FirebaseFirestore db = FirebaseFirestore.instance;
                   DocumentReference data = db.collection("vulnerability_form").doc(location_date);
-                  data.get().then(
+                  await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
                         DatabaseService().addVulnerableData(location_date),
@@ -137,7 +137,6 @@ class FormsPage extends StatelessWidget
                     onError: (e) => print("Error completing: $e"),
                   );
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: blankV)));
-                  await DatabaseService().addVulnerableData(location_date);
                 },
               ),
             ),
@@ -157,16 +156,16 @@ class FormsPage extends StatelessWidget
                 {
                   FirebaseFirestore db = FirebaseFirestore.instance;
                   DocumentReference data = db.collection("capacity_form").doc(location_date);
-                  data.get().then(
+                  await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
+                        print('Data exists'),
                         DatabaseService().addCapacityData(location_date),
                       }
                     },
                     onError: (e) => print("Error completing: $e"),
                   );
                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: blankC)));
-                   await DatabaseService().addCapacityData(location_date);
                 },
               ),
             ),
@@ -183,11 +182,11 @@ class FormsPage extends StatelessWidget
               (
                 child: Text("Disaster Risk Analysis Form"),
                 style: style,
-                onPressed:()
+                onPressed:() async
                 {
                   FirebaseFirestore db = FirebaseFirestore.instance;
                   DocumentReference data = db.collection("disaster_form").doc(location_date);
-                  data.get().then(
+                  await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
                         DatabaseService().addDisasterData(location_date),
@@ -196,7 +195,6 @@ class FormsPage extends StatelessWidget
                     onError: (e) => print("Error completing: $e"),
                   );
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: blankD)));
-                  DatabaseService().addDisasterData(location_date);
                 },
               ),
             ),

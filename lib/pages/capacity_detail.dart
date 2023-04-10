@@ -105,6 +105,10 @@ class CapacityDetailPage extends StatelessWidget {
             String location_date = LocationDatePage().getLocation() + "_" + LocationDatePage().getDate();
 
             //update form in database
+            /*
+              TODO: Edit updateCapacityData() function from recieving text input
+                    to recieving drop down input when drop downs have been applied
+             */
             await DatabaseService().updateCapacityData(
               location_date,
               prevExistController.text,
@@ -233,7 +237,7 @@ class CapacityDetailPage extends StatelessWidget {
                     Expanded(
                       child:
                         PaddedText("Note: When carrying out survivability assessment"
-                        "all elements at risk assesd for level of vulnerability during "
+                        "all elements at risk assessed for level of vulnerability during "
                         "the vulnerability assessment should be considered here"),
                         flex: 1,
                       ),
