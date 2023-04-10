@@ -2,283 +2,48 @@ import 'package:flutter/material.dart';
 import 'package:makepdfs/models/capacityT.dart';
 import 'package:makepdfs/pages/hazard_detail.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview_capacity.dart';
+import '../services/database.dart';
+import 'location_date.dart';
 
-final prevExistingController = TextEditingController();
-
-@override
-void prevExistingDispose() {
-  // Clean up the controller when the widget is disposed.
-  prevExistingController.dispose();
-  //super.dispose();
-}
-
-final prevRequiredController = TextEditingController();
-
-@override
-void prevRequiredDispose() {
-  // Clean up the controller when the widget is disposed.
-  prevRequiredController.dispose();
-  //super.dispose();
-}
-
+final prevExistController = TextEditingController();
+final prevReqController = TextEditingController();
 final prevGapsController = TextEditingController();
-
-@override
-void prevGapsDispose() {
-  // Clean up the controller when the widget is disposed.
-  prevGapsController.dispose();
-  //super.dispose();
-}
-
-final mitExistingController = TextEditingController();
-
-@override
-void mitExistingDispose() {
-  // Clean up the controller when the widget is disposed.
-  mitExistingController.dispose();
-  //super.dispose();
-}
-
-final mitRequiredController = TextEditingController();
-
-@override
-void mitRequiredDispose() {
-  // Clean up the controller when the widget is disposed.
-  mitRequiredController.dispose();
-  //super.dispose();
-}
-
-final mitGapsController = TextEditingController();
-
-@override
-void mitGapsDispose() {
-  // Clean up the controller when the widget is disposed.
-  mitGapsController.dispose();
-  //super.dispose();
-}
-
-final highlyVulnElementController = TextEditingController();
-//=================================================================
-@override
-void highlyVulnElementDispose() {
-  // Clean up the controller when the widget is disposed.
-  highlyVulnElementController.dispose();
-  //super.dispose();
-}
-
-final highHumanExistingController = TextEditingController();
-
-@override
-void highHumanExistingDispose() {
-  // Clean up the controller when the widget is disposed.
-  highHumanExistingController.dispose();
-  //super.dispose();
-}
-
-final highHumanRequiredController = TextEditingController();
-
-@override
-void highHumanRequiredDispose() {
-  // Clean up the controller when the widget is disposed.
-  highHumanRequiredController.dispose();
-  //super.dispose();
-}
-
-final highHumanGapsController = TextEditingController();
-
-@override
-void highHumanGapsDispose() {
-  // Clean up the controller when the widget is disposed.
-  highHumanGapsController.dispose();
-  //super.dispose();
-}
-
-final highNonHumanExistingController = TextEditingController();
-
-@override
-void highNonHumanExistingDispose() {
-  // Clean up the controller when the widget is disposed.
-  highNonHumanExistingController.dispose();
-  //super.dispose();
-}
-
-final highNonHumanRequiredController = TextEditingController();
-
-@override
-void highNonHumanRequiredDispose() {
-  // Clean up the controller when the widget is disposed.
-  highNonHumanRequiredController.dispose();
-  //super.dispose();
-}
-
-final highNonHumanGapsController = TextEditingController();
-
-@override
-void highNonHumanGapsDispose() {
-  // Clean up the controller when the widget is disposed.
-  highNonHumanGapsController.dispose();
-  //super.dispose();
-}
-
-final medHumanExistingController = TextEditingController();
-
-@override
-void medHumanExistingDispose() {
-  // Clean up the controller when the widget is disposed.
-  medHumanExistingController.dispose();
-  //super.dispose();
-}
-
-final medHumanRequiredController = TextEditingController();
-
-@override
-void medHumanRequiredDispose() {
-  // Clean up the controller when the widget is disposed.
-  medHumanRequiredController.dispose();
-  //super.dispose();
-}
-
-final medHumanGapsController = TextEditingController();
-
-@override
-void medHumanGapsDispose() {
-  // Clean up the controller when the widget is disposed.
-  medHumanGapsController.dispose();
-  //super.dispose();
-}
-
-final medNonHumanExistingController = TextEditingController();
-
-@override
-void medNonHumanExistingDispose() {
-  medNonHumanExistingController.dispose();
-}
-
-final medNonHumanRequiredController = TextEditingController();
-
-@override
-void medNonHumanRequiredDispose() {
-  medNonHumanRequiredController.dispose();
-}
-
-final medNonHumanGapsController = TextEditingController();
-
-@override
-void medNonHumanGapsDispose() {
-  medNonHumanGapsController.dispose();
-}
-
-final lowBeforeHeExistingController = TextEditingController();
-
-@override
-void lowBeforeHeExistingDispose() {
-  lowBeforeHeExistingController.dispose();
-}
-
-final lowBeforeHeRequiredController = TextEditingController();
-
-@override
-void lowBeforeHeRequiredDispose() {
-  lowBeforeHeRequiredController.dispose();
-}
-
-final lowBeforeHeGapsController = TextEditingController();
-
-@override
-void lowBeforeHeGapsDispose() {
-  lowBeforeHeGapsController.dispose();
-}
-
-final lowBeforeNonHEExistingController = TextEditingController();
-
-@override
-void lowBeforeNonHEExistingDispose() {
-  lowBeforeNonHEExistingController.dispose();
-}
-
-final lowNonHERequiredController = TextEditingController();
-
-@override
-void lowNonHERequiredDispose() {
-  lowNonHERequiredController.dispose();
-}
-
-final lowNonHEGapsController = TextEditingController();
-
-@override
-void lowNonHEGapsDispose() {
-  lowNonHEGapsController.dispose();
-}
-
-//during hazarad
-final lowDuringHeExistingController = TextEditingController();
-
-@override
-void lowDuringHeExistingDispose() {
-  lowDuringHeExistingController.dispose();
-}
-
-final lowDuringHeRequiredController = TextEditingController();
-
-@override
-void lowDuringHeRequiredDispose() {
-  lowDuringHeRequiredController.dispose();
-}
-
-final lowDuringHeGapsController = TextEditingController();
-
-@override
-void lowDuringHeGapsDispose() {
-  lowDuringHeGapsController.dispose();
-}
-
+final mitiExistController = TextEditingController();
+final mitiReqController = TextEditingController();
+final mitiGapsController = TextEditingController();
+final heExistHighController = TextEditingController();
+final heReqHighController = TextEditingController();
+final heGapsHighController = TextEditingController();
+final nonHeExistHighController = TextEditingController();
+final nonHeReqHighController = TextEditingController();
+final nonHeGapsHighController = TextEditingController();
+final heExistMedController = TextEditingController();
+final heReqMedController = TextEditingController();
+final heGapsMedController = TextEditingController();
+final nonHeExistMedController = TextEditingController();
+final nonHeReqMedController = TextEditingController();
+final nonHeGapsMedController = TextEditingController();
+final heExistLowBefController = TextEditingController();
+final heReqLowBefController = TextEditingController();
+final heGapsLowBefController = TextEditingController();
+final nonHeExistLowBefController = TextEditingController();
+final nonHeReqLowBefController = TextEditingController();
+final nonHeGapsLowBefController = TextEditingController();
+final heExistLowDurController = TextEditingController();
+final heReqLowDurController = TextEditingController();
+final heGapsLowDurController = TextEditingController();
 final nonHeExistLowDurController = TextEditingController();
-
-@override
-void nonHeExistLowDurDispose() {
-  nonHeExistLowDurController.dispose();
-}
-
 final nonHeReqLowDurController = TextEditingController();
-
-@override
-void nonHeReqLowDurDispose() {
-  nonHeReqLowDurController.dispose();
-}
-
 final nonHeGapsLowDurController = TextEditingController();
+final commReadyBefReqController = TextEditingController();
+final commReadyBefGapsController = TextEditingController();
+final commReadyDurReqController = TextEditingController();
+final commReadyDurGapsController = TextEditingController();
 
 @override
-void lowDuringNonHEGapsDispose() {
-  nonHeGapsLowDurController.dispose();
-}
-
-final commReadyBefReq = TextEditingController();
-
-@override
-void commReadyBefReqDispose() {
-  commReadyBefReq.dispose();
-}
-
-final commReadyBefGaps = TextEditingController();
-
-@override
-void commReadyBefGapsDispose() {
-  commReadyBefGaps.dispose();
-}
-
-final commReadyDurReq = TextEditingController();
-
-@override
-void commReadyDurReqDispose() {
-  commReadyDurReq.dispose();
-}
-
-final commReadyDurGaps = TextEditingController();
-
-@override
-void commReadyDurGapsDispose() {
-  commReadyDurGaps.dispose();
+void disposeController(TextEditingController c) {
+  // Clears the controller passed in after the widget is disposed
+  c.dispose();
 }
 
 //=========================================================
@@ -425,30 +190,94 @@ class CapacityDetailPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           //sending the data from the text controllers to the pdf handler
-          capacityT.prevExist = prevExistingController.text;
-          capacityT.prevReq = prevRequiredController.text;
+          capacityT.prevExist = prevExistController.text;
+          capacityT.prevReq = prevReqController.text;
           capacityT.prevGaps = prevGapsController.text;
-          capacityT.mitiExist = mitExistingController.text;
-          capacityT.mitiReq = mitRequiredController.text;
-          capacityT.mitiGaps = mitGapsController.text;
+          capacityT.mitiExist = mitiExistController.text;
+          capacityT.mitiReq = mitiReqController.text;
+          capacityT.mitiGaps = mitiGapsController.text;
           //highly vulnerable
 
-          capacityT.heElement = highlyVulnElementController.text;
-          capacityT.heReqHigh = highHumanRequiredController.text;
-          capacityT.heExistHigh = highHumanExistingController.text;
-          capacityT.heGapsHigh = highHumanGapsController.text;
-          capacityT.nonHeExistHigh = highNonHumanRequiredController.text;
-          capacityT.nonHeReqHigh = highNonHumanExistingController.text;
-          capacityT.nonHeGapsHigh = highNonHumanGapsController.text;
-          capacityT.heExistMed = medHumanExistingController.text;
-          capacityT.heReqMed = medHumanRequiredController.text;
-          capacityT.heGapsMed = medHumanGapsController.text;
+          capacityT.heElement = heExistHighController.text;
+          capacityT.heReqHigh = heReqHighController.text;
+          capacityT.heExistHigh = heExistHighController.text;
+          capacityT.heGapsHigh = heGapsHighController.text;
+          capacityT.nonHeExistHigh = nonHeExistHighController.text;
+          capacityT.nonHeReqHigh = nonHeReqHighController.text;
+          capacityT.nonHeGapsHigh = nonHeGapsHighController.text;
+          capacityT.heExistMed = heExistMedController.text;
+          capacityT.heReqMed = heReqMedController.text;
+          capacityT.heGapsMed = heGapsMedController.text;
+          capacityT.nonHeExistMed = nonHeExistMedController.text;
+          capacityT.nonHeReqMed = nonHeReqMedController.text;
+          capacityT.nonHeGapsMed = nonHeGapsMedController.text;
+          capacityT.heExistLowBef = heExistLowBefController.text;
+          capacityT.heReqLowBef = heReqLowBefController.text;
+          capacityT.heGapsLowBef = heGapsLowBefController.text;
+          capacityT.nonHeExistLowBef = nonHeExistLowBefController.text;
+          capacityT.nonHeReqLowBef = nonHeReqLowBefController.text;
+          capacityT.nonHeGapsLowBef = nonHeGapsLowBefController.text;
+          capacityT.heExistLowDur = heExistLowDurController.text;
+          capacityT.heReqLowDur = heReqLowDurController.text;
+          capacityT.heGapsLowDur = heGapsLowDurController.text;
+          capacityT.nonHeExistLowDur = nonHeExistLowDurController.text;
+          capacityT.nonHeReqLowDur = nonHeReqLowDurController.text;
+          capacityT.nonHeGapsLowDur = nonHeGapsLowDurController.text;
+          capacityT.commReadyBefReq = commReadyBefReqController.text;
+          capacityT.commReadyBefGaps = commReadyBefGapsController.text;
+          capacityT.commReadyDurReq = commReadyDurReqController.text;
+          capacityT.commReadyDurGaps = commReadyDurGapsController.text;
 
-          Navigator.of(context).push(
-            MaterialPageRoute(
+          Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => PdfPreviewCapacity(capacityT: capacityT),
             ),
           );
+          String location_date = LocationDatePage().getLocation() + "_" + LocationDatePage().getDate();
+
+            //update form in database
+            /*
+              TODO: Edit updateCapacityData() function from recieving text input
+                    to recieving drop down input when drop downs have been applied
+             */
+            await DatabaseService().updateCapacityData(
+              location_date,
+              prevExistController.text,
+              prevReqController.text,
+              prevGapsController.text,
+              mitiExistController.text,
+              mitiReqController.text,
+              mitiGapsController.text,
+              heExistHighController.text,
+              heReqHighController.text,
+              heGapsHighController.text,
+              nonHeExistHighController.text,
+              nonHeReqHighController.text,
+              nonHeGapsHighController.text,
+              heExistMedController.text,
+              heReqMedController.text,
+              heGapsMedController.text,
+              nonHeExistMedController.text,
+              nonHeReqMedController.text,
+              nonHeGapsMedController.text,
+              heExistLowBefController.text,
+              heReqLowBefController.text,
+              heGapsLowBefController.text,
+              nonHeExistLowBefController.text,
+              nonHeReqLowBefController.text,
+              nonHeGapsLowBefController.text,
+              heExistLowDurController.text,
+              heReqLowDurController.text,
+              heGapsLowDurController.text,
+              nonHeExistLowDurController.text,
+              nonHeReqLowDurController.text,
+              nonHeGapsLowDurController.text,
+              commReadyBefReqController.text,
+              commReadyBefGapsController.text,
+              commReadyDurReqController.text,
+              commReadyDurGapsController.text,
+            );
+
+
         },
         child: Icon(Icons.picture_as_pdf),
       ),
@@ -688,140 +517,57 @@ class CapacityDetailPage extends StatelessWidget {
                   flex: 1,
                 ),
                 Expanded(
-                  child: TextField(
-                    controller: medHumanExistingController,
+                  child: Container(
+                    width: 200, // Set the desired width for the dropdown menu
+                    child: DropdownCapacity(items: element_at_risk),
                   ),
                   flex: 1,
                 ),
                 Expanded(
-                  child: TextField(
-                    controller: medHumanRequiredController,
+                  child: Container(
+                    width: 200, // Set the desired width for the dropdown menu
+                    child: DropdownCapacity(items: element_at_risk),
                   ),
                   flex: 1,
                 ),
                 Expanded(
-                  child: TextField(
-                    controller: medHumanGapsController,
+                  child: Container(
+                    width: 200, // Set the desired width for the dropdown menu
+                    child: DropdownCapacity(items: element_at_risk),
                   ),
                   flex: 1,
                 ),
               ],
             ),
-            //     TableRow(
-            //       children: [
-            //         Expanded(
-            //           child: PaddedText("Non-Human Element"),
-            //           flex: 1,
-            //         ),
-            //         Expanded(
-            //           child: TextField(
-            //             controller: nonHeExistMedController,
-            //           ),
-            //           flex: 1,
-            //         ),
-            //         Expanded(
-            //           child: TextField(
-            //             controller: nonHeReqMedController,
-            //           ),
-            //           flex: 1,
-            //         ),
-            //         Expanded(
-            //           child: TextField(
-            //             controller: nonHeGapsMedController,
-            //           ),
-            //           flex: 1,
-            //         ),
-            //       ],
-            //     ),
-            //   ],
-            // ),
-            // //Low Vuln Before Table
-            // Table(
-            //   children: [
-            //     TableRow(children: [
-            //       PaddedText("Low Vulnerable: Survivability before hazard"),
-            //     ]),
-            //   ],
-            // ),
-            // Table(
-            //   children: [
-            //     TableRow(
-            //       children: [
-            //         Expanded(
-            //           child: PaddedText("Element At Risk"),
-            //           flex: 1,
-            //         ),
-            //         Expanded(
-            //           child: PaddedText("Existing"),
-            //           flex: 1,
-            //         ),
-            //         Expanded(
-            //           child: PaddedText("Required"),
-            //           flex: 1,
-            //         ),
-            //         Expanded(
-            //           child: PaddedText("Gaps"),
-            //           flex: 1,
-            //         ),
-            //       ],
-            //     ),
-            //     TableRow(
-            //       children: [
-            //         Expanded(
-            //           child: PaddedText("Human Element"),
-            //           flex: 1,
-            //         ),
-            //         Expanded(
-            //           child: TextField(
-            //             controller: heExistLowBefController,
-            //           ),
-            //           flex: 1,
-            //         ),
-            //         Expanded(
-            //           child: TextField(
-            //             controller: heReqLowBefController,
-            //           ),
-            //           flex: 1,
-            //         ),
-            //         Expanded(
-            //           child: TextField(
-            //             controller: heGapsLowBefController,
-            //           ),
-            //           flex: 1,
-            //         ),
-            //       ],
-            //     ),
-            //     TableRow(
-            //       children: [
-            //         Expanded(
-            //           child: PaddedText("Non-Human Element"),
-            //           flex: 1,
-            //         ),
-            //         Expanded(
-            //           child: TextField(
-            //             controller: nonHeExistLowBefController,
-            //           ),
-            //           flex: 1,
-            //         ),
-            //         Expanded(
-            //           child: TextField(
-            //             controller: nonHeReqLowBefController,
-            //           ),
-            //           flex: 1,
-            //         ),
-            //         Expanded(
-            //           child: TextField(
-            //             controller: nonHeGapsLowBefController,
-            //           ),
-            //           flex: 1,
-            //         ),
-            //       ],
-            //     ),
-            //   ],
-            // ),
-            // //Low Vuln During Table
-
-            // Table(
+            TableRow(
+              children: [
+                Expanded(
+                  child: PaddedText("Non-Human Element"),
+                  flex: 1,
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200, // Set the desired width for the dropdown menu
+                    child: DropdownCapacity(items: element_at_risk),
+                  ),
+                  flex: 1,
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200, // Set the desired width for the dropdown menu
+                    child: DropdownCapacity(items: element_at_risk),
+                  ),
+                  flex: 1,
+                ),
+                Expanded(
+                  child: Container(
+                    width: 200, // Set the desired width for the dropdown menu
+                    child: DropdownCapacity(items: element_at_risk),
+                  ),
+                  flex: 1,
+                ),
+              ],
+            ),
             //   children: [
             //     TableRow(children: [
             //       PaddedText("Low Vulnerable: Survivability during hazard"),
@@ -1017,6 +763,97 @@ class CapacityDetailPage extends StatelessWidget {
             //           "• Coordination and incident command system\n"),
             //     ],
           ]),
+
+          Table(
+            children: [
+              TableRow(children: [
+                PaddedText("Low Vulnerable: Survivability before hazard"),
+              ]),
+            ],
+          ),
+          //High Vuln Table
+          Table(
+            children: [
+              TableRow(
+                children: [
+                  Expanded(
+                    child: PaddedText("Element At Risk"),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: PaddedText("Existing"),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: PaddedText("Required"),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: PaddedText("Gaps"),
+                    flex: 1,
+                  ),
+                ],
+              ),
+              TableRow(
+                children: [
+                  Expanded(
+                    child: PaddedText("Human Element"),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: Container(
+                      width: 200, // Set the desired width for the dropdown menu
+                      child: DropdownCapacity(items: element_at_risk),
+                    ),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: Container(
+                      width: 200, // Set the desired width for the dropdown menu
+                      child: DropdownCapacity(items: element_at_risk),
+                    ),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: Container(
+                      width: 200, // Set the desired width for the dropdown menu
+                      child: DropdownCapacity(items: element_at_risk),
+                    ),
+                    flex: 1,
+                  ),
+                ],
+              ),
+              TableRow(
+                children: [
+                  Expanded(
+                    child: PaddedText("Non-Human Element"),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: Container(
+                      width: 200, // Set the desired width for the dropdown menu
+                      child: DropdownCapacity(items: element_at_risk),
+                    ),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: Container(
+                      width: 200, // Set the desired width for the dropdown menu
+                      child: DropdownCapacity(items: element_at_risk),
+                    ),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: Container(
+                      width: 200, // Set the desired width for the dropdown menu
+                      child: DropdownCapacity(items: element_at_risk),
+                    ),
+                    flex: 1,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ],
       ),
     );
