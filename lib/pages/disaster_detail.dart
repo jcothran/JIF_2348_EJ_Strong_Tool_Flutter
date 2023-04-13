@@ -4,8 +4,8 @@ import 'package:makepdfs/pages/hazard_detail.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview_disaster.dart';
 import '../services/database.dart';
 import 'location_date.dart';
+import 'package:flutter/services.dart';
 
-//All the necessary text controllers
 final communityProfController = TextEditingController();
 @override
 void communityProfDispose() {
@@ -382,24 +382,6 @@ void essenIndvDispose() {
   // Clean up the controller when the widget is disposed.
   essenIndvController.dispose();
 }
-final readyGapsController = TextEditingController();
-@override
-void readyGapsDispose() {
-  // Clean up the controller when the widget is disposed.
-  readyGapsController.dispose();
-}
-final prevGapsController = TextEditingController();
-@override
-void prevGapsDispose() {
-  // Clean up the controller when the widget is disposed.
-  prevGapsController.dispose();
-}
-final mitiGapsController = TextEditingController();
-@override
-void mitiGapsDispose() {
-  // Clean up the controller when the widget is disposed.
-  mitiGapsController.dispose();
-}
 final summaryController = TextEditingController();
 @override
 void summaryDispose() {
@@ -427,7 +409,7 @@ class DisasterDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
+        onPressed: () {
           disasterT.communityProf = communityProfController.text;
           disasterT.hazardProf = hazardProfController.text;
           disasterT.elderHigh = elderHighController.text;
@@ -490,91 +472,14 @@ class DisasterDetailPage extends StatelessWidget {
           disasterT.essenMed = essenMedController.text;
           disasterT.essenLow = essenLowController.text;
           disasterT.essenIndv = essenIndvController.text;
-          disasterT.readyGaps = readyGapsController.text;
-          disasterT.prevGaps = prevGapsController.text;
-          disasterT.mitiGaps = mitiGapsController.text;
           disasterT.summary = summaryController.text;
           disasterT.recommendation = recommendationController.text;
-
-
 
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => PdfPreviewDisasterPage(disasterT: disasterT),
           ),
           );
-
-          String location_date = LocationDatePage().getLocation() + "_" + LocationDatePage().getDate();
-
-          await DatabaseService().updateDisasterData(
-              location_date,
-              communityProfController.text,
-              hazardProfController.text,
-              elderHighController.text,
-              elderMedController.text,
-              elderLowController.text,
-              elderIndvController.text,
-              childHighController.text,
-              childMedController.text,
-              childLowController.text,
-              childIndvController.text,
-              hsEdHighController.text,
-              hsEdMedController.text,
-              hsEdLowController.text,
-              hsEdIndvController.text,
-              linIsoHighController.text,
-              linIsoMedController.text,
-              linIsoLowController.text,
-              linIsoIndvController.text,
-              pocHighController.text,
-              pocMedController.text,
-              pocLowController.text,
-              pocIndvController.text,
-              lincHighController.text,
-              lincMedController.text,
-              lincLowController.text,
-              lincIndvController.text,
-              nheHighController.text,
-              nheMedController.text,
-              nheLowController.text,
-              nheIndvController.text,
-              housingHighController.text,
-              housingMedController.text,
-              housingLowController.text,
-              housingIndvController.text,
-              schoolsHighController.text,
-              schoolsMedController.text,
-              schoolsLowController.text,
-              schoolsIndvController.text,
-              hospHighController.text,
-              hospMedController.text,
-              hospLowController.text,
-              hospIndvController.text,
-              wasteHighController.text,
-              wasteMedController.text,
-              wasteLowController.text,
-              wasteIndvController.text,
-              elecHighController.text,
-              elecMedController.text,
-              elecLowController.text,
-              elecIndvController.text,
-              waterHighController.text,
-              waterMedController.text,
-              waterLowController.text,
-              waterIndvController.text,
-              wasteWaterHighController.text,
-              wasteWaterMedController.text,
-              wasteWaterLowController.text,
-              wasteWaterIndvController.text,
-              essenHighController.text,
-              essenMedController.text,
-              essenLowController.text,
-              essenIndvController.text,
-              readyGapsController.text,
-              prevGapsController.text,
-              mitiGapsController.text,
-              summaryController.text,
-              recommendationController.text,
-          );
+          // rootBundle.
         },
         child: Icon(Icons.picture_as_pdf),
       ),
@@ -595,7 +500,7 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: communityProfController,),
-                    flex: 4,
+                    flex: 3,
                   ),
                 ],
               ),
@@ -607,7 +512,7 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: hazardProfController,),
-                    flex: 4,
+                    flex: 3,
                   ),
                 ],
               ),
@@ -619,7 +524,7 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: PaddedText("Locations of elements at risk specific to the hazard"),
-                    flex: 4,
+                    flex: 3,
                   ),
                 ],
               ),
@@ -686,19 +591,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: elderHighController),
+                    child: TextField(
+                        controller: elderHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: elderMedController),
+                    child: TextField(
+                      controller: elderMedController,
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                      ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: elderLowController),
+                    child: TextField(
+                        controller: elderLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: elderIndvController),
+                    child: TextField(
+                        controller: elderIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -710,19 +635,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: childHighController),
+                    child: TextField(
+                        controller: childHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: childMedController),
+                    child: TextField(
+                        controller: childMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: childLowController),
+                    child: TextField(
+                        controller: childLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: childIndvController),
+                    child: TextField(
+                        controller: childIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -734,19 +679,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: hsEdHighController),
+                    child: TextField(
+                        controller: hsEdHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: hsEdMedController),
+                    child: TextField(
+                        controller: hsEdMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: hsEdLowController),
+                    child: TextField(
+                        controller: hsEdLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: hsEdIndvController),
+                    child: TextField(
+                        controller: hsEdIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -758,19 +723,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: linIsoHighController),
+                    child: TextField(
+                        controller: linIsoHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: linIsoMedController),
+                    child: TextField(
+                        controller: linIsoMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: linIsoLowController),
+                    child: TextField(
+                        controller: linIsoLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: linIsoIndvController),
+                    child: TextField(
+                        controller: linIsoIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -782,19 +767,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: pocHighController),
+                    child: TextField(
+                        controller: pocHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: pocMedController),
+                    child: TextField(
+                        controller: pocMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: pocLowController),
+                    child: TextField(
+                        controller: pocLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: pocIndvController),
+                    child: TextField(
+                        controller: pocIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -806,19 +811,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: lincHighController),
+                    child: TextField(
+                        controller: lincHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: lincMedController),
+                    child: TextField(
+                        controller: lincMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: lincLowController),
+                    child: TextField(
+                        controller: lincLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: lincIndvController),
+                    child: TextField(
+                        controller: lincIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -830,19 +855,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: nheHighController),
+                    child: TextField(
+                        controller: nheHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: nheMedController),
+                    child: TextField(
+                        controller: nheMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: nheLowController),
+                    child: TextField(
+                        controller: nheLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: nheIndvController),
+                    child: TextField(
+                        controller: nheIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -854,19 +899,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: housingHighController),
+                    child: TextField(
+                        controller: housingHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: housingMedController),
+                    child: TextField(
+                        controller: housingMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: housingLowController),
+                    child: TextField(
+                        controller: housingLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: housingIndvController),
+                    child: TextField(
+                        controller: housingIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -878,19 +943,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: schoolsHighController),
+                    child: TextField(
+                        controller: schoolsHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: schoolsMedController),
+                    child: TextField(
+                        controller: schoolsMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: schoolsLowController),
+                    child: TextField(
+                        controller: schoolsLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: schoolsIndvController),
+                    child: TextField(
+                        controller: schoolsIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -902,19 +987,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: hospHighController),
+                    child: TextField(
+                        controller: hospHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: hospMedController),
+                    child: TextField(
+                        controller: hospMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: hospLowController),
+                    child: TextField(
+                        controller: hospLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: hospIndvController),
+                    child: TextField(
+                        controller: hospIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -926,19 +1031,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: wasteHighController),
+                    child: TextField(
+                        controller: wasteHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: wasteMedController),
+                    child: TextField(
+                        controller: wasteMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: wasteLowController),
+                    child: TextField(
+                        controller: wasteLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: wasteIndvController),
+                    child: TextField(
+                        controller: wasteIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -950,19 +1075,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: elecHighController),
+                    child: TextField(
+                        controller: elecHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: elecMedController),
+                    child: TextField(
+                        controller: elecMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: elecLowController),
+                    child: TextField(
+                        controller: elecLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: elecIndvController),
+                    child: TextField(
+                        controller: elecIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -974,19 +1119,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: waterHighController),
+                    child: TextField(
+                        controller: waterHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: waterMedController),
+                    child: TextField(
+                        controller: waterMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: waterLowController),
+                    child: TextField(
+                        controller: waterLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: waterIndvController),
+                    child: TextField(
+                        controller: waterIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -998,19 +1163,39 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: wasteWaterHighController),
+                    child: TextField(
+                        controller: wasteWaterHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: wasteWaterMedController),
+                    child: TextField(
+                        controller: wasteWaterMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: wasteWaterLowController),
+                    child: TextField(
+                        controller: wasteWaterLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: wasteWaterIndvController),
+                    child: TextField(
+                        controller: wasteWaterIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                 ],
@@ -1022,72 +1207,40 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: essenHighController),
+                    child: TextField(
+                        controller: essenHighController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: essenMedController),
+                    child: TextField(
+                        controller: essenMedController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: essenLowController),
+                    child: TextField(
+                        controller: essenLowController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
                   ),
                   Expanded(
-                    child: TextField(controller: essenIndvController),
+                    child: TextField(
+                        controller: essenIndvController,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                        ]),
                     flex: 1,
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Table(
-            children: [
-              TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText("Readiness Gaps:"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(controller: readyGapsController),
-                    flex: 4,
-                  ),
-                ],
-              ),
-              TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText("Prevention Gaps"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(controller: prevGapsController),
-                    flex: 4,
-                  ),
-                ],
-              ),
-              TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText("Mitigation Gaps"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(controller: mitiGapsController),
-                    flex: 4,
-                  ),
-                ],
-              ),
-              TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText("Recommendations of the Disaster Assessment:"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(controller: recommendationController),
-                    flex: 4,
                   ),
                 ],
               ),
@@ -1099,7 +1252,35 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: summaryController),
-                    flex: 4,
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: PaddedText(""),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: PaddedText(""),
+                    flex: 1,
+                  ),
+                ],
+              ),
+              TableRow(
+                children: [
+                  Expanded(
+                    child: PaddedText("Recommendations of the Disaster Assessment:"),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: TextField(controller: recommendationController),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: PaddedText(""),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: PaddedText(""),
+                    flex: 1,
                   ),
                 ],
               ),
