@@ -1244,6 +1244,10 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                 ],
               ),
+            ],
+          ),
+          Table(
+            children: [
               TableRow(
                 children: [
                   Expanded(
