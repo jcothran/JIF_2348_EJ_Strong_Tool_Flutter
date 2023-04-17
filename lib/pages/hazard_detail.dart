@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview.dart';
-
 import '../services/database.dart';
 import 'location_date.dart';
 
@@ -16,7 +15,10 @@ class DropdownOrigin extends StatefulWidget {
   @override
   State<DropdownOrigin> createState() => _DropdownOriginState();
 }
+
 String originDrop = origin_keywords.first;
+
+
 class _DropdownOriginState extends State<DropdownOrigin> {
   String dropdownValue = origin_keywords.first;
 
@@ -59,6 +61,11 @@ String warningDrop = warning_keywords.first;
 class _DropdownWarningState extends State<DropdownWarning> {
   String dropdownValue = warning_keywords.first;
 
+String warningDrop = warning_keywords.first;
+
+class _DropdownWarningState extends State<DropdownWarning> {
+  String dropdownValue = warning_keywords.first;
+
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
@@ -95,6 +102,11 @@ class DropdownForewarning extends StatefulWidget {
   State<DropdownForewarning> createState() => _DropdownForewarningState();
 }
 String forewarningDrop = forewarning_keywords.first;
+class _DropdownForewarningState extends State<DropdownForewarning> {
+  String dropdownValue = forewarning_keywords.first;
+
+String forewarningDrop = forewarning_keywords.first;
+
 class _DropdownForewarningState extends State<DropdownForewarning> {
   String dropdownValue = forewarning_keywords.first;
 
@@ -137,6 +149,12 @@ String speedDrop = speed_keywords.first;
 class _DropdownSpeedState extends State<DropdownSpeed> {
   String dropdownValue = speed_keywords.first;
 
+String speedDrop = speed_keywords.first;
+
+class _DropdownSpeedState extends State<DropdownSpeed> {
+  String dropdownValue = speed_keywords.first;
+
+
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
@@ -176,6 +194,12 @@ String freqDrop = freq_keywords.first;
 class _DropdownFreqState extends State<DropdownFreq> {
   String dropdownValue = freq_keywords.first;
 
+String freqDrop = freq_keywords.first;
+
+class _DropdownFreqState extends State<DropdownFreq> {
+  String dropdownValue = freq_keywords.first;
+
+
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
@@ -210,6 +234,41 @@ class DropdownPeriod extends StatefulWidget {
 
   @override
   State<DropdownPeriod> createState() => _DropdownPeriodState();
+}
+
+String periodDrop = period_keywords.first;
+
+class _DropdownPeriodState extends State<DropdownPeriod> {
+  String dropdownValue = period_keywords.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      isExpanded: true,
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_drop_down),
+      elevation: 16,
+      style: const TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
+      ),
+      onChanged: (String? value) {
+        // This is called when the user selects an item.
+        setState(() {
+          dropdownValue = value!;
+          periodDrop = dropdownValue;
+        });
+      },
+      items: period_keywords.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }
+
 }
 String periodDrop = period_keywords.first;
 class _DropdownPeriodState extends State<DropdownPeriod> {
@@ -322,6 +381,52 @@ class _DropdownForceState extends State<DropdownForce> {
   }
 }
 
+class DropdownForce extends StatefulWidget {
+  // const DropdownHazard({super.key});
+
+  @override
+  State<DropdownForce> createState() => _DropdownForceState();
+}
+
+String forceDrop = force_keywords.first;
+
+class _DropdownForceState extends State<DropdownForce> {
+  String dropdownValue = force_keywords.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      isExpanded: true,
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_drop_down),
+      elevation: 16,
+      style: const TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
+      ),
+      onChanged: (String? newValue) {
+        // This is called when the user selects an item.
+        setState(() {
+          dropdownValue = value!;
+        });
+      },
+      items: force_keywords.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }
+}
+
+const List<String> keyword_list = <String>[
+  'Rapid',
+  'Fast',
+  'Example'
+]; // list of keywords for the dropdown menus (may need different lists depending on type)
+\\what are these for:
 const List<String> force_keywords = <String>['Air Emissions','Air Movement', 'Explosive', 'Flashfloods', 'King Tide', 'Water', 'Wind Movement', 'OTHER']; // keywords for the force dropdown
 const List<String> origin_keywords = <String>['Accidental Fire', 'Act of Negligence', 'Air emissions', 'Airborne Equipment Malfunction', 'Burning Debris', 'climate change', 'Clogged Drains', 'Construction', 'damaged dams or levees', 'deforestation', 'development and infrastructure', 'Droughts', 'Electrical power', 'Fireworks', 'Heavy Rainfall', 'human-caused', 'improper drainage system', 'Improper toxic disposal', 'Inaccurate Procedures', 'Industrial Activity', 'Intentional (arson)', 'King Tide', 'Lack of Drains', 'Leaching', 'Lightning', 'Oil Spill', 'overflow of rivers', 'Pot Holes', 'thunderstorms', 'Uneven Roads', 'weather conditions', 'OTHER'];  // keywords for the origin dropdown
 const List<String> warning_keywords = <String>['Accumulation of water', 'Air Monitoring Alarm', 'Air Quality Notifictions', 'Cannot foresee until it happens', 'Heavy Rain', 'Meter signs', 'Smoke', 'Warning sirens from chemical plant', 'OTHER'];  // keywords for the warning dropdown
@@ -362,6 +467,7 @@ class HazardDetailPage extends StatelessWidget {
             ),
           );
 
+
           String location_date = LocationDatePage().getLocation() + "_" + LocationDatePage().getDate();
 
           //update form in database
@@ -379,174 +485,158 @@ class HazardDetailPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-
           Container(height: 50),
           Table(
             //border: TableBorder.all(color: PdfColors.black),
             children: [
               TableRow(
-                  children: [
-                    Expanded(
-                      child: PaddedText('Characteristics of Hazard'),
-                      flex: 3,
-                    ),
-
-                    Expanded(
-                      child: PaddedText('Elements of Hazard'),
-                      flex: 2,
-                    ),
-                  ],
-                ),
-
+                children: [
+                  Expanded(
+                    child: PaddedText('Characteristics of Hazard'),
+                    flex: 3,
+                  ),
+                  Expanded(
+                    child: PaddedText('Elements of Hazard'),
+                    flex: 2,
+                  ),
+                ],
+              ),
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Cause/Origin'),
                     flex: 3,
                   ),
-
                   Expanded(
                     child: DropdownOrigin(),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Force'),
                     flex: 3,
                   ),
-
                   Expanded(
                     child: DropdownForce(),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Warning Signs and Signals'),
                     flex: 3,
                   ),
-
                   Expanded(
                     child: DropdownWarning(),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Forewarning'),
                     flex: 3,
                   ),
-
                   Expanded(
+
                     child: DropdownForewarning(),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Speed of Onset'),
                     flex: 3,
                   ),
-
                   Expanded(
                     child: DropdownSpeed(),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Frequency'),
                     flex: 3,
                   ),
-
                   Expanded(
                     child: DropdownFreq(),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Period of Occurence'),
                     flex: 3,
                   ),
-
                   Expanded(
                     child: DropdownPeriod(),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Duration'),
                     flex: 3,
                   ),
-
                   Expanded(
+
                     child: DropdownDuration(),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('Analytical description of the hazard:'),
                     flex: 3,
                   ),
-
                   Expanded(
-                    child: TextField(controller: descController,),
+                    child: TextField(
+                      controller: descController,
+                    ),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('How will it affect me?'),
                     flex: 2,
                   ),
-
                   Expanded(
-                    child: TextField(controller: affectMeController,),
+                    child: TextField(
+                      controller: affectMeController,
+                    ),
                     flex: 2,
                   ),
                 ],
               ),
-
               TableRow(
                 children: [
                   Expanded(
                     child: PaddedText('How will it affect my community?'),
                     flex: 2,
                   ),
-
                   Expanded(
-                    child: TextField(controller: affectCommunityController,),
+                    child: TextField(
+                      controller: affectCommunityController,
+                    ),
                     flex: 2,
                   ),
                 ],
@@ -560,9 +650,9 @@ class HazardDetailPage extends StatelessWidget {
 }
 
 Widget PaddedText(
-    final String text, {
-      final TextAlign align = TextAlign.left,
-    }) =>
+  final String text, {
+  final TextAlign align = TextAlign.left,
+}) =>
     Padding(
       padding: EdgeInsets.all(10),
       child: Text(
@@ -570,4 +660,3 @@ Widget PaddedText(
         textAlign: align,
       ),
     );
-
