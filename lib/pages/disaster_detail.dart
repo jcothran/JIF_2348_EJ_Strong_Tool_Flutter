@@ -500,7 +500,7 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: communityProfController,),
-                    flex: 3,
+                    flex: 4,
                   ),
                 ],
               ),
@@ -512,7 +512,7 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: hazardProfController,),
-                    flex: 3,
+                    flex: 4,
                   ),
                 ],
               ),
@@ -524,7 +524,7 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: PaddedText("Locations of elements at risk specific to the hazard"),
-                    flex: 3,
+                    flex: 4,
                   ),
                 ],
               ),
@@ -578,7 +578,7 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: PaddedText("        "),
+                    child: PaddedText("Indv Survivability"),
                     flex: 1,
                   ),
                 ],
@@ -1252,15 +1252,7 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: summaryController),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText(""),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText(""),
-                    flex: 1,
+                    flex: 4,
                   ),
                 ],
               ),
@@ -1272,15 +1264,7 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(controller: recommendationController),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText(""),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText(""),
-                    flex: 1,
+                    flex: 4,
                   ),
                 ],
               ),
