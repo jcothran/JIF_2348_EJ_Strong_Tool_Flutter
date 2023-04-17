@@ -18,6 +18,7 @@ class DropdownOrigin extends StatefulWidget {
 
 String originDrop = origin_keywords.first;
 
+
 class _DropdownOriginState extends State<DropdownOrigin> {
   String dropdownValue = origin_keywords.first;
 
@@ -56,6 +57,9 @@ class DropdownWarning extends StatefulWidget {
   @override
   State<DropdownWarning> createState() => _DropdownWarningState();
 }
+String warningDrop = warning_keywords.first;
+class _DropdownWarningState extends State<DropdownWarning> {
+  String dropdownValue = warning_keywords.first;
 
 String warningDrop = warning_keywords.first;
 
@@ -97,6 +101,9 @@ class DropdownForewarning extends StatefulWidget {
   @override
   State<DropdownForewarning> createState() => _DropdownForewarningState();
 }
+String forewarningDrop = forewarning_keywords.first;
+class _DropdownForewarningState extends State<DropdownForewarning> {
+  String dropdownValue = forewarning_keywords.first;
 
 String forewarningDrop = forewarning_keywords.first;
 
@@ -138,11 +145,15 @@ class DropdownSpeed extends StatefulWidget {
   @override
   State<DropdownSpeed> createState() => _DropdownSpeedState();
 }
+String speedDrop = speed_keywords.first;
+class _DropdownSpeedState extends State<DropdownSpeed> {
+  String dropdownValue = speed_keywords.first;
 
 String speedDrop = speed_keywords.first;
 
 class _DropdownSpeedState extends State<DropdownSpeed> {
   String dropdownValue = speed_keywords.first;
+
 
   @override
   Widget build(BuildContext context) {
@@ -179,11 +190,15 @@ class DropdownFreq extends StatefulWidget {
   @override
   State<DropdownFreq> createState() => _DropdownFreqState();
 }
+String freqDrop = freq_keywords.first;
+class _DropdownFreqState extends State<DropdownFreq> {
+  String dropdownValue = freq_keywords.first;
 
 String freqDrop = freq_keywords.first;
 
 class _DropdownFreqState extends State<DropdownFreq> {
   String dropdownValue = freq_keywords.first;
+
 
   @override
   Widget build(BuildContext context) {
@@ -253,6 +268,39 @@ class _DropdownPeriodState extends State<DropdownPeriod> {
       }).toList(),
     );
   }
+
+}
+String periodDrop = period_keywords.first;
+class _DropdownPeriodState extends State<DropdownPeriod> {
+  String dropdownValue = period_keywords.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      isExpanded: true,
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_drop_down),
+      elevation: 16,
+      style: const TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
+      ),
+      onChanged: (String? value) {
+        // This is called when the user selects an item.
+        setState(() {
+          dropdownValue = value!;
+          periodDrop = dropdownValue;
+        });
+      },
+      items: period_keywords.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }
 }
 
 class DropdownDuration extends StatefulWidget {
@@ -261,9 +309,7 @@ class DropdownDuration extends StatefulWidget {
   @override
   State<DropdownDuration> createState() => _DropdownDurationState();
 }
-
 String durationDrop = duration_keywords.first;
-
 class _DropdownDurationState extends State<DropdownDuration> {
   String dropdownValue = duration_keywords.first;
 
@@ -287,6 +333,45 @@ class _DropdownDurationState extends State<DropdownDuration> {
         });
       },
       items: duration_keywords.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }
+}
+
+class DropdownForce extends StatefulWidget {
+  // const DropdownHazard({super.key});
+
+  @override
+  State<DropdownForce> createState() => _DropdownForceState();
+}
+String forceDrop = force_keywords.first;
+class _DropdownForceState extends State<DropdownForce> {
+  String dropdownValue = force_keywords.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      isExpanded: true,
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_drop_down),
+      elevation: 16,
+      style: const TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
+      ),
+      onChanged: (String? value) {
+        // This is called when the user selects an item.
+        setState(() {
+          dropdownValue = value!;
+          forceDrop = dropdownValue;
+        });
+      },
+      items: force_keywords.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
@@ -341,6 +426,15 @@ const List<String> keyword_list = <String>[
   'Fast',
   'Example'
 ]; // list of keywords for the dropdown menus (may need different lists depending on type)
+\\what are these for:
+const List<String> force_keywords = <String>['Air Emissions','Air Movement', 'Explosive', 'Flashfloods', 'King Tide', 'Water', 'Wind Movement', 'OTHER']; // keywords for the force dropdown
+const List<String> origin_keywords = <String>['Accidental Fire', 'Act of Negligence', 'Air emissions', 'Airborne Equipment Malfunction', 'Burning Debris', 'climate change', 'Clogged Drains', 'Construction', 'damaged dams or levees', 'deforestation', 'development and infrastructure', 'Droughts', 'Electrical power', 'Fireworks', 'Heavy Rainfall', 'human-caused', 'improper drainage system', 'Improper toxic disposal', 'Inaccurate Procedures', 'Industrial Activity', 'Intentional (arson)', 'King Tide', 'Lack of Drains', 'Leaching', 'Lightning', 'Oil Spill', 'overflow of rivers', 'Pot Holes', 'thunderstorms', 'Uneven Roads', 'weather conditions', 'OTHER'];  // keywords for the origin dropdown
+const List<String> warning_keywords = <String>['Accumulation of water', 'Air Monitoring Alarm', 'Air Quality Notifictions', 'Cannot foresee until it happens', 'Heavy Rain', 'Meter signs', 'Smoke', 'Warning sirens from chemical plant', 'OTHER'];  // keywords for the warning dropdown
+const List<String> forewarning_keywords = <String>['Seconds', 'Minutes', 'Hours', 'Days', 'Weeks', 'Months', 'OTHER'];  // keywords for the origin dropdown
+const List<String> speed_keywords = <String>['gradually', 'quickly', 'Rapid', 'Slow', 'suddenly', 'OTHER'];  // keywords for the onset speed dropdown
+const List<String> freq_keywords = <String>['episodic', 'everyday', 'frequent', 'from time to time', 'hardly ever', 'not often', 'occasionally', 'often', 'once in a while', 'periodically', 'rarely', 'recurring', 'scarcely', 'seasonal', 'seldom', 'semi-occasionally', 'sometimes', 'sporadically', 'varies', 'OTHER'];  // keywords for the frequency dropdown
+const List<String> period_keywords = <String>['Afternoon hours', 'Anytime', 'During commute', 'During industry/plant operation', 'Evening hours', 'Everyday', 'Fall time', 'Morning hours', 'Random', 'Seasonal', 'Spring time', 'Summer time', 'Throughout the day', 'Winter time', 'Year Round', 'OTHER'];  // keywords for the period dropdown
+const List<String> duration_keywords = <String>['Annually', 'Days', 'minutes to hours', 'Months', 'Seasonal', 'Throughout the entire year', 'Varies', 'weeks', 'OTHER'];  // keywords for the duration dropdown
 
 class HazardDetailPage extends StatelessWidget {
   final HazardT hazardT;
@@ -373,24 +467,14 @@ class HazardDetailPage extends StatelessWidget {
             ),
           );
 
-          String location_date = LocationDatePage().getLocation() +
-              "_" +
-              LocationDatePage().getDate();
+
+          String location_date = LocationDatePage().getLocation() + "_" + LocationDatePage().getDate();
 
           //update form in database
-          await DatabaseService().updateHazardData(
-              location_date,
-              hazardT.origin,
-              hazardT.force,
-              hazardT.warning,
-              hazardT.forewarning,
-              hazardT.speed,
-              hazardT.freq,
-              hazardT.period,
-              hazardT.duration,
-              hazardT.desc,
-              hazardT.affectMe,
-              hazardT.affectCommunity);
+          await DatabaseService().updateHazardData(location_date, hazardT.origin,
+              hazardT.force, hazardT.warning, hazardT.forewarning, hazardT.speed, hazardT.freq,
+              hazardT.period, hazardT.duration, hazardT.desc, hazardT.affectMe, hazardT.affectCommunity
+          );
 
           // rootBundle.
         },
@@ -436,9 +520,7 @@ class HazardDetailPage extends StatelessWidget {
                     flex: 3,
                   ),
                   Expanded(
-                    child: TextField(
-                      controller: forceController,
-                    ),
+                    child: DropdownForce(),
                     flex: 2,
                   ),
                 ],
@@ -450,9 +532,7 @@ class HazardDetailPage extends StatelessWidget {
                     flex: 3,
                   ),
                   Expanded(
-                    child: TextField(
-                      controller: warningController,
-                    ),
+                    child: DropdownWarning(),
                     flex: 2,
                   ),
                 ],
@@ -464,9 +544,8 @@ class HazardDetailPage extends StatelessWidget {
                     flex: 3,
                   ),
                   Expanded(
-                    child: TextField(
-                      controller: forewarningController,
-                    ),
+
+                    child: DropdownForewarning(),
                     flex: 2,
                   ),
                 ],
@@ -478,9 +557,7 @@ class HazardDetailPage extends StatelessWidget {
                     flex: 3,
                   ),
                   Expanded(
-                    child: TextField(
-                      controller: speedController,
-                    ),
+                    child: DropdownSpeed(),
                     flex: 2,
                   ),
                 ],
@@ -492,9 +569,7 @@ class HazardDetailPage extends StatelessWidget {
                     flex: 3,
                   ),
                   Expanded(
-                    child: TextField(
-                      controller: freqController,
-                    ),
+                    child: DropdownFreq(),
                     flex: 2,
                   ),
                 ],
@@ -506,9 +581,7 @@ class HazardDetailPage extends StatelessWidget {
                     flex: 3,
                   ),
                   Expanded(
-                    child: TextField(
-                      controller: periodController,
-                    ),
+                    child: DropdownPeriod(),
                     flex: 2,
                   ),
                 ],
@@ -520,9 +593,8 @@ class HazardDetailPage extends StatelessWidget {
                     flex: 3,
                   ),
                   Expanded(
-                    child: TextField(
-                      controller: durationController,
-                    ),
+
+                    child: DropdownDuration(),
                     flex: 2,
                   ),
                 ],

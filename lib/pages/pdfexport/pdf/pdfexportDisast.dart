@@ -19,7 +19,7 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
               children: [
                 Column(
                   children: [
-                    Text("Vulnerability Assessment Form",
+                    Text("Disaster Assessment Form",
                       style: Theme.of(context).header1,
                     ),
                   ],
@@ -39,6 +39,19 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
             Table(
               border: TableBorder.all(color: PdfColors.black),
               children: [
+                // TableRow(
+                //   children: [
+                //     Expanded(
+                //       child: PaddedText('Community Profile:'),
+                //       flex: 1,
+                //     ),
+                //
+                //     Expanded(
+                //       child: PaddedText(disasterT.communityProf),
+                //       flex: 4,
+                //     ),
+                //   ],
+                // ),
                 TableRow(
                   children: [
                     Expanded(
@@ -69,8 +82,6 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
             ),
 
 
-
-
             Table(
               border: TableBorder.all(color: PdfColors.black),
               children: [
@@ -80,21 +91,22 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                       child: PaddedText(''),
                       flex: 1,
                     ),
-
                     Expanded(
                       child: PaddedText('High Vul.'),
                       flex: 1,
                     ),
-
                     Expanded(
                       child: PaddedText('Med. Vul.'),
                       flex: 1,
                     ),
-
                     Expanded(
                       child: PaddedText('Low Vul.'),
                       flex: 1,
                     ),
+                   Expanded(
+                     child: PaddedText(' '),
+                     flex: 1,
+                   ),
                   ],
                 ),
                 TableRow(
@@ -115,9 +127,12 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                       child: PaddedText(">1.0 mi."),
                       flex: 1,
                     ),
+                    Expanded(
+                      child: PaddedText("Individual Survivability"),
+                      flex: 1,
+                    ),
                   ],
                 ),
-
 
                 TableRow(
                   children: [
@@ -135,6 +150,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                     ),
                     Expanded(
                       child: PaddedText(disasterT.elderLow),
+                      flex: 1,
+                    ),
+                    Expanded(
+                      child: PaddedText(disasterT.elderIndv),
                       flex: 1,
                     ),
                   ],
@@ -157,6 +176,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                       child: PaddedText(disasterT.childLow),
                       flex: 1,
                     ),
+                    Expanded(
+                      child: PaddedText(disasterT.childIndv),
+                      flex: 1,
+                    ),
                   ],
                 ),
                 TableRow(
@@ -175,6 +198,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                     ),
                     Expanded(
                       child: PaddedText(disasterT.hsEdLow),
+                      flex: 1,
+                    ),
+                    Expanded(
+                      child: PaddedText(disasterT.hsEdIndv),
                       flex: 1,
                     ),
                   ],
@@ -197,6 +224,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                       child: PaddedText(disasterT.linIsoLow),
                       flex: 1,
                     ),
+                    Expanded(
+                      child: PaddedText(disasterT.linIsoIndv),
+                      flex: 1,
+                    ),
                   ],
                 ),
                 TableRow(
@@ -217,6 +248,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                       child: PaddedText(disasterT.pocLow),
                       flex: 1,
                     ),
+                    Expanded(
+                      child: PaddedText(disasterT.pocIndv),
+                      flex: 1,
+                    ),
                   ],
                 ),
                 TableRow(
@@ -235,6 +270,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                     ),
                     Expanded(
                       child: PaddedText(disasterT.lincLow),
+                      flex: 1,
+                    ),
+                    Expanded(
+                      child: PaddedText(disasterT.lincIndv),
                       flex: 1,
                     ),
                   ],
@@ -258,6 +297,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                       child: PaddedText(disasterT.nheLow),
                       flex: 1,
                     ),
+                    Expanded(
+                      child: PaddedText(disasterT.nheIndv),
+                      flex: 1,
+                    ),
                   ],
                 ),
                 TableRow(
@@ -276,6 +319,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                     ),
                     Expanded(
                       child: PaddedText(disasterT.housingLow),
+                      flex: 1,
+                    ),
+                    Expanded(
+                      child: PaddedText(disasterT.housingIndv),
                       flex: 1,
                     ),
                   ],
@@ -298,6 +345,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                       child: PaddedText(disasterT.schoolsLow),
                       flex: 1,
                     ),
+                    Expanded(
+                      child: PaddedText(disasterT.schoolsIndv),
+                      flex: 1,
+                    ),
                   ],
                 ),
                 TableRow(
@@ -316,6 +367,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                     ),
                     Expanded(
                       child: PaddedText(disasterT.hospLow),
+                      flex: 1,
+                    ),
+                    Expanded(
+                      child: PaddedText(disasterT.hospIndv),
                       flex: 1,
                     ),
                   ],
@@ -355,6 +410,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                       child: PaddedText(disasterT.wasteLow),
                       flex: 1,
                     ),
+                    Expanded(
+                      child: PaddedText(disasterT.wasteIndv),
+                      flex: 1,
+                    ),
                   ],
                 ),
                 TableRow(
@@ -373,6 +432,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                     ),
                     Expanded(
                       child: PaddedText(disasterT.elecLow),
+                      flex: 1,
+                    ),
+                    Expanded(
+                      child: PaddedText(disasterT.elecIndv),
                       flex: 1,
                     ),
                   ],
@@ -395,6 +458,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                       child: PaddedText(disasterT.waterLow),
                       flex: 1,
                     ),
+                    Expanded(
+                      child: PaddedText(disasterT.waterIndv),
+                      flex: 1,
+                    ),
                   ],
                 ),
                 TableRow(
@@ -415,12 +482,16 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                       child: PaddedText(disasterT.wasteWaterLow),
                       flex: 1,
                     ),
+                    Expanded(
+                      child: PaddedText(disasterT.wasteWaterIndv),
+                      flex: 1,
+                    ),
                   ],
                 ),
                 TableRow(
                   children: [
                     Expanded(
-                      child: PaddedText("Essential bussinesses"),
+                      child: PaddedText("Essential businesses"),
                       flex: 1,
                     ),
                     Expanded(
@@ -435,6 +506,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                       child: PaddedText(disasterT.essenLow),
                       flex: 1,
                     ),
+                    Expanded(
+                      child: PaddedText(disasterT.essenIndv),
+                      flex: 1,
+                    ),
                   ],
                 ),
               ],
@@ -445,12 +520,24 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                 TableRow(
                   children: [
                     Expanded(
-                      child: PaddedText("Summary of the Vulerability Assessment:"),
+                      child: PaddedText("Summary of the Disaster Assessment:"),
                       flex: 1,
                     ),
                     Expanded(
                       child: PaddedText(disasterT.summary),
-                      flex: 3,
+                      flex: 4,
+                    ),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText("Recommendation of the Disaster Assessment:"),
+                      flex: 1,
+                    ),
+                    Expanded(
+                      child: PaddedText(disasterT.recommendation),
+                      flex: 4,
                     ),
                   ],
                 ),
@@ -476,4 +563,3 @@ Widget PaddedText(
         textAlign: align,
       ),
     );
-

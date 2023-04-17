@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:makepdfs/pages/forms.dart';
+import 'package:makepdfs/pages/location_date.dart';
 import 'package:makepdfs/pages/start.dart';
 import 'package:makepdfs/services/auth.dart';
 
@@ -36,7 +37,7 @@ class HomePage extends StatelessWidget
                 style: style,
                 onPressed:()
                 {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage()));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage()));
                 },
               ),
             ),
@@ -78,7 +79,7 @@ class HomePage extends StatelessWidget
               margin: EdgeInsets.only(top: 8),
               child: ElevatedButton
                 (
-                child: Text("Sign Out"),
+                child: Text("End Session"),
                 style: style2,
                 onPressed:() async {
                   await _auth.signOut();

@@ -197,7 +197,6 @@ class CapacityDetailPage extends StatelessWidget {
           capacityT.mitiReq = mitiReqController.text;
           capacityT.mitiGaps = mitiGapsController.text;
           //highly vulnerable
-
           capacityT.heElement = heExistHighController.text;
           capacityT.heReqHigh = heReqHighController.text;
           capacityT.heExistHigh = heExistHighController.text;
@@ -276,8 +275,6 @@ class CapacityDetailPage extends StatelessWidget {
               commReadyDurReqController.text,
               commReadyDurGapsController.text,
             );
-
-
         },
         child: Icon(Icons.picture_as_pdf),
       ),
@@ -288,6 +285,7 @@ class CapacityDetailPage extends StatelessWidget {
         children: [
           Container(height: 50),
           Container(width: 50),
+
           //Prev table
           Table(children: [
             TableRow(
@@ -303,6 +301,7 @@ class CapacityDetailPage extends StatelessWidget {
                 Expanded(
                   child: PaddedText("Required"),
                   flex: 1,
+
                 ),
                 Expanded(
                   child: PaddedText("Gaps"),
