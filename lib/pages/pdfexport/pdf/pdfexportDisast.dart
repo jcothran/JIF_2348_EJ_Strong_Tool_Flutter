@@ -39,19 +39,19 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
             Table(
               border: TableBorder.all(color: PdfColors.black),
               children: [
-                // TableRow(
-                //   children: [
-                //     Expanded(
-                //       child: PaddedText('Community Profile:'),
-                //       flex: 1,
-                //     ),
-                //
-                //     Expanded(
-                //       child: PaddedText(disasterT.communityProf),
-                //       flex: 4,
-                //     ),
-                //   ],
-                // ),
+                TableRow(
+                  children: [
+                    Expanded(
+                      child: PaddedText('Community Profile:'),
+                      flex: 1,
+                    ),
+
+                    Expanded(
+                      child: PaddedText(disasterT.communityProf),
+                      flex: 4,
+                    ),
+                  ],
+                ),
                 TableRow(
                   children: [
                     Expanded(
@@ -61,7 +61,7 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
 
                     Expanded(
                       child: PaddedText(disasterT.hazardProf),
-                      flex: 3,
+                      flex: 4,
                     ),
                   ],
                 ),
@@ -74,7 +74,7 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
 
                     Expanded(
                       child: PaddedText('Locations of elements at risk specific to the hazard'),
-                      flex: 3,
+                      flex: 4,
                     ),
                   ],
                 ),
@@ -103,10 +103,10 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                       child: PaddedText('Low Vul.'),
                       flex: 1,
                     ),
-                   Expanded(
-                     child: PaddedText(' '),
-                     flex: 1,
-                   ),
+                    Expanded(
+                      child: PaddedText("Indv. Vul."),
+                      flex: 1,
+                    ),
                   ],
                 ),
                 TableRow(
