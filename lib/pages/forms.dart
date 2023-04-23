@@ -37,172 +37,174 @@ class FormsPage extends StatelessWidget
       ),
       body: Center
       (
-        child: Column
-        (
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>
-          [
-            Container
-              (
-              child: Text
+        child: SingleChildScrollView(        
+          child: Column
+          (
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>
+            [
+              Container
                 (
-                loc + '\n' + date,
-                style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
+                child: Text
+                  (
+                  loc + '\n' + date,
+                  style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LocationDatePage())
-                );
-              },
-              icon: Icon(
-                Icons.location_on,
-                size: 40.0,
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LocationDatePage())
+                  );
+                },
+                icon: Icon(
+                  Icons.location_on,
+                  size: 40.0,
+                ),
               ),
-            ),
-            Container
-              (
-              child: Text
+              Container
                 (
-                "Update Loc/Date",
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                child: Text
+                  (
+                  "Update Loc/Date",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(15),
-            ),
-            Container
-            (
-              child: Text
+              Padding(
+                padding: EdgeInsets.all(15),
+              ),
+              Container
               (
-                "Select a type of form",
-                style: text_style,
+                child: Text
+                (
+                  "Select a type of form",
+                  style: text_style,
+                ),
+                
+              ),
+              Container
+              (
+                child: Divider(),
+              ),
+
+              Container
+              (
+                margin: EdgeInsets.only(top: 8),
+                child: ElevatedButton
+                (
+                  child: Text("Hazard Assessment Form",),
+                  style: style,
+                  onPressed:() async
+                  {
+                    FirebaseFirestore db = FirebaseFirestore.instance;
+                    DocumentReference data = db.collection("hazard_form").doc(location_date);
+                    await data.get().then(
+                          (dataSnapshot) => {
+                        if (!dataSnapshot.exists) {
+                          DatabaseService().addHazardData(location_date),
+                        }
+                      },
+                      onError: (e) => print("Error completing: $e"),
+                    );
+
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HazardDetailPage(hazardT: blank)));
+                  },
+                ),
+              ),
+              Container
+              (
+                child: Divider(),
               ),
               
-            ),
-            Container
-            (
-              child: Divider(),
-            ),
-
-            Container
-            (
-              margin: EdgeInsets.only(top: 8),
-              child: ElevatedButton
+              Container
               (
-                child: Text("Hazard Assessment Form",),
-                style: style,
-                onPressed:() async
-                {
-                  FirebaseFirestore db = FirebaseFirestore.instance;
-                  DocumentReference data = db.collection("hazard_form").doc(location_date);
-                  await data.get().then(
-                        (dataSnapshot) => {
-                      if (!dataSnapshot.exists) {
-                        DatabaseService().addHazardData(location_date),
-                      }
-                    },
-                    onError: (e) => print("Error completing: $e"),
-                  );
-
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HazardDetailPage(hazardT: blank)));
-                },
+                margin: EdgeInsets.only(top: 8),
+                child: ElevatedButton
+                (
+                  child: Text("Vulnerability Assessment Form",),
+                  style: style,
+                  onPressed:() async
+                  {
+                    FirebaseFirestore db = FirebaseFirestore.instance;
+                    DocumentReference data = db.collection("vulnerability_form").doc(location_date);
+                    await data.get().then(
+                          (dataSnapshot) => {
+                        if (!dataSnapshot.exists) {
+                          DatabaseService().addVulnerableData(location_date),
+                        }
+                      },
+                      onError: (e) => print("Error completing: $e"),
+                    );
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: blankV)));
+                  },
+                ),
               ),
-            ),
-            Container
-            (
-              child: Divider(),
-            ),
-            
-            Container
-            (
-              margin: EdgeInsets.only(top: 8),
-              child: ElevatedButton
+              Container
               (
-                child: Text("Vulnerability Assessment Form",),
-                style: style,
-                onPressed:() async
-                {
-                  FirebaseFirestore db = FirebaseFirestore.instance;
-                  DocumentReference data = db.collection("vulnerability_form").doc(location_date);
-                  await data.get().then(
-                        (dataSnapshot) => {
-                      if (!dataSnapshot.exists) {
-                        DatabaseService().addVulnerableData(location_date),
-                      }
-                    },
-                    onError: (e) => print("Error completing: $e"),
-                  );
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: blankV)));
-                },
+                child: Divider(),
               ),
-            ),
-            Container
-            (
-              child: Divider(),
-            ),
 
-            Container
-            (
-              margin: EdgeInsets.only(top: 8),
-              child: ElevatedButton
+              Container
               (
-                child: Text("Capacity Assessment Form",),
-                style: style,
-                onPressed:() async
-                {
-                  FirebaseFirestore db = FirebaseFirestore.instance;
-                  DocumentReference data = db.collection("capacity_form").doc(location_date);
-                  await data.get().then(
-                        (dataSnapshot) => {
-                      if (!dataSnapshot.exists) {
-                        print('Data exists'),
-                        DatabaseService().addCapacityData(location_date),
-                      }
-                    },
-                    onError: (e) => print("Error completing: $e"),
-                  );
-                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: blankC)));
-                },
+                margin: EdgeInsets.only(top: 8),
+                child: ElevatedButton
+                (
+                  child: Text("Capacity Assessment Form",),
+                  style: style,
+                  onPressed:() async
+                  {
+                    FirebaseFirestore db = FirebaseFirestore.instance;
+                    DocumentReference data = db.collection("capacity_form").doc(location_date);
+                    await data.get().then(
+                          (dataSnapshot) => {
+                        if (!dataSnapshot.exists) {
+                          print('Data exists'),
+                          DatabaseService().addCapacityData(location_date),
+                        }
+                      },
+                      onError: (e) => print("Error completing: $e"),
+                    );
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: blankC)));
+                  },
+                ),
               ),
-            ),
 
-            Container
-            (
-              child: Divider(),
-            ),
-
-            Container
-            (
-              margin: EdgeInsets.only(top: 8),
-              child: ElevatedButton
+              Container
               (
-                child: Text("Disaster Risk Analysis Form"),
-                style: style,
-                onPressed:() async
-                {
-                  FirebaseFirestore db = FirebaseFirestore.instance;
-                  DocumentReference data = db.collection("disaster_form").doc(location_date);
-                  await data.get().then(
-                        (dataSnapshot) => {
-                      if (!dataSnapshot.exists) {
-                        DatabaseService().addDisasterData(location_date),
-                      }
-                    },
-                    onError: (e) => print("Error completing: $e"),
-                  );
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: blankD)));
-                },
+                child: Divider(),
               ),
-            ),
-            Container
-            (
-              child: Divider(),
-            ),
-          ],
+
+              Container
+              (
+                margin: EdgeInsets.only(top: 8),
+                child: ElevatedButton
+                (
+                  child: Text("Disaster Risk Analysis Form"),
+                  style: style,
+                  onPressed:() async
+                  {
+                    FirebaseFirestore db = FirebaseFirestore.instance;
+                    DocumentReference data = db.collection("disaster_form").doc(location_date);
+                    await data.get().then(
+                          (dataSnapshot) => {
+                        if (!dataSnapshot.exists) {
+                          DatabaseService().addDisasterData(location_date),
+                        }
+                      },
+                      onError: (e) => print("Error completing: $e"),
+                    );
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: blankD)));
+                  },
+                ),
+              ),
+              Container
+              (
+                child: Divider(),
+              ),
+            ],
+          ),
         ),
       ),
     );
