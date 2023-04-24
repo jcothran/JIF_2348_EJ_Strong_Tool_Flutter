@@ -73,7 +73,7 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                     ),
 
                     Expanded(
-                      child: PaddedText('Locations of elements at risk specific to the hazard'),
+                      child: PaddedText('Locations of elements at risk to the hazard'),
                       flex: 4,
                     ),
                   ],
