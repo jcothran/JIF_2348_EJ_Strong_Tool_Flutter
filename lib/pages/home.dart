@@ -31,14 +31,6 @@ class HomePage extends StatelessWidget
               height: 190,
               child: Container
               (
-<<<<<<< HEAD
-                child: Text("New Forms"),
-                style: style,
-                onPressed:()
-                {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage()));
-                },
-=======
                 margin: EdgeInsets.only(left: 20),
                 child: ElevatedButton.icon(
                   label: Text("Create Forms   "),
@@ -52,9 +44,9 @@ class HomePage extends StatelessWidget
                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage()));
                   },
                 ),
->>>>>>> 5c01eab71ac26a7338d87c527d4aff2d55c86fd2
               ),
             ),
+
 
             Padding(padding: EdgeInsets.all(5.0)),
 
@@ -63,14 +55,12 @@ class HomePage extends StatelessWidget
               height: 190,
               child: Container
               (
-<<<<<<< HEAD
                 child: Text("Analytics"),
                 style: style,
                 onPressed:()
                 {
                   // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO ANALYTICS PAGE
                 },
-=======
                 margin: EdgeInsets.only(left: 20),
                 child: ElevatedButton.icon(
                   icon: Icon(
@@ -107,7 +97,6 @@ class HomePage extends StatelessWidget
                     // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO ANALYTICS PAGE
                   },
                 ),
->>>>>>> 5c01eab71ac26a7338d87c527d4aff2d55c86fd2
               ),
             ),
 
