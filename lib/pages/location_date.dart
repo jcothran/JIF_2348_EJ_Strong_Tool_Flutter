@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:makepdfs/services/auth.dart';
 import 'forms.dart';
+import 'edit_forms.dart';
 
 //page for setting the location of the forms
 
@@ -22,6 +24,11 @@ class LocationDatePage extends StatefulWidget {
 
   String getDate() {
     return date;
+  }
+
+  static String getUID()
+  {
+    return AuthService().getUserId();
   }
 }
 
@@ -231,7 +238,7 @@ class LocationDatePageState extends State<LocationDatePage>{
                             date = mController.text + '-' + dController.text + '-' + yrController.text;
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => FormsPage()),
+                              MaterialPageRoute(builder: (context) => EditFormsPage()),
                             );
                           },
                         ),

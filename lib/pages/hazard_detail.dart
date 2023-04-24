@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview.dart';
-
+import '../services/auth.dart';
 import '../services/database.dart';
 import 'location_date.dart';
 
@@ -386,7 +386,7 @@ class HazardDetailPage extends StatelessWidget {
             ),
           );
 
-          String location_date = LocationDatePage().getLocation() + " " + LocationDatePage().getDate();
+          String location_date = LocationDatePage().getLocation() + " " + LocationDatePage().getDate() + " " + LocationDatePage.getUID();
 
           //update form in database
           await DatabaseService().updateHazardData(location_date, hazardT.origin,

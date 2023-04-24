@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class HazardT {
   final String name;
   String headers;
@@ -28,4 +30,22 @@ class HazardT {
     required this.affectMe,
     required this.affectCommunity
   });
+
+  static HazardT convertHazardDocument (DocumentSnapshot doc)
+  { 
+    return HazardT(
+      name: '',
+      headers: '',
+      origin: doc.get('origin'),
+      force: doc.get('force'),
+      warning: doc.get('warning'),
+      forewarning: doc.get('forewarning'),
+      speed: doc.get('speed'),
+      freq: doc.get('freq'),
+      period: doc.get('period'),
+      duration: doc.get('duration'),
+      desc: doc.get('desc'),
+      affectMe: doc.get('affectMe'),
+      affectCommunity: doc.get('affectCommunity'));
+  }
 }

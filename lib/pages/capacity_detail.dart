@@ -1780,9 +1780,7 @@ class CapacityDetailPage extends StatelessWidget {
             ),
           );
 
-          String location_date = LocationDatePage().getLocation() +
-              "_" +
-              LocationDatePage().getDate();
+          String location_date = LocationDatePage().getLocation() + " " + LocationDatePage().getDate() + " " + LocationDatePage.getUID();
 
           await DatabaseService().updateCapacityData(
             location_date,

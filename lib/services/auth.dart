@@ -6,10 +6,10 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   //getter for user id
-  Future getUserId() async{
-    final User? user = _auth.currentUser;
-    String uid = await user!.getIdToken();
-    return uid;
+  String getUserId() {
+    final User? user =  _auth.currentUser;
+    // String uid = await user!.getIdToken();
+    return user!.uid;
   }
 
   //sign in anonymously
