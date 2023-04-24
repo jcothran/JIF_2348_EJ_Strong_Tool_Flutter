@@ -55,7 +55,6 @@ class HomePage extends StatelessWidget
               height: 190,
               child: Container
               (
-
                 child: Text("Analytics"),
                 style: style,
                 onPressed:()
