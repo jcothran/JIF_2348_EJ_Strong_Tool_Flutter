@@ -149,23 +149,47 @@ class LocationDatePageState extends State<LocationDatePage>{
                         ),
                       ],
                     ),
-                    ElevatedButton(
-                      child: const Text('Submit'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.lightBlue.shade600,
-                        textStyle: TextStyle(fontSize: 17),
-                        fixedSize: Size(130, 43),
-                      ),
-                      onPressed: () {
-                        location = locController.text;
-                        date = mController.text + '-' + dController.text + '-' + yrController.text;
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => FormsPage()),
-                        );
-                      },
+                    Row(
+                      children: [
+                        Spacer(),
+                        ElevatedButton(
+                          child: const Text('New Form'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.lightBlue.shade600,
+                            textStyle: TextStyle(fontSize: 17),
+                            fixedSize: Size(130, 43),
+                          ),
+                          onPressed: () {
+                            location = locController.text;
+                            date = mController.text + '-' + dController.text + '-' + yrController.text;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => FormsPage()),
+                            );
+                          },
+                        ),
+                        Spacer(),
+
+                        ElevatedButton(
+                          child: const Text('Edit Form'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.lightBlue.shade600,
+                            textStyle: TextStyle(fontSize: 17),
+                            fixedSize: Size(130, 43),
+                          ),
+                          onPressed: () {
+                            location = locController.text;
+                            date = mController.text + '-' + dController.text + '-' + yrController.text;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => FormsPage()),
+                            );
+                          },
+                        ),
+                        Spacer(),                        
+                      ],
                     ),
-                    Spacer(),
+                 
                   ],
                 ),
               ),
