@@ -272,7 +272,7 @@ class FormsPage extends StatelessWidget {
                   await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
-                        DatabaseService().addHazardData(location_date),
+                        DatabaseService().addHazardData(location_date + uid),
                       }
                     },
                     onError: (e) => print("Error completing: $e"),
@@ -300,7 +300,7 @@ class FormsPage extends StatelessWidget {
                   await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
-                        DatabaseService().addVulnerableData(location_date),
+                        DatabaseService().addVulnerableData(location_date + uid),
                       }
                     },
                     onError: (e) => print("Error completing: $e"),
@@ -328,7 +328,7 @@ class FormsPage extends StatelessWidget {
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
                         print('Data exists'),
-                        DatabaseService().addCapacityData(location_date),
+                        DatabaseService().addCapacityData(location_date + uid),
                       }
                     },
                     onError: (e) => print("Error completing: $e"),
@@ -353,7 +353,7 @@ class FormsPage extends StatelessWidget {
                   await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
-                        DatabaseService().addDisasterData(location_date),
+                        DatabaseService().addDisasterData(location_date + uid),
                       }
                     },
                     onError: (e) => print("Error completing: $e"),
