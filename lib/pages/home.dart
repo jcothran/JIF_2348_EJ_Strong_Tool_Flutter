@@ -33,25 +33,11 @@ class HomePage extends StatelessWidget
               margin: EdgeInsets.only(top: 8),
               child: ElevatedButton
               (
-                child: Text("Forms"),
+                child: Text("New Forms"),
                 style: style,
                 onPressed:()
                 {
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage()));
-                },
-              ),
-            ),
-
-            Container
-            (
-              margin: EdgeInsets.only(top: 8),
-              child: ElevatedButton
-              (
-                child: Text("Photos"),
-                style: style,
-                onPressed:()
-                {
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO PHOTOS PAGE
                 },
               ),
             ),
