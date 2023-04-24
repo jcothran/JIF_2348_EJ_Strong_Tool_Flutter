@@ -22,26 +22,18 @@ class HomePage extends StatelessWidget
       ),
       body: Column
         (
-          //mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>
           [
             Padding(padding: EdgeInsets.all(26.0)),
             SizedBox(
-              width: 370,
+              width: 340,
               height: 190,
               child: Container
               (
-<<<<<<< HEAD
-                child: Text("New Forms"),
-                style: style,
-                onPressed:()
-                {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage()));
-                },
-=======
                 margin: EdgeInsets.only(left: 20),
                 child: ElevatedButton.icon(
-                  label: Text("Create Forms   "),
+                  label: Text("Forms"),
                   icon: Icon(
                     Icons.assignment,
                     size: 60
@@ -52,45 +44,36 @@ class HomePage extends StatelessWidget
                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage()));
                   },
                 ),
->>>>>>> 5c01eab71ac26a7338d87c527d4aff2d55c86fd2
               ),
             ),
 
             Padding(padding: EdgeInsets.all(5.0)),
 
-            SizedBox(
-              width: 370,
-              height: 190,
-              child: Container
-              (
-<<<<<<< HEAD
-                child: Text("Analytics"),
-                style: style,
-                onPressed:()
-                {
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO ANALYTICS PAGE
-                },
-=======
-                margin: EdgeInsets.only(left: 20),
-                child: ElevatedButton.icon(
-                  icon: Icon(
-                    Icons.search,
-                    size: 60
-                  ),
-                  label: Text("Retrieve Forms"),
-                  style: style,
-                  onPressed:()
-                  {
-                    // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO PHOTOS PAGE
-                  },
-                ),
-              ),
-            ),
+            // SizedBox(  
+            //   width: 340,
+            //   height: 190,
+            //   child: Container
+            //   (
+            //     // margin: EdgeInsets.only(left: 20),
+            //     child: ElevatedButton.icon(
+            //       icon: Icon(
+            //         Icons.search,
+            //         size: 60
+            //       ),
+            //       label: Text("Retrieve Forms"),
+            //       style: style,
+            //       onPressed:()
+            //       {
+            //         // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO PHOTOS PAGE
+            //       },
+            //     ),
+            //   ),
+            // ),
 
-            Padding(padding: EdgeInsets.all(5.0)),
+            // Padding(padding: EdgeInsets.all(5.0)),
 
             SizedBox(
-              width: 370,
+              width: 340,
               height: 190,
               child: Container
               (
@@ -107,7 +90,6 @@ class HomePage extends StatelessWidget
                     // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO ANALYTICS PAGE
                   },
                 ),
->>>>>>> 5c01eab71ac26a7338d87c527d4aff2d55c86fd2
               ),
             ),
 
