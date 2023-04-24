@@ -203,7 +203,8 @@ class LocationDatePageState extends State<LocationDatePage>{
                             fixedSize: Size(130, 43),
                           ),
                           onPressed: () {
-                            location = locController.text;
+                            locationString = stateController.text + ' ' + countyController.text + ' County';
+                            location = stateController.text + ' ' + countyController.text;                            
                             date = mController.text + '-' + dController.text + '-' + yrController.text;
                             Navigator.push(
                               context,
@@ -221,7 +222,8 @@ class LocationDatePageState extends State<LocationDatePage>{
                             fixedSize: Size(130, 43),
                           ),
                           onPressed: () {
-                            location = locController.text;
+                            locationString = stateController.text + ' ' + countyController.text + ' County';
+                            location = stateController.text + ' ' + countyController.text;                            
                             date = mController.text + '-' + dController.text + '-' + yrController.text;
                             Navigator.push(
                               context,
