@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:makepdfs/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/models/vulnerableT.dart';
@@ -200,7 +201,7 @@ class FormsPage extends StatelessWidget {
   String locString = LocationDatePage().getLocationString();
   String loc = LocationDatePage().getLocation();
   String date = LocationDatePage().getDate();
-  String location_date = LocationDatePage().getLocation() + " " + LocationDatePage().getDate();
+  String location_date = LocationDatePage().getLocation() + " " + LocationDatePage().getDate() + " ";
 
   @override
   Widget build(BuildContext context) {
@@ -266,7 +267,8 @@ class FormsPage extends StatelessWidget {
                 onPressed:() async
                 {
                   FirebaseFirestore db = FirebaseFirestore.instance;
-                  DocumentReference data = db.collection("hazard_form").doc(location_date);
+                  String uid = AuthService().getUserId().toString();
+                  DocumentReference data = db.collection("hazard_form").doc(location_date + uid);
                   await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
@@ -293,7 +295,8 @@ class FormsPage extends StatelessWidget {
                 onPressed:() async
                 {
                   FirebaseFirestore db = FirebaseFirestore.instance;
-                  DocumentReference data = db.collection("vulnerability_form").doc(location_date);
+                  String uid = AuthService().getUserId().toString();
+                  DocumentReference data = db.collection("vulnerability_form").doc(location_date + uid);
                   await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
@@ -319,7 +322,8 @@ class FormsPage extends StatelessWidget {
                 onPressed:() async
                 {
                   FirebaseFirestore db = FirebaseFirestore.instance;
-                  DocumentReference data = db.collection("capacity_form").doc(location_date);
+                  String uid = AuthService().getUserId().toString();
+                  DocumentReference data = db.collection("capacity_form").doc(location_date + uid);
                   await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
@@ -344,7 +348,8 @@ class FormsPage extends StatelessWidget {
                 onPressed:() async
                 {
                   FirebaseFirestore db = FirebaseFirestore.instance;
-                  DocumentReference data = db.collection("disaster_form").doc(location_date);
+                  String uid = AuthService().getUserId().toString();
+                  DocumentReference data = db.collection("disaster_form").doc(location_date + uid);
                   await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
