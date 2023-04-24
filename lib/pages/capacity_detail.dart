@@ -253,7 +253,7 @@ class CapacityDetailPage extends StatelessWidget {
               ],
             ),
           ]),
-          //Miti table
+          //Mitigation table
           Table(
             children: [
               TableRow(
@@ -296,7 +296,7 @@ class CapacityDetailPage extends StatelessWidget {
               ]),
             ],
           ),
-          //High Vuln Table
+          //High Vulnerability Table
           Table(
             children: [
               TableRow(
@@ -354,7 +354,7 @@ class CapacityDetailPage extends StatelessWidget {
               ),
             ],
           ),
-          //Med Vuln Table
+          //Med Vulnerability Table
           Table(
             children: [
               TableRow(children: [
@@ -420,7 +420,7 @@ class CapacityDetailPage extends StatelessWidget {
               ),
             ],
           ),
-          //Low Vuln Before Table
+          //Low Vulnerability Before Table
           Table(
             children: [
               TableRow(children: [
@@ -485,7 +485,7 @@ class CapacityDetailPage extends StatelessWidget {
               ),
             ],
           ),
-          //Low Vuln During Table
+          //Low Vulnerability During Table
 
           Table(
             children: [
