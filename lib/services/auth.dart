@@ -29,13 +29,13 @@ class AuthService {
   Stream<User?> get user => _auth.authStateChanges();
 
   //sign out
-  Future signOut() async {
-    try {
-      return await _auth.signOut();
-    } catch(e) {
-      print(e.toString());
-      return null;
-    }
-  }
+  // Future signOut() async {
+  //   try {
+  //     return await _auth.signOut();
+  //   } catch(e) {
+  //     print(e.toString());
+  //     return null;
+  //   }
+  // }
 
 }
