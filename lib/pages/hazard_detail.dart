@@ -49,6 +49,7 @@ class _DropdownOriginState extends State<DropdownOrigin> {
   }
 }
 
+
 class DropdownWarning extends StatefulWidget {
   // const DropdownHazard({super.key});
 
@@ -322,14 +323,37 @@ class _DropdownForceState extends State<DropdownForce> {
   }
 }
 
-const List<String> force_keywords = <String>['Air Emissions','Air Movement', 'Explosive', 'Flashfloods', 'King Tide', 'Water', 'Wind Movement', 'OTHER']; // keywords for the force dropdown
-const List<String> origin_keywords = <String>['Accidental Fire', 'Act of Negligence', 'Air emissions', 'Airborne Equipment Malfunction', 'Burning Debris', 'climate change', 'Clogged Drains', 'Construction', 'damaged dams or levees', 'deforestation', 'development and infrastructure', 'Droughts', 'Electrical power', 'Fireworks', 'Heavy Rainfall', 'human-caused', 'improper drainage system', 'Improper toxic disposal', 'Inaccurate Procedures', 'Industrial Activity', 'Intentional (arson)', 'King Tide', 'Lack of Drains', 'Leaching', 'Lightning', 'Oil Spill', 'overflow of rivers', 'Pot Holes', 'thunderstorms', 'Uneven Roads', 'weather conditions', 'OTHER'];  // keywords for the origin dropdown
-const List<String> warning_keywords = <String>['Accumulation of water', 'Air Monitoring Alarm', 'Air Quality Notifictions', 'Cannot foresee until it happens', 'Heavy Rain', 'Meter signs', 'Smoke', 'Warning sirens from chemical plant', 'OTHER'];  // keywords for the warning dropdown
-const List<String> forewarning_keywords = <String>['Seconds', 'Minutes', 'Hours', 'Days', 'Weeks', 'Months', 'OTHER'];  // keywords for the origin dropdown
-const List<String> speed_keywords = <String>['gradually', 'quickly', 'Rapid', 'Slow', 'suddenly', 'OTHER'];  // keywords for the onset speed dropdown
-const List<String> freq_keywords = <String>['episodic', 'everyday', 'frequent', 'from time to time', 'hardly ever', 'not often', 'occasionally', 'often', 'once in a while', 'periodically', 'rarely', 'recurring', 'scarcely', 'seasonal', 'seldom', 'semi-occasionally', 'sometimes', 'sporadically', 'varies', 'OTHER'];  // keywords for the frequency dropdown
-const List<String> period_keywords = <String>['Afternoon hours', 'Anytime', 'During commute', 'During industry/plant operation', 'Evening hours', 'Everyday', 'Fall time', 'Morning hours', 'Random', 'Seasonal', 'Spring time', 'Summer time', 'Throughout the day', 'Winter time', 'Year Round', 'OTHER'];  // keywords for the period dropdown
-const List<String> duration_keywords = <String>['Annually', 'Days', 'minutes to hours', 'Months', 'Seasonal', 'Throughout the entire year', 'Varies', 'weeks', 'OTHER'];  // keywords for the duration dropdown
+const List<String> force_keywords = <String>['Air Emissions','Air Movement',
+  'Explosive', 'Flashfloods', 'King Tide', 'Water', 'Wind Movement', 'OTHER']; // keywords for the force dropdown
+const List<String> origin_keywords = <String>['Accidental Fire',
+  'Act of Negligence', 'Air emissions', 'Airborne Equipment Malfunction',
+  'Burning Debris', 'climate change', 'Clogged Drains', 'Construction',
+  'damaged dams or levees', 'deforestation', 'development and infrastructure',
+  'Droughts', 'Electrical power', 'Fireworks', 'Heavy Rainfall', 'human-caused',
+  'improper drainage system', 'Improper toxic disposal', 'Inaccurate Procedures',
+  'Industrial Activity', 'Intentional (arson)', 'King Tide', 'Lack of Drains',
+  'Leaching', 'Lightning', 'Oil Spill', 'overflow of rivers', 'Pot Holes',
+  'thunderstorms', 'Uneven Roads', 'weather conditions', 'OTHER'];  // keywords for the origin dropdown
+const List<String> warning_keywords = <String>['Accumulation of water',
+  'Air Monitoring Alarm', 'Air Quality Notifictions',
+  'Cannot foresee until it happens', 'Heavy Rain', 'Meter signs', 'Smoke',
+  'Warning sirens from chemical plant', 'OTHER'];  // keywords for the warning dropdown
+const List<String> forewarning_keywords = <String>['Seconds', 'Minutes',
+  'Hours', 'Days', 'Weeks', 'Months', 'OTHER'];  // keywords for the origin dropdown
+const List<String> speed_keywords = <String>['gradually', 'quickly', 'Rapid',
+  'Slow', 'suddenly', 'OTHER'];  // keywords for the onset speed dropdown
+const List<String> freq_keywords = <String>['episodic', 'everyday', 'frequent',
+  'from time to time', 'hardly ever', 'not often', 'occasionally', 'often',
+  'once in a while', 'periodically', 'rarely', 'recurring', 'scarcely',
+  'seasonal', 'seldom', 'semi-occasionally', 'sometimes', 'sporadically',
+  'varies', 'OTHER'];  // keywords for the frequency dropdown
+const List<String> period_keywords = <String>['Afternoon hours', 'Anytime',
+  'During commute', 'During industry/plant operation', 'Evening hours',
+  'Everyday', 'Fall time', 'Morning hours', 'Random', 'Seasonal', 'Spring time',
+  'Summer time', 'Throughout the day', 'Winter time', 'Year Round', 'OTHER'];  // keywords for the period dropdown
+const List<String> duration_keywords = <String>['Annually', 'Days',
+  'minutes to hours', 'Months', 'Seasonal', 'Throughout the entire year',
+  'Varies', 'weeks', 'OTHER'];  // keywords for the duration dropdown
 
 class HazardDetailPage extends StatelessWidget {
   final HazardT hazardT;
