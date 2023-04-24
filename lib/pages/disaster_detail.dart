@@ -7,394 +7,69 @@ import 'location_date.dart';
 import 'package:flutter/services.dart';
 
 final communityProfController = TextEditingController();
-@override
-void communityProfDispose() {
-  // Clean up the controller when the widget is disposed.
-  communityProfController.dispose();
-}
-
 final hazardProfController = TextEditingController();
-
-@override
-void hazardProfDispose() {
-  // Clean up the controller when the widget is disposed.
-  hazardProfController.dispose();
-}
 final elderHighController = TextEditingController();
-@override
-void elderHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  elderHighController.dispose();
-}
 final elderMedController = TextEditingController();
-@override
-void elderMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  elderMedController.dispose();
-}
 final elderLowController = TextEditingController();
-@override
-void elderLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  elderLowController.dispose();
-}
 final elderIndvController = TextEditingController();
-@override
-void elderIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  elderIndvController.dispose();
-}
-
 final childHighController = TextEditingController();
-@override
-void childHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  childHighController.dispose();
-}
 final childMedController = TextEditingController();
-@override
-void childMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  childMedController.dispose();
-}
 final childLowController = TextEditingController();
-@override
-void childLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  childLowController.dispose();
-}
 final childIndvController = TextEditingController();
-@override
-void childIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  childIndvController.dispose();
-}
 final hsEdHighController = TextEditingController();
-@override
-void hsEdHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  hsEdHighController.dispose();
-}
 final hsEdMedController = TextEditingController();
-@override
-void hsEdMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  hsEdMedController.dispose();
-}
 final hsEdLowController = TextEditingController();
-@override
-void hsEdLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  hsEdLowController.dispose();
-}
 final hsEdIndvController = TextEditingController();
-@override
-void hsEdIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  hsEdIndvController.dispose();
-}
 final linIsoHighController = TextEditingController();
-@override
-void linIsoHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  linIsoHighController.dispose();
-}
 final linIsoMedController = TextEditingController();
-@override
-void linIsoMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  linIsoMedController.dispose();
-}
 final linIsoLowController = TextEditingController();
-@override
-void linIsoLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  linIsoLowController.dispose();
-}
 final linIsoIndvController = TextEditingController();
-@override
-void linIsoIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  linIsoIndvController.dispose();
-}
 final pocHighController = TextEditingController();
-@override
-void pocHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  pocHighController.dispose();
-}
 final pocMedController = TextEditingController();
-@override
-void pocMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  pocMedController.dispose();
-}
 final pocLowController = TextEditingController();
-@override
-void pocLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  pocLowController.dispose();
-}
 final pocIndvController = TextEditingController();
-@override
-void pocIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  pocIndvController.dispose();
-}
 final lincHighController = TextEditingController();
-@override
-void lincHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  lincHighController.dispose();
-}
 final lincMedController = TextEditingController();
-@override
-void lincMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  lincMedController.dispose();
-}
 final lincLowController = TextEditingController();
-@override
-void lincLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  lincLowController.dispose();
-}
 final lincIndvController = TextEditingController();
-@override
-void lincIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  lincIndvController.dispose();
-}
 final nheHighController = TextEditingController();
-@override
-void nheHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  nheHighController.dispose();
-}
 final nheMedController = TextEditingController();
-@override
-void nheMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  nheMedController.dispose();
-}
 final nheLowController = TextEditingController();
-@override
-void nheLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  nheLowController.dispose();
-}
 final nheIndvController = TextEditingController();
-@override
-void nheIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  nheIndvController.dispose();
-}
 final housingHighController = TextEditingController();
-@override
-void housingHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  housingHighController.dispose();
-}
 final housingMedController = TextEditingController();
-@override
-void housingMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  housingMedController.dispose();
-}
 final housingLowController = TextEditingController();
-@override
-void housingLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  housingLowController.dispose();
-}
 final housingIndvController = TextEditingController();
-@override
-void housingIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  housingIndvController.dispose();
-}
 final schoolsHighController = TextEditingController();
-@override
-void schoolsHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  schoolsHighController.dispose();
-}
 final schoolsMedController = TextEditingController();
-@override
-void schoolsMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  schoolsMedController.dispose();
-}
 final schoolsLowController = TextEditingController();
-@override
-void schoolsLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  schoolsLowController.dispose();
-}
-
 final schoolsIndvController = TextEditingController();
-@override
-void schoolsIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  schoolsIndvController.dispose();
-}
 final hospHighController = TextEditingController();
-@override
-void hospHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  hospHighController.dispose();
-}
 final hospMedController = TextEditingController();
-@override
-void hospMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  hospMedController.dispose();
-}
 final hospLowController = TextEditingController();
-@override
-void hospLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  hospLowController.dispose();
-}
 final hospIndvController = TextEditingController();
-@override
-void hospIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  hospIndvController.dispose();
-}
 final wasteHighController = TextEditingController();
-@override
-void wasteHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  wasteHighController.dispose();
-}
 final wasteMedController = TextEditingController();
-@override
-void wasteMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  wasteMedController.dispose();
-}
 final wasteLowController = TextEditingController();
-@override
-void wasteLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  wasteLowController.dispose();
-}
 final wasteIndvController = TextEditingController();
-@override
-void wasteIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  wasteIndvController.dispose();
-}
 final elecHighController = TextEditingController();
-@override
-void elecHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  elecHighController.dispose();
-}
 final elecMedController = TextEditingController();
-@override
-void elecMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  elecMedController.dispose();
-}
 final elecLowController = TextEditingController();
-@override
-void elecLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  elecLowController.dispose();
-}
 final elecIndvController = TextEditingController();
-@override
-void elecIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  elecIndvController.dispose();
-}
 final waterHighController = TextEditingController();
-@override
-void waterHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  waterHighController.dispose();
-}
 final waterMedController = TextEditingController();
-@override
-void waterMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  waterMedController.dispose();
-}
 final waterLowController = TextEditingController();
-@override
-void waterLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  waterLowController.dispose();
-}
 final waterIndvController = TextEditingController();
-@override
-void waterIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  waterIndvController.dispose();
-}
 final wasteWaterHighController = TextEditingController();
-@override
-void wasteWaterHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  wasteWaterHighController.dispose();
-}
 final wasteWaterMedController = TextEditingController();
-@override
-void wasteWaterMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  wasteWaterMedController.dispose();
-}
 final wasteWaterLowController = TextEditingController();
-@override
-void wasteWaterLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  wasteWaterLowController.dispose();
-}
 final wasteWaterIndvController = TextEditingController();
-@override
-void wasteWaterIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  wasteWaterIndvController.dispose();
-}
 final essenHighController = TextEditingController();
-@override
-void essenHighDispose() {
-  // Clean up the controller when the widget is disposed.
-  essenHighController.dispose();
-}
 final essenMedController = TextEditingController();
-@override
-void essenMedDispose() {
-  // Clean up the controller when the widget is disposed.
-  essenMedController.dispose();
-}
 final essenLowController = TextEditingController();
-@override
-void essenLowDispose() {
-  // Clean up the controller when the widget is disposed.
-  essenLowController.dispose();
-}
 final essenIndvController = TextEditingController();
-@override
-void essenIndvDispose() {
-  // Clean up the controller when the widget is disposed.
-  essenIndvController.dispose();
-}
 final summaryController = TextEditingController();
-@override
-void summaryDispose() {
-  // Clean up the controller when the widget is disposed.
-  summaryController.dispose();
-}
 final recommendationController = TextEditingController();
-@override
-void recommendationDispose() {
-  // Clean up the controller when the widget is disposed.
-  recommendationController.dispose();
-}
-
 
 class DisasterDetailPage extends StatelessWidget {
   final DisasterT disasterT;
