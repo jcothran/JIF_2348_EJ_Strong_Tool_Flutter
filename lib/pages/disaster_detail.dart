@@ -198,7 +198,7 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: PaddedText("Locations of elements at risk specific to the hazard"),
+                    child: PaddedText("Locations of elements at risk to the hazard"),
                     flex: 4,
                   ),
                 ],
