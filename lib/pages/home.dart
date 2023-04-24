@@ -47,6 +47,7 @@ class HomePage extends StatelessWidget
               ),
             ),
 
+
             Padding(padding: EdgeInsets.all(5.0)),
 
             SizedBox(
@@ -54,7 +55,6 @@ class HomePage extends StatelessWidget
               height: 190,
               child: Container
               (
-                margin: EdgeInsets.only(left: 20),
                 child: ElevatedButton.icon(
                   icon: Icon(
                     Icons.search,
@@ -92,22 +92,6 @@ class HomePage extends StatelessWidget
                 ),
               ),
             ),
-
-            // Container(
-            //   margin: EdgeInsets.only(top: 8),
-            //   child: ElevatedButton
-            //     (
-            //     child: Text("End Session"),
-            //     style: style2,
-            //     onPressed:() async {
-            //       await _auth.signOut();
-            //        Navigator.push(
-            //         context,
-            //         MaterialPageRoute(builder: (context) => StartPage()),
-            //       );
-            //     },
-            //   ),
-            // )
           ],
         )
     );

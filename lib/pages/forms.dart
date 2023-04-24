@@ -90,7 +90,6 @@ class FormsPage extends StatelessWidget {
       mitiExist: '',
       mitiReq: '',
       mitiGaps: '',
-      //heElement: '',
       heExistHigh: '',
       heReqHigh: '',
       heGapsHigh: '',
