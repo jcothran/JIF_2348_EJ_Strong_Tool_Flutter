@@ -5,11 +5,16 @@ import 'forms.dart';
 
 //page for setting the location of the forms
 
+String locationString = "";
 String location = "";
 String date = "";
 
 class LocationDatePage extends StatefulWidget {
   State<LocationDatePage> createState() => LocationDatePageState();
+
+  String getLocationString() {
+    return locationString;
+  }
 
   String getLocation() {
     return location;
@@ -23,14 +28,21 @@ class LocationDatePage extends StatefulWidget {
 @override
 class LocationDatePageState extends State<LocationDatePage>{
 
-  final TextEditingController locController = TextEditingController();
+  final TextEditingController stateController = TextEditingController();
+  final TextEditingController countyController = TextEditingController();
+  //final TextEditingController cityController = TextEditingController();
   final TextEditingController mController = TextEditingController();
   final TextEditingController dController = TextEditingController();
   final TextEditingController yrController = TextEditingController();
 
   @override
   void dispose(){
-    locController.dispose();
+    stateController.dispose();
+    countyController.dispose();
+    //cityController.dispose();
+    dController.dispose();
+    mController.dispose();
+    yrController.dispose();
   }
 
   @override
@@ -46,7 +58,7 @@ class LocationDatePageState extends State<LocationDatePage>{
                 height: 700,
                 child: Column(
                   children: [
-                    Padding(padding: EdgeInsets.all(25.0)),
+                    Spacer(),
                     const Image(
                       image: AssetImage('assets/world.png'),
                       height: 300,
@@ -57,38 +69,69 @@ class LocationDatePageState extends State<LocationDatePage>{
                       alignment: Alignment(-.70, 0),
                       child: Text(
                         'Location:',
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 21),
                       ),
                     ),
                     Padding(padding: EdgeInsets.all(6.0)),
-                    ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 300, minHeight: 50),
-                      child: TextField(
-                        controller: locController,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp("^[a-zA-Z\- ]*")),
+                    Expanded(
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                          SizedBox(
+                            width: 52,
+                            height: 110,
+                            child: TextField(
+                              maxLength: 2,
+                              controller: stateController,
+                              textAlign: TextAlign.center,
+                              textCapitalization: TextCapitalization.characters,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.allow(RegExp(r'^[A-Z]+$')),
+                              ],
+                              decoration: InputDecoration(
+                                hintText: 'ST',
+                                border: OutlineInputBorder(),
+                                counterText: "",
+                                contentPadding: EdgeInsets.symmetric(horizontal: 14),
+                              ),
+                            ),
+                          ),
+                          Padding(padding: EdgeInsets.all(7.0)),
+                          SizedBox(
+                            width: 135,
+                            height: 110,
+                            child: TextField(
+                              controller: countyController,
+                              textAlign: TextAlign.center,
+                              textCapitalization: TextCapitalization.words,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.allow(RegExp(r'^[A-Za-z]+$')),
+                              ],
+                              decoration: InputDecoration(
+                                hintText: 'County',
+                                border: OutlineInputBorder(),
+                                counterText: "",
+                                contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                              ),
+                            ),
+                          ),
                         ],
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Enter location for the form',
-                          contentPadding: EdgeInsets.symmetric(horizontal: 12),
-                        ),
                       ),
                     ),
-                    Padding(padding: EdgeInsets.all(10.0)),
+                    Padding(padding: EdgeInsets.all(15.0)),
                     Align(
                       alignment: Alignment(-.72, 0),
                       child: Text(
                         'Date:',
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 21),
                       ),
                     ),
-                    Padding(padding: EdgeInsets.all(3.0)),
+                    Padding(padding: EdgeInsets.all(4.0)),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Padding(padding: EdgeInsets.all(45.0)),
                         SizedBox(
-                          width: 55,
+                          width: 52,
                           height: 75,
                           child: TextField(
                             maxLength: 2,
@@ -106,9 +149,9 @@ class LocationDatePageState extends State<LocationDatePage>{
                             ),
                           ),
                         ),
-                        Padding(padding: EdgeInsets.all(10.0)),
+                        Padding(padding: EdgeInsets.all(7.0)),
                         SizedBox(
-                          width: 55,
+                          width: 52,
                           height: 75,
                           child: TextField(
                             maxLength: 2,
@@ -126,9 +169,9 @@ class LocationDatePageState extends State<LocationDatePage>{
                             ),
                           ),
                         ),
-                        Padding(padding: EdgeInsets.all(10.0)),
+                        Padding(padding: EdgeInsets.all(7.0)),
                         SizedBox(
-                          width: 65,
+                          width: 75,
                           height: 75,
                           child: TextField(
                             maxLength: 4,
@@ -154,10 +197,11 @@ class LocationDatePageState extends State<LocationDatePage>{
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.lightBlue.shade600,
                         textStyle: TextStyle(fontSize: 17),
-                        fixedSize: Size(130, 43),
+                        fixedSize: Size(130, 45),
                       ),
                       onPressed: () {
-                        location = locController.text;
+                        locationString = stateController.text + ' ' + countyController.text + ' County';
+                        location = stateController.text + ' ' + countyController.text;
                         date = mController.text + '-' + dController.text + '-' + yrController.text;
                         Navigator.push(
                           context,

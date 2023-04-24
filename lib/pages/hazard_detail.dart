@@ -362,7 +362,7 @@ class HazardDetailPage extends StatelessWidget {
             ),
           );
 
-          String location_date = LocationDatePage().getLocation() + "_" + LocationDatePage().getDate();
+          String location_date = LocationDatePage().getLocation() + " " + LocationDatePage().getDate();
 
           //update form in database
           await DatabaseService().updateHazardData(location_date, hazardT.origin,
@@ -386,14 +386,24 @@ class HazardDetailPage extends StatelessWidget {
             children: [
               TableRow(
                   children: [
-                    Expanded(
-                      child: PaddedText('Characteristics of Hazard'),
-                      flex: 3,
+                    Container(
+                      padding: EdgeInsets.only(left: 10, bottom: 7),
+                      child: Text(
+                        "Community Profile",
+                        style: TextStyle(
+                            fontSize: 16
+                        ),
+                      ),
                     ),
 
-                    Expanded(
-                      child: PaddedText('Elements of Hazard'),
-                      flex: 2,
+                   Padding(
+                      padding: EdgeInsets.only(bottom: 7),
+                      child: Text(
+                          'Elements of Hazard',
+                          style: TextStyle(
+                              fontSize: 16
+                          ),
+                      ),
                     ),
                   ],
                 ),

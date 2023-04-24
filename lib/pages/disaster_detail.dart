@@ -488,49 +488,53 @@ class DisasterDetailPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          Padding(padding: EdgeInsets.all(11)),
+          Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(left: 10, bottom: 7),
+                  child: Text(
+                    "Community Profile:",
+                    style: TextStyle(
+                        fontSize: 16
+                    ),
+                  ),
+                ),
+                Padding(padding: EdgeInsets.all(5)),
+                Expanded(
+                  child: TextField(controller: communityProfController),
+                ),
+              ]
+          ),
 
-          Container(height: 50),
-          Table(
+          Row(
             children: [
-              TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText("Community Profile:"),
-                    flex: 1,
+              Container(
+                padding: EdgeInsets.only(top: 25, left: 10, bottom: 7),
+                child: Text(
+                  "Hazard Profile:",
+                  style: TextStyle(
+                      fontSize: 16
                   ),
-                  Expanded(
-                    child: TextField(controller: communityProfController,),
-                    flex: 4,
-                  ),
-                ],
+                ),
               ),
-              TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText("Hazard Profile:"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(controller: hazardProfController,),
-                    flex: 4,
-                  ),
-                ],
+              Padding(padding: EdgeInsets.all(5)),
+              Expanded(
+                child: TextField(controller: hazardProfController),
               ),
-              TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText("Elements at risk:"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Locations of elements at risk specific to the hazard"),
-                    flex: 4,
-                  ),
-                ],
-              ),
-
             ],
           ),
+
+          Container(
+             padding: EdgeInsets.only(top: 25, left: 10, bottom: 7),
+             child: Text(
+                "Locations of elements at \nrisk specific to the hazard:",
+               style: TextStyle(
+                  fontSize: 16
+               ),
+             ),
+          ),
+
           Table(
             //border: TableBorder.all(color: PdfColors.black),
             children: [
@@ -566,24 +570,38 @@ class DisasterDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: PaddedText("<0.5 mi."),
+                    child: PaddedText("< 0.5 mi."),
                     flex: 1,
                   ),
                   Expanded(
-                    child: PaddedText("0.5-1.0 mi."),
+                    child: PaddedText("0.5 - 1.0 mi."),
                     flex: 1,
                   ),
                   Expanded(
-                    child: PaddedText(">1.0 mi."),
+                    child: PaddedText("> 1.0 mi."),
                     flex: 1,
                   ),
                   Expanded(
-                    child: PaddedText("Indv Survivability"),
+                    child: PaddedText("Indv \n Survivability"),
                     flex: 1,
                   ),
                 ],
               ),
+            ]
+          ),
 
+          Container(
+             padding: EdgeInsets.only(left: 10, bottom: 7),
+               child: Text(
+                  "Elements At \nRisk:",
+                  style: TextStyle(
+                    fontSize: 16
+                  ),
+               ),
+          ),
+
+          Table(
+            children: [
               TableRow(
                 children: [
                   Expanded(
@@ -848,50 +866,21 @@ class DisasterDetailPage extends StatelessWidget {
                   ),
                 ],
               ),
-              TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText("Non-human elements"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: nheHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: nheMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: nheLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: nheIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                ],
+            ]
+          ),
+
+          Container(
+            padding: EdgeInsets.only(top: 25, left: 10, bottom: 7),
+            child: Text(
+              "Non-Human \nElements:",
+              style: TextStyle(
+                  fontSize: 16
               ),
+            ),
+          ),
+
+          Table(
+            children: [
               TableRow(
                 children: [
                   Expanded(
@@ -1246,34 +1235,44 @@ class DisasterDetailPage extends StatelessWidget {
               ),
             ],
           ),
-          Table(
+          Row(
             children: [
-              TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText("Summary of the Disaster Assessment:"),
-                    flex: 1,
+              Container(
+                padding: EdgeInsets.only(top: 25, left: 10, bottom: 7),
+                child: Text(
+                  "Summary:",
+                  style: TextStyle(
+                      fontSize: 16
                   ),
-                  Expanded(
-                    child: TextField(controller: summaryController),
-                    flex: 4,
-                  ),
-                ],
+                ),
               ),
-              TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText("Recommendations of the Disaster Assessment:"),
-                    flex: 1,
+              Padding(padding: EdgeInsets.all(5)),
+              Expanded(
+                child: TextField(controller: summaryController),
+              ),
+            ]
+          ),
+
+          Padding(padding: EdgeInsets.all(5)),
+
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 25, left: 10, bottom: 7),
+                child: Text(
+                  "Recommendations:",
+                  style: TextStyle(
+                      fontSize: 16
                   ),
-                  Expanded(
-                    child: TextField(controller: recommendationController),
-                    flex: 4,
-                  ),
-                ],
+                ),
+              ),
+              Padding(padding: EdgeInsets.all(5)),
+              Expanded(
+                child: TextField(controller: recommendationController),
               ),
             ],
           ),
+          Padding(padding: EdgeInsets.all(21)),
         ],
       ),
     );
@@ -1285,7 +1284,7 @@ Widget PaddedText(
       final TextAlign align = TextAlign.left,
     }) =>
     Padding(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(15),
       child: Text(
         text,
         textAlign: align,
