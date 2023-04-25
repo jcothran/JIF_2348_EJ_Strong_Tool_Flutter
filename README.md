@@ -60,3 +60,109 @@ We are working with the South Carolina Department of Health and Control (DHEC) i
 <ul style - "list-style-type: square">
 <li> Working application running on Flutter.</li>
 </ul>
+
+<h1> Installation and Running </h1>
+<h2> Install Git Using GitHub Desktop </h2>
+Navigate to the latest Git for Windows installer and download the latest version. 
+
+Once the installer has started, follow the instructions as provided in the Git Setup wizard screen until the installation is complete. 
+
+Open the windows command prompt (or Git Bash if you selected not to use the standard Git Windows Command Prompt during the Git installation). 
+
+Type git version to verify Git was installed. 
+
+<h2> Installing Flutter on Mac </h2>
+First, download the Flutter SDK from the official website at https://flutter.dev/docs/get-started/install/macos. Click the "Download Flutter for macOS" button to begin the download. 
+
+Once the download is complete, open the terminal application on your Mac. 
+
+Navigate to the directory where you want to install Flutter using the cd command. For example, if you want to install it in the /Users/your-user-name/ directory, type cd /Users/your-user-name/ in the terminal. 
+
+Unzip the downloaded Flutter SDK file using the command: unzip ~/Downloads/flutter_macos_<version>.zip 
+
+Add the Flutter tool to your PATH by running the command: export PATH="$PATH:pwd/flutter/bin" 
+
+Verify that Flutter is installed correctly by running the command: flutter doctor 
+
+<h2> Installing Flutter on PC </h2>
+Download the Flutter SDK from the official website at https://flutter.dev/docs/get-started/install/windows. Click the "Download Flutter for Windows" button to begin the download. 
+
+Once the download is complete, extract the contents of the zip file to a directory on your PC. 
+
+Update your system's PATH environment variable to include the Flutter bin directory. This can be done by following the steps listed here: https://flutter.dev/docs/get-started/install/windows#update-your-path 
+
+Open a new Command Prompt window to verify that Flutter is installed correctly by running the command: flutter doctor 
+
+<h2> Installing Firestore </h2>
+Go to the Firebase Console website at https://console.firebase.google.com/. 
+
+Sign in with your Google account or create a new account if you don't have one already. 
+
+Let us know the gmail account you will be using and email amccrary6@gatech.edu in order to transfer ownership. 
+
+<h2> Installing IntelliJ </h2>
+Go to the official website for IntelliJ IDEA at https://www.jetbrains.com/idea/. 
+
+Click on the "Download" button on the top right corner of the page. 
+
+On the download page, select the version of IntelliJ IDEA that you want to download. There are two versions available: Community and Ultimate. 
+
+If you choose the Community version, click the "Download" button to download the installation file. 
+
+If you choose the Ultimate version, you will be prompted to sign up for a free trial or purchase a license before downloading. 
+
+Once the download is complete, double-click on the installation file to start the installation process. 
+
+Follow the prompts to complete the installation. You may be asked to select the installation location, agree to the license agreement, and create a desktop shortcut. 
+
+After the installation is complete, launch IntelliJ IDEA from the desktop shortcut or by searching for it in your applications folder. 
+
+Once you've completed the setup, you can start using IntelliJ IDEA to develop your projects. 
+
+<h2> Installing VSCode </h2>
+Go to the official website for Visual Studio Code at https://code.visualstudio.com/. 
+
+Click on the "Download for [your operating system]" button on the homepage. 
+
+Once the download is complete, open the installer file. 
+
+Follow the prompts to complete the installation. You may be asked to select the installation location, agree to the license agreement, and create a desktop shortcut. 
+
+After the installation is complete, launch Visual Studio Code from the desktop shortcut or by searching for it in your applications folder. 
+
+<h2> Installing Android Studio </h2>
+Visit the official Android Studio website at https://developer.android.com/studio/. 
+
+Click on the "Download Android Studio" button. 
+
+Choose your operating system (Windows, Mac, or Linux) and click "Download". 
+
+Once the download is complete, open the downloaded file. 
+
+Follow the installation wizard to install Android Studio on your computer. 
+
+During the installation process, you may be prompted to install additional components, such as the Android SDK or virtual devices. Follow the prompts to install these components as well. 
+
+Once the installation is complete, launch Android Studio. 
+
+Android Studio may prompt you to download additional updates or SDKs. Follow the prompts to download and install any necessary updates. 
+
+<h1> Running the Application </h1>
+
+Review the steps above and download the Github in order to run it locally, or use Github Desktop. Open in either IntelliJ or VSCode 
+
+Navigate to the general folder in terminal and in order for the flutter commands to work, you can do:  
+
+export PATH="/Users/"YOURUSERNAME”/Downloads/flutter/bin:$PATH" 
+
+Depending on if you’re on Mac or not 
+
+To run the application in the terminal type “flutter run” 
+
+This will start the application and gives you an option to run it as  
+
+1. On the Android Studio application 
+
+2. On Chrome as a Web Application 
+
+When you press either 1 or 2 the application should appear! 
