@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:makepdfs/services/auth.dart';
 import 'forms.dart';
-import 'edit_forms.dart';
+//import 'edit_forms.dart';
 
 //page for setting the location of the forms
 
@@ -37,7 +37,7 @@ class LocationDatePageState extends State<LocationDatePage>{
 
   final TextEditingController stateController = TextEditingController();
   final TextEditingController countyController = TextEditingController();
-  //final TextEditingController cityController = TextEditingController();
+  final TextEditingController cityController = TextEditingController();
   final TextEditingController mController = TextEditingController();
   final TextEditingController dController = TextEditingController();
   final TextEditingController yrController = TextEditingController();
@@ -62,21 +62,28 @@ class LocationDatePageState extends State<LocationDatePage>{
         body: Center(
             child: SingleChildScrollView(
               child: SizedBox(
-                height: 700,
+                height: MediaQuery.of(context).size.height/1.16,
                 child: Column(
                   children: [
                     Spacer(),
-                    const Image(
-                      image: AssetImage('assets/world.png'),
-                      height: 300,
-                      width: 300,
+                    Expanded(
+                      flex: 5,
+                      child: Container(
+                        height:MediaQuery.of(context).size.height,
+                        width: MediaQuery.of(context).size.width,
+                        child: const Image(
+                          image: AssetImage('assets/world.png'),
+                        ),
+                      ),
                     ),
-                    Padding(padding: EdgeInsets.all(17.0)),
-                    Align(
-                      alignment: Alignment(-.70, 0),
-                      child: Text(
-                        'Location:',
-                        style: TextStyle(fontSize: 21),
+                    Padding(padding: EdgeInsets.all(14.0)),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment(-.70, 0),
+                        child: Text(
+                          'Location:',
+                          style: TextStyle(fontSize: 21),
+                        ),
                       ),
                     ),
                     Padding(padding: EdgeInsets.all(6.0)),
@@ -84,9 +91,9 @@ class LocationDatePageState extends State<LocationDatePage>{
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                          SizedBox(
-                            width: 52,
-                            height: 110,
+                          Container(
+                            height:MediaQuery.of(context).size.height/6.5,
+                            width: MediaQuery.of(context).size.width/6.7 ,
                             child: TextField(
                               maxLength: 2,
                               controller: stateController,
@@ -104,9 +111,9 @@ class LocationDatePageState extends State<LocationDatePage>{
                             ),
                           ),
                           Padding(padding: EdgeInsets.all(7.0)),
-                          SizedBox(
-                            width: 135,
-                            height: 110,
+                          Container(
+                            height:MediaQuery.of(context).size.height/2.8,
+                            width: MediaQuery.of(context).size.width/2.8 ,
                             child: TextField(
                               controller: countyController,
                               textAlign: TextAlign.center,
@@ -125,127 +132,140 @@ class LocationDatePageState extends State<LocationDatePage>{
                         ],
                       ),
                     ),
-                    Padding(padding: EdgeInsets.all(15.0)),
-                    Align(
-                      alignment: Alignment(-.72, 0),
-                      child: Text(
-                        'Date:',
-                        style: TextStyle(fontSize: 21),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment(-.72, 0),
+                        child: Text(
+                          'Date:',
+                          style: TextStyle(fontSize: 21),
+                        ),
                       ),
                     ),
                     Padding(padding: EdgeInsets.all(4.0)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          width: 52,
-                          height: 75,
-                          child: TextField(
-                            maxLength: 2,
-                            controller: mController,
-                            textAlign: TextAlign.center,
-                            keyboardType: TextInputType.number,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly,
-                            ],
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              hintText: 'MM',
-                              counterText: "",
-                              contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                          Container(
+                            height:MediaQuery.of(context).size.height/6.5,
+                            width: MediaQuery.of(context).size.width/6.5 ,
+                            child: TextField(
+                              maxLength: 2,
+                              controller: mController,
+                              textAlign: TextAlign.center,
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                              ],
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'MM',
+                                counterText: "",
+                                contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                              ),
                             ),
                           ),
-                        ),
                         Padding(padding: EdgeInsets.all(7.0)),
-                        SizedBox(
-                          width: 52,
-                          height: 75,
-                          child: TextField(
-                            maxLength: 2,
-                            controller: dController,
-                            textAlign: TextAlign.center,
-                            keyboardType: TextInputType.number,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly,
-                            ],
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              hintText: 'DD',
-                              counterText: "",
-                              contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                        Container(
+                          height:MediaQuery.of(context).size.height/6.5,
+                          width: MediaQuery.of(context).size.width/6.5 ,
+                            child: TextField(
+                              maxLength: 2,
+                              controller: dController,
+                              textAlign: TextAlign.center,
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                              ],
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'DD',
+                                counterText: "",
+                                contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                              ),
                             ),
                           ),
-                        ),
                         Padding(padding: EdgeInsets.all(7.0)),
-                        SizedBox(
-                          width: 75,
-                          height: 75,
-                          child: TextField(
-                            maxLength: 4,
-                            controller: yrController,
-                            textAlign: TextAlign.center,
-                            keyboardType: TextInputType.number,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly,
-                            ],
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              alignLabelWithHint: true,
-                              hintText: 'YYYY',
-                              counterText: "",
-                              contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                        Container(
+                          height:MediaQuery.of(context).size.height/6.5,
+                          width: MediaQuery.of(context).size.width/6.5 +25,
+                            child: TextField(
+                              maxLength: 4,
+                              controller: yrController,
+                              textAlign: TextAlign.center,
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                              ],
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                alignLabelWithHint: true,
+                                hintText: 'YYYY',
+                                counterText: "",
+                                contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                              ),
                             ),
                           ),
-                        ),
                       ],
                     ),
                     Row(
                       children: [
                         Spacer(),
-                        ElevatedButton(
-                          child: const Text('New Form'),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.lightBlue.shade600,
-                            textStyle: TextStyle(fontSize: 17),
-                            fixedSize: Size(130, 43),
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            child: ElevatedButton(
+                              child: const Text('New Form'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.lightBlue.shade600,
+                                textStyle: TextStyle(fontSize: 17),
+                                fixedSize: Size(130, 43),
+                              ),
+                              onPressed: () {
+
+                                location = stateController.text + " " + countyController.text;
+                                locationString = stateController.text + ' ' + countyController.text + ' County';
+
+                                date = mController.text + '-' + dController.text + '-' + yrController.text;
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => FormsPage()),
+                                );
+                              },
+                            ),
                           ),
-                          onPressed: () {
-
-                            location = stateController.text + " " + countyController.text;
-                            locationString = stateController.text + ' ' + countyController.text + ' County';
-
-                            date = mController.text + '-' + dController.text + '-' + yrController.text;
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => FormsPage()),
-                            );
-                          },
                         ),
                         Spacer(),
 
-                        ElevatedButton(
-                          child: const Text('Edit Form'),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.lightBlue.shade600,
-                            textStyle: TextStyle(fontSize: 17),
-                            fixedSize: Size(130, 43),
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            child: ElevatedButton(
+                              child: const Text('Edit Form'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.lightBlue.shade600,
+                                textStyle: TextStyle(fontSize: 17),
+                                fixedSize: Size(130, 43),
+                              ),
+                              onPressed: () {
+
+                                location = stateController.text + " " + countyController.text;
+                                locationString = stateController.text + ' ' + countyController.text + ' County';
+
+                                date = mController.text + '-' + dController.text + '-' + yrController.text;
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(builder: (context) => EditFormsPage()),
+                                // );
+                              },
+                            ),
                           ),
-                          onPressed: () {
-
-                            location = stateController.text + " " + countyController.text;
-                            locationString = stateController.text + ' ' + countyController.text + ' County';
-
-                            date = mController.text + '-' + dController.text + '-' + yrController.text;
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => EditFormsPage()),
-                            );
-                          },
                         ),
-                        Spacer(),                        
+                        Spacer(),
                       ],
                     ),
-                 
+
+                    Padding(padding: EdgeInsets.all(22.0)),
+
                   ],
                 ),
               ),

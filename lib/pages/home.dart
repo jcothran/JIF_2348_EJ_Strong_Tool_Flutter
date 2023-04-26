@@ -25,24 +25,25 @@ class HomePage extends StatelessWidget
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>
           [
-            Padding(padding: EdgeInsets.all(26.0)),
-            SizedBox(
-              width: 340,
-              height: 190,
-              child: Container
-              (
-                margin: EdgeInsets.only(left: 20),
-                child: ElevatedButton.icon(
-                  label: Text("Forms"),
-                  icon: Icon(
-                    Icons.assignment,
-                    size: 60
+            Center(
+              child: Expanded(
+                child: Container
+                (
+                  height:MediaQuery.of(context).size.height/4,
+                  width: MediaQuery.of(context).size.width,
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  child: ElevatedButton.icon(
+                    label: Text("Forms"),
+                    icon: Icon(
+                      Icons.assignment,
+                      size: 60
+                    ),
+                    style: style,
+                    onPressed:()
+                    {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage()));
+                    },
                   ),
-                  style: style,
-                  onPressed:()
-                  {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage()));
-                  },
                 ),
               ),
             ),
@@ -50,22 +51,26 @@ class HomePage extends StatelessWidget
 
             Padding(padding: EdgeInsets.all(5.0)),
 
-            SizedBox(
-              width: 370,
-              height: 190,
-              child: Container
-              (
-                child: ElevatedButton.icon(
-                  icon: Icon(
-                    Icons.search,
-                    size: 60
+            //STRETCH GOALS
+            Center(
+              child: Expanded(
+                child: Container
+                (
+                  height:MediaQuery.of(context).size.height/4,
+                  width: MediaQuery.of(context).size.width,
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  child: ElevatedButton.icon(
+                    icon: Icon(
+                      Icons.search,
+                      size: 60
+                    ),
+                    label: Text("Retrieve Forms"),
+                    style: style,
+                    onPressed:()
+                    {
+                      // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO PHOTOS PAGE
+                    },
                   ),
-                  label: Text("Retrieve Forms"),
-                  style: style,
-                  onPressed:()
-                  {
-                    // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO PHOTOS PAGE
-                  },
                 ),
               ),
             ),
@@ -91,25 +96,28 @@ class HomePage extends StatelessWidget
             //   ),
             // ),
 
-            // Padding(padding: EdgeInsets.all(5.0)),
+            Padding(padding: EdgeInsets.all(5.0)),
 
-            SizedBox(
-              width: 340,
-              height: 190,
-              child: Container
-              (
-                margin: EdgeInsets.only(left: 20),
-                child: ElevatedButton.icon(
-                  icon: Icon(
-                      Icons.add_chart,
-                      size: 60
+            //STRETCH GOALS
+            Center(
+              child: Expanded(
+                child: Container
+                (
+                  height:MediaQuery.of(context).size.height/4,
+                  width: MediaQuery.of(context).size.width,
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  child: ElevatedButton.icon(
+                    icon: Icon(
+                        Icons.add_chart,
+                        size: 60
+                    ),
+                    label: Text("Analyze Forms"),
+                    style: style,
+                    onPressed:()
+                    {
+                      // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO ANALYTICS PAGE
+                    },
                   ),
-                  label: Text("Analyze Forms"),
-                  style: style,
-                  onPressed:()
-                  {
-                    // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO ANALYTICS PAGE
-                  },
                 ),
               ),
             ),
