@@ -12,13 +12,14 @@ final affectCommunityController = TextEditingController();
 
 class DropdownOrigin extends StatefulWidget {
   // const DropdownHazard({super.key});
-  final String saved_origin_value;
-  final bool use_previous_value;
-
+  final String saved_origin_value;      // this is the value we retrieve from the database (it is passed from edit forms)
+  final bool use_previous_value;        // if we have come from the edit forms page this flag will be true and we use database values
+                                        // ditto these comments for other dropdown handlers
   DropdownOrigin(this.saved_origin_value, this.use_previous_value);
 
   @override
-  State<DropdownOrigin> createState() => _DropdownOriginState(saved_origin_value, use_previous_value);
+  State<DropdownOrigin> createState() => _DropdownOriginState(saved_origin_value, use_previous_value);  // pass these values to the state class so that they can
+                                                                                                        // be displayed if necessary
 }
 String originDrop = origin_keywords.first;
 class _DropdownOriginState extends State<DropdownOrigin> {
@@ -64,16 +65,27 @@ class _DropdownOriginState extends State<DropdownOrigin> {
 
 class DropdownWarning extends StatefulWidget {
   // const DropdownHazard({super.key});
+  final String saved_warning_value;
+  final bool use_previous_value;
+
+  DropdownWarning(this.saved_warning_value, this.use_previous_value);
 
   @override
-  State<DropdownWarning> createState() => _DropdownWarningState();
+  State<DropdownWarning> createState() => _DropdownWarningState(saved_warning_value, use_previous_value);
 }
 String warningDrop = warning_keywords.first;
 class _DropdownWarningState extends State<DropdownWarning> {
   String dropdownValue = warning_keywords.first;
+  final String saved_warning_value;
+  final bool use_previous_value;
+
+  _DropdownWarningState(this.saved_warning_value, this.use_previous_value);
 
   @override
   Widget build(BuildContext context) {
+    if (use_previous_value)
+      dropdownValue = saved_warning_value;
+
     return DropdownButton<String>(
       isExpanded: true,
       value: dropdownValue,
@@ -372,8 +384,8 @@ class HazardDetailPage extends StatelessWidget {
   final bool edit_file;
   const HazardDetailPage({
     Key? key,
-    required this.hazardT,
-    required this.edit_file,
+    required this.hazardT,      // these are either the db values (edit) or the blanks (new)
+    required this.edit_file,    // this tells the program that the file is being edited
   }) : super(key: key);
 
   @override
@@ -482,7 +494,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownWarning(),
+                    child: DropdownWarning(hazardT.warning, edit_file),
                     flex: 2,
                   ),
                 ],
