@@ -33,8 +33,8 @@ class _DropdownOriginState extends State<DropdownOrigin> {
   Widget build(BuildContext context) {
     if (use_previous_value)
     {
-      dropdownValue = saved_origin_value;
-      use_previous_value = false;
+      dropdownValue = saved_origin_value;       // this sets the value in the dropdown to be the value from the db
+      use_previous_value = false;               // this build function is called repeatedly, we set this value to false so the dropdown is only adjusted the first time
     }
     return DropdownButton<String>(
       isExpanded: true,
@@ -78,15 +78,17 @@ String warningDrop = warning_keywords.first;
 class _DropdownWarningState extends State<DropdownWarning> {
   String dropdownValue = warning_keywords.first;
   final String saved_warning_value;
-  final bool use_previous_value;
+  bool use_previous_value;
 
   _DropdownWarningState(this.saved_warning_value, this.use_previous_value);
 
   @override
   Widget build(BuildContext context) {
     if (use_previous_value)
+    {
       dropdownValue = saved_warning_value;
-
+      use_previous_value = false;
+    }
     return DropdownButton<String>(
       isExpanded: true,
       value: dropdownValue,
@@ -128,14 +130,18 @@ String forewarningDrop = forewarning_keywords.first;
 class _DropdownForewarningState extends State<DropdownForewarning> {
   String dropdownValue = forewarning_keywords.first;
   final String saved_forewarning_value;
-  final bool use_previous_value;
+  bool use_previous_value;
 
   _DropdownForewarningState(this.saved_forewarning_value, this.use_previous_value);
 
   @override
   Widget build(BuildContext context) {
     if (use_previous_value)
+    {
       dropdownValue = saved_forewarning_value;
+      use_previous_value = false;
+    }
+      
     return DropdownButton<String>(
       isExpanded: true,
       value: dropdownValue,
@@ -177,14 +183,18 @@ String speedDrop = speed_keywords.first;
 class _DropdownSpeedState extends State<DropdownSpeed> {
   String dropdownValue = speed_keywords.first;
   final String saved_speed_value;
-  final bool use_previous_value;
+  bool use_previous_value;
 
   _DropdownSpeedState(this.saved_speed_value, this.use_previous_value);
 
   @override
   Widget build(BuildContext context) {
     if (use_previous_value)
+    {
       dropdownValue = saved_speed_value;
+      use_previous_value = false;
+    }
+
     return DropdownButton<String>(
       isExpanded: true,
       value: dropdownValue,
