@@ -164,16 +164,26 @@ class _DropdownForewarningState extends State<DropdownForewarning> {
 
 class DropdownSpeed extends StatefulWidget {
   // const DropdownHazard({super.key});
+  final String saved_speed_value;
+  final bool use_previous_value;
+
+  DropdownSpeed(this.saved_speed_value, this.use_previous_value);
 
   @override
-  State<DropdownSpeed> createState() => _DropdownSpeedState();
+  State<DropdownSpeed> createState() => _DropdownSpeedState(saved_speed_value, use_previous_value);
 }
 String speedDrop = speed_keywords.first;
 class _DropdownSpeedState extends State<DropdownSpeed> {
   String dropdownValue = speed_keywords.first;
+  final String saved_speed_value;
+  final bool use_previous_value;
+
+  _DropdownSpeedState(this.saved_speed_value, this.use_previous_value);
 
   @override
   Widget build(BuildContext context) {
+    if (use_previous_value)
+      dropdownValue = saved_speed_value;
     return DropdownButton<String>(
       isExpanded: true,
       value: dropdownValue,
@@ -532,7 +542,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownSpeed(),
+                    child: DropdownSpeed(hazardT.speed, edit_file),
                     flex: 2,
                   ),
                 ],
