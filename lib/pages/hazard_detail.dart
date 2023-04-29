@@ -25,7 +25,7 @@ String originDrop = origin_keywords.first;
 class _DropdownOriginState extends State<DropdownOrigin> {
   String dropdownValue = origin_keywords.first;
   final String saved_origin_value;
-  final bool use_previous_value;
+  bool use_previous_value;
 
   _DropdownOriginState(this.saved_origin_value, this.use_previous_value);
 
@@ -34,6 +34,7 @@ class _DropdownOriginState extends State<DropdownOrigin> {
     if (use_previous_value)
     {
       dropdownValue = saved_origin_value;
+      use_previous_value = false;
     }
     return DropdownButton<String>(
       isExpanded: true,
