@@ -278,7 +278,7 @@ class FormsPage extends StatelessWidget {
                     onError: (e) => print("Error completing: $e"),
                   );
 
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HazardDetailPage(hazardT: blank)));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HazardDetailPage(hazardT: blank, edit_file: false,)));
                 },
               ),
             ),
