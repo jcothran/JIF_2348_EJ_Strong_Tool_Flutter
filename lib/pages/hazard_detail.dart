@@ -115,16 +115,26 @@ class _DropdownWarningState extends State<DropdownWarning> {
 
 class DropdownForewarning extends StatefulWidget {
   // const DropdownHazard({super.key});
+  final String saved_forewarning_value;
+  final bool use_previous_value;
+
+  DropdownForewarning(this.saved_forewarning_value, this.use_previous_value);
 
   @override
-  State<DropdownForewarning> createState() => _DropdownForewarningState();
+  State<DropdownForewarning> createState() => _DropdownForewarningState(saved_forewarning_value, use_previous_value);
 }
 String forewarningDrop = forewarning_keywords.first;
 class _DropdownForewarningState extends State<DropdownForewarning> {
   String dropdownValue = forewarning_keywords.first;
+  final String saved_forewarning_value;
+  final bool use_previous_value;
+
+  _DropdownForewarningState(this.saved_forewarning_value, this.use_previous_value);
 
   @override
   Widget build(BuildContext context) {
+    if (use_previous_value)
+      dropdownValue = saved_forewarning_value;
     return DropdownButton<String>(
       isExpanded: true,
       value: dropdownValue,
@@ -508,7 +518,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownForewarning(),
+                    child: DropdownForewarning(hazardT.forewarning, edit_file),
                     flex: 2,
                   ),
                 ],
