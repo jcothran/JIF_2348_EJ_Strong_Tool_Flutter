@@ -12,16 +12,28 @@ final affectCommunityController = TextEditingController();
 
 class DropdownOrigin extends StatefulWidget {
   // const DropdownHazard({super.key});
+  final String saved_origin_value;
+  final bool use_previous_value;
+
+  DropdownOrigin(this.saved_origin_value, this.use_previous_value);
 
   @override
-  State<DropdownOrigin> createState() => _DropdownOriginState();
+  State<DropdownOrigin> createState() => _DropdownOriginState(saved_origin_value, use_previous_value);
 }
 String originDrop = origin_keywords.first;
 class _DropdownOriginState extends State<DropdownOrigin> {
   String dropdownValue = origin_keywords.first;
+  final String saved_origin_value;
+  final bool use_previous_value;
+
+  _DropdownOriginState(this.saved_origin_value, this.use_previous_value);
 
   @override
   Widget build(BuildContext context) {
+    if (use_previous_value)
+    {
+      dropdownValue = saved_origin_value;
+    }
     return DropdownButton<String>(
       isExpanded: true,
       value: dropdownValue,
@@ -357,9 +369,11 @@ const List<String> duration_keywords = <String>['Annually', 'Days',
 
 class HazardDetailPage extends StatelessWidget {
   final HazardT hazardT;
+  final bool edit_file;
   const HazardDetailPage({
     Key? key,
     required this.hazardT,
+    required this.edit_file,
   }) : super(key: key);
 
   @override
@@ -440,7 +454,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownOrigin(),
+                    child: DropdownOrigin(hazardT.origin, edit_file),
                     flex: 2,
                   ),
                 ],
