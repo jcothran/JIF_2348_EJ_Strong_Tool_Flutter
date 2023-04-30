@@ -126,6 +126,12 @@ class HazardDetailPage extends StatelessWidget {
       affectMeController.text = hazardT.affectMe;
       affectCommunityController.text = hazardT.affectCommunity;
     }
+    else 
+    {
+      descController.text = '';
+      affectMeController.text = '';
+      affectCommunityController.text = '';
+    }
     DropdownHandler origin = DropdownHandler(hazardT.origin, edit_file, origin_keywords);
     DropdownHandler force = DropdownHandler(hazardT.force, edit_file, force_keywords);
     DropdownHandler warning = DropdownHandler(hazardT.warning, edit_file, warning_keywords);
