@@ -10,136 +10,46 @@ final descController = TextEditingController();
 final affectMeController = TextEditingController();
 final affectCommunityController = TextEditingController();
 
-class DropdownOrigin extends StatefulWidget {
+class DropdownHandler extends StatefulWidget {
   // const DropdownHazard({super.key});
+  final List<String> keywords;
+  final String saved_value;      // this is the value we retrieve from the database (it is passed from edit forms)
+  final bool use_previous_value;        // if we have come from the edit forms page this flag will be true and we use database values
 
-  @override
-  State<DropdownOrigin> createState() => _DropdownOriginState();
-}
-String originDrop = origin_keywords.first;
-class _DropdownOriginState extends State<DropdownOrigin> {
-  String dropdownValue = origin_keywords.first;
+  late _DropdownHandlerState state;
 
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      isExpanded: true,
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_drop_down),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? value) {
-        // This is called when the user selects an item.
-        setState(() {
-          dropdownValue = value!;
-          originDrop = dropdownValue;
-        });
-      },
-      items: origin_keywords.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    );
+  DropdownHandler(this.saved_value, this.use_previous_value, this.keywords)
+  {
+    state = _DropdownHandlerState(saved_value, use_previous_value, keywords);
   }
-}
-
-
-class DropdownWarning extends StatefulWidget {
-  // const DropdownHazard({super.key});
-
+  
   @override
-  State<DropdownWarning> createState() => _DropdownWarningState();
-}
-String warningDrop = warning_keywords.first;
-class _DropdownWarningState extends State<DropdownWarning> {
-  String dropdownValue = warning_keywords.first;
+  State<DropdownHandler> createState() => state;  // pass these values to the state class so that they can
 
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      isExpanded: true,
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_drop_down),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? value) {
-        // This is called when the user selects an item.
-        setState(() {
-          dropdownValue = value!;
-          warningDrop = dropdownValue;
-        });
-      },
-      items: warning_keywords.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    );
+  String get_value()
+  {
+    return state.dropdownValue;
   }
+                                                                                            
 }
+class _DropdownHandlerState extends State<DropdownHandler> {
+  final String saved_value;
+  final List<String> keywords;
+  bool use_previous_value;
+  late String dropdownValue;
 
-class DropdownForewarning extends StatefulWidget {
-  // const DropdownHazard({super.key});
-
-  @override
-  State<DropdownForewarning> createState() => _DropdownForewarningState();
-}
-String forewarningDrop = forewarning_keywords.first;
-class _DropdownForewarningState extends State<DropdownForewarning> {
-  String dropdownValue = forewarning_keywords.first;
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      isExpanded: true,
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_drop_down),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? value) {
-        // This is called when the user selects an item.
-        setState(() {
-          dropdownValue = value!;
-          forewarningDrop = dropdownValue;
-        });
-      },
-      items: forewarning_keywords.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    );
+  _DropdownHandlerState(this.saved_value, this.use_previous_value, this.keywords)
+  {
+    dropdownValue = keywords.first;
   }
-}
-
-class DropdownSpeed extends StatefulWidget {
-  // const DropdownHazard({super.key});
-
-  @override
-  State<DropdownSpeed> createState() => _DropdownSpeedState();
-}
-String speedDrop = speed_keywords.first;
-class _DropdownSpeedState extends State<DropdownSpeed> {
-  String dropdownValue = speed_keywords.first;
 
   @override
   Widget build(BuildContext context) {
+    if (use_previous_value)
+    {
+      dropdownValue = saved_value;       // this sets the value in the dropdown to be the value from the db
+      use_previous_value = false;               // this build function is called repeatedly, we set this value to false so the dropdown is only adjusted the first time
+    }
     return DropdownButton<String>(
       isExpanded: true,
       value: dropdownValue,
@@ -154,166 +64,9 @@ class _DropdownSpeedState extends State<DropdownSpeed> {
         // This is called when the user selects an item.
         setState(() {
           dropdownValue = value!;
-          speedDrop = dropdownValue;
         });
       },
-      items: speed_keywords.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    );
-  }
-}
-
-class DropdownFreq extends StatefulWidget {
-  // const DropdownHazard({super.key});
-
-  @override
-  State<DropdownFreq> createState() => _DropdownFreqState();
-}
-String freqDrop = freq_keywords.first;
-class _DropdownFreqState extends State<DropdownFreq> {
-  String dropdownValue = freq_keywords.first;
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      isExpanded: true,
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_drop_down),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? value) {
-        // This is called when the user selects an item.
-        setState(() {
-          dropdownValue = value!;
-          freqDrop = dropdownValue;
-        });
-      },
-      items: freq_keywords.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    );
-  }
-}
-
-class DropdownPeriod extends StatefulWidget {
-  // const DropdownHazard({super.key});
-
-  @override
-  State<DropdownPeriod> createState() => _DropdownPeriodState();
-}
-String periodDrop = period_keywords.first;
-class _DropdownPeriodState extends State<DropdownPeriod> {
-  String dropdownValue = period_keywords.first;
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      isExpanded: true,
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_drop_down),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? value) {
-        // This is called when the user selects an item.
-        setState(() {
-          dropdownValue = value!;
-          periodDrop = dropdownValue;
-        });
-      },
-      items: period_keywords.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    );
-  }
-}
-
-class DropdownDuration extends StatefulWidget {
-  // const DropdownHazard({super.key});
-
-  @override
-  State<DropdownDuration> createState() => _DropdownDurationState();
-}
-String durationDrop = duration_keywords.first;
-class _DropdownDurationState extends State<DropdownDuration> {
-  String dropdownValue = duration_keywords.first;
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      isExpanded: true,
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_drop_down),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? value) {
-        // This is called when the user selects an item.
-        setState(() {
-          dropdownValue = value!;
-          durationDrop = dropdownValue;
-        });
-      },
-      items: duration_keywords.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    );
-  }
-}
-
-class DropdownForce extends StatefulWidget {
-  // const DropdownHazard({super.key});
-
-  @override
-  State<DropdownForce> createState() => _DropdownForceState();
-}
-String forceDrop = force_keywords.first;
-class _DropdownForceState extends State<DropdownForce> {
-  String dropdownValue = force_keywords.first;
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      isExpanded: true,
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_drop_down),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? value) {
-        // This is called when the user selects an item.
-        setState(() {
-          dropdownValue = value!;
-          forceDrop = dropdownValue;
-        });
-      },
-      items: force_keywords.map<DropdownMenuItem<String>>((String value) {
+      items: keywords.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
@@ -357,25 +110,36 @@ const List<String> duration_keywords = <String>['Annually', 'Days',
 
 class HazardDetailPage extends StatelessWidget {
   final HazardT hazardT;
+  final bool edit_file;
   const HazardDetailPage({
     Key? key,
-    required this.hazardT,
+    required this.hazardT,      // these are either the db values (edit) or the blanks (new)
+    required this.edit_file,    // this tells the program that the file is being edited
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    DropdownHandler origin = DropdownHandler(hazardT.origin, edit_file, origin_keywords);
+    DropdownHandler force = DropdownHandler(hazardT.force, edit_file, force_keywords);
+    DropdownHandler warning = DropdownHandler(hazardT.warning, edit_file, warning_keywords);
+    DropdownHandler forewarning = DropdownHandler(hazardT.forewarning, edit_file, forewarning_keywords);
+    DropdownHandler speed = DropdownHandler(hazardT.speed, edit_file, speed_keywords);
+    DropdownHandler freq = DropdownHandler(hazardT.freq, edit_file, freq_keywords);
+    DropdownHandler period= DropdownHandler(hazardT.period, edit_file, period_keywords);
+    DropdownHandler duration = DropdownHandler(hazardT.duration, edit_file, duration_keywords);
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           //sending the data from the dropdowns to the pdf handler
-          hazardT.origin = originDrop;
-          hazardT.force = forceDrop;
-          hazardT.warning = warningDrop;
-          hazardT.forewarning = forewarningDrop;
-          hazardT.speed = speedDrop;
-          hazardT.freq = freqDrop;
-          hazardT.period = periodDrop;
-          hazardT.duration = durationDrop;
+          hazardT.origin = origin.get_value();
+          hazardT.force = force.get_value();
+          hazardT.warning = warning.get_value();
+          hazardT.forewarning = forewarning.get_value();
+          hazardT.speed = speed.get_value();
+          hazardT.freq = freq.get_value();
+          hazardT.period = period.get_value();
+          hazardT.duration = duration.get_value();
           hazardT.desc = descController.text;
           hazardT.affectMe = affectMeController.text;
           hazardT.affectCommunity = affectCommunityController.text;
@@ -440,7 +204,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownOrigin(),
+                    child: origin,
                     flex: 2,
                   ),
                 ],
@@ -454,7 +218,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownForce(),
+                    child: force,
                     flex: 2,
                   ),
                 ],
@@ -468,7 +232,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownWarning(),
+                    child: warning,
                     flex: 2,
                   ),
                 ],
@@ -482,7 +246,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownForewarning(),
+                    child: forewarning,
                     flex: 2,
                   ),
                 ],
@@ -496,7 +260,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownSpeed(),
+                    child: speed,
                     flex: 2,
                   ),
                 ],
@@ -510,7 +274,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownFreq(),
+                    child: freq,
                     flex: 2,
                   ),
                 ],
@@ -524,7 +288,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownPeriod(),
+                    child: period,
                     flex: 2,
                   ),
                 ],
@@ -538,7 +302,7 @@ class HazardDetailPage extends StatelessWidget {
                   ),
 
                   Expanded(
-                    child: DropdownDuration(),
+                    child: duration,
                     flex: 2,
                   ),
                 ],
