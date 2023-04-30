@@ -119,6 +119,13 @@ class HazardDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    if (edit_file)
+    {
+      descController.text = hazardT.desc;
+      affectMeController.text = hazardT.affectMe;
+      affectCommunityController.text = hazardT.affectCommunity;
+    }
     DropdownHandler origin = DropdownHandler(hazardT.origin, edit_file, origin_keywords);
     DropdownHandler force = DropdownHandler(hazardT.force, edit_file, force_keywords);
     DropdownHandler warning = DropdownHandler(hazardT.warning, edit_file, warning_keywords);
@@ -128,6 +135,7 @@ class HazardDetailPage extends StatelessWidget {
     DropdownHandler period= DropdownHandler(hazardT.period, edit_file, period_keywords);
     DropdownHandler duration = DropdownHandler(hazardT.duration, edit_file, duration_keywords);
 
+    
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
