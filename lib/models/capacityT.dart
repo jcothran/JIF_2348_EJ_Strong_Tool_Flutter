@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class CapacityT{
   final String name;
   String prevExist;
@@ -73,4 +75,44 @@ class CapacityT{
     required this.commReadyDurGaps,
 
   });
+
+  static CapacityT convertCapacityDocument(DocumentSnapshot doc)
+  {
+    return CapacityT(
+      name: '',
+      prevExist: doc.get('prevExist'),
+      prevReq: doc.get('prevReq'),
+      prevGaps: doc.get('prevGaps'),
+      mitiExist: doc.get('mitiExist'),
+      mitiReq: doc.get('mitiReq'),
+      mitiGaps: doc.get('mitiGaps'),
+      heExistHigh: doc.get('heExistHigh'),
+      heReqHigh: doc.get('heReqHigh'),
+      heGapsHigh: doc.get('heGapsHigh'),
+      nonHeExistHigh: doc.get('nonHeExistHigh'),
+      nonHeReqHigh: doc.get('nonHeReqHigh'),
+      nonHeGapsHigh: doc.get('nonHeGapsHigh'),
+      heExistMed: doc.get('heExistMed'),
+      heReqMed: doc.get('heReqMed'),
+      heGapsMed: doc.get('heGapsMed'),
+      nonHeExistMed: doc.get('nonHeExistMed'),
+      nonHeReqMed: doc.get('nonHeReqMed'),
+      nonHeGapsMed: doc.get('nonHeGapsMed'),
+      heExistLowBef: doc.get('heExistLowBef'),
+      heReqLowBef: doc.get('heReqLowBef'),
+      heGapsLowBef: doc.get('heGapsLowBef'),
+      nonHeExistLowBef: doc.get('nonHeExistLowBef'),
+      nonHeReqLowBef: doc.get('nonHeReqLowBef'),
+      nonHeGapsLowBef: doc.get('nonHeGapsLowBef'), 
+      heExistLowDur: doc.get('heExistLowDur'),
+      heReqLowDur: doc.get('heReqLowDur'),
+      heGapsLowDur: doc.get('heGapsLowDur'),
+      nonHeExistLowDur: doc.get('nonHeExistLowDur'),
+      nonHeReqLowDur: doc.get('nonHeReqLowDur'),
+      nonHeGapsLowDur: doc.get('nonHeGapsLowDur'),
+      commReadyBefReq: doc.get('commReadyBefReq'),
+      commReadyBefGaps: doc.get('commReadyBefGaps'),
+      commReadyDurReq: doc.get('commReadyDurReq'),
+      commReadyDurGaps: doc.get('commReadyDurGaps'));
+  }
 }
