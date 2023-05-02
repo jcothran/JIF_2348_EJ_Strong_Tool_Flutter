@@ -92,9 +92,7 @@ class EditFormsPage extends StatelessWidget {
                   DocumentReference data = db.collection("hazard_form").doc(location_date + uid);
                   await data.get().then(
                         (dataSnapshot) => {
-                      if (dataSnapshot.exists) {
-                        print(dataSnapshot.data()),
-                        // print(dataSnapshot.get('desc')),
+                      if (dataSnapshot.exists) {                      
                         Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HazardDetailPage(hazardT: HazardT.convertHazardDocument(dataSnapshot), edit_file: true,)))
                       },
                     },
@@ -147,14 +145,12 @@ class EditFormsPage extends StatelessWidget {
                   DocumentReference data = db.collection("capacity_form").doc(location_date + uid);
                   await data.get().then(
                         (dataSnapshot) => {
-                      if (!dataSnapshot.exists) {
-                        print('Data exists'),
-                        DatabaseService().addCapacityData(location_date + uid),
+                      if (dataSnapshot.exists) {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: CapacityT.convertCapacityDocument(dataSnapshot), edit_file: true,)))    
                       }
                     },
                     onError: (e) => print("Error completing: $e"),
                   );
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: blankC)));
                 },
               ),
             ),
