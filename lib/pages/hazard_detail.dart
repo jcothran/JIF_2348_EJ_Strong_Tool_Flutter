@@ -1,8 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview.dart';
-import '../services/auth.dart';
 import '../services/database.dart';
 import 'location_date.dart';
 import 'dropdown.dart';
