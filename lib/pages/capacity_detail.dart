@@ -2,119 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:makepdfs/models/capacityT.dart';
 import 'package:makepdfs/pages/hazard_detail.dart';
 import 'package:makepdfs/pages/pdfexport/pdfpreview_capacity.dart';
-
+import 'dropdown.dart';
 import '../services/database.dart';
 import 'location_date.dart';
 
-//All the necessary text controllers
-final prevExistController = TextEditingController();
-final prevReqController = TextEditingController();
-final prevGapsController = TextEditingController();
-final mitiExistController = TextEditingController();
-final mitiReqController = TextEditingController();
-final mitiGapsController = TextEditingController();
-final heExistHighController = TextEditingController();
-final heReqHighController = TextEditingController();
-final heGapsHighController = TextEditingController();
-final nonHeExistHighController = TextEditingController();
-final nonHeReqHighController = TextEditingController();
-final nonHeGapsHighController = TextEditingController();
-final heExistMedController = TextEditingController();
-final heReqMedController = TextEditingController();
-final heGapsMedController = TextEditingController();
-final nonHeExistMedController = TextEditingController();
-final nonHeReqMedController = TextEditingController();
-final nonHeGapsMedController = TextEditingController();
-final heExistLowBefController = TextEditingController();
-final heReqLowBefController = TextEditingController();
-final heGapsLowBefController = TextEditingController();
-final nonHeExistLowBefController = TextEditingController();
-final nonHeReqLowBefController = TextEditingController();
-final nonHeGapsLowBefController = TextEditingController();
-final heExistLowDurController = TextEditingController();
-final heReqLowDurController = TextEditingController();
-final heGapsLowDurController = TextEditingController();
-final nonHeExistLowDurController = TextEditingController();
-final nonHeReqLowDurController = TextEditingController();
-final nonHeGapsLowDurController = TextEditingController();
-final commReadyBefReqController = TextEditingController();
-final commReadyBefGapsController = TextEditingController();
-final commReadyDurReqController = TextEditingController();
-final commReadyDurGapsController = TextEditingController();
 
-@override
-void disposeController(TextEditingController c) {
-  // Clears the controller passed in after the widget is disposed
-  c.dispose();
-}
-
-@override
-class DropdownCapacity extends StatefulWidget {
-  final List<String> items;
-  const DropdownCapacity({Key? key, required this.items}) : super(key: key);
-  @override
-  State<DropdownCapacity> createState() => _DropdownCapacityState();
-}
-
-class _DropdownCapacityState extends State<DropdownCapacity> {
-  //String dropdownValue = prevention_list.first;
-  //String dropdownValue = '';
-  String dropdownValue = prevention_list.first;
-
-  @override
-  void initState() {
-    super.initState();
-    dropdownValue = widget.items.first;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      // Wrap the DropdownButton with a Flexible widget
-      child: DropdownButton<String>(
-        value: dropdownValue,
-        isExpanded:
-            true, // This will make the DropdownButton fill the available width
-        itemHeight: 50.0,
-        icon: const Icon(Icons.arrow_downward),
-        iconSize: 24,
-        elevation: 16,
-        style: const TextStyle(color: Colors.deepPurple),
-        underline: Container(
-          height: 2,
-          color: Colors.deepPurpleAccent,
-        ),
-        onChanged: (String? newValue) {
-          setState(() {
-            dropdownValue = newValue!;
-          });
-        },
-        items: widget.items
-            .map<DropdownMenuItem<String>>(
-                (String value) => DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    ))
-            .toList(),
-      ),
-    );
-  }
-} //end _DropdownCapacityState
 
 class CapacityDetailPage extends StatelessWidget {
   final CapacityT capacityT;
+  final bool edit_file;
   const CapacityDetailPage({
     Key? key,
     required this.capacityT,
+    required this.edit_file,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    DropdownHandler prevExist = DropdownHandler(capacityT.prevExist, edit_file, prevention_list);
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           //sending the data from the text controllers to the pdf handler
-          capacityT.prevExist = prevExistController.text;
+          capacityT.prevExist = prevExist.get_value();
           capacityT.prevReq = prevReqController.text;
           capacityT.prevGaps = prevGapsController.text;
           capacityT.mitiExist = mitiExistController.text;
@@ -158,47 +69,42 @@ class CapacityDetailPage extends StatelessWidget {
 
           String location_date = LocationDatePage().getLocation() + " " + LocationDatePage().getDate() + " " + LocationDatePage.getUID();
 
-          //update form in database
-          /*
-              TODO: Edit updateCapacityData() function from recieving text input
-                    to recieving drop down input when drop downs have been applied
-             */
           await DatabaseService().updateCapacityData(
             location_date,
-            prevExistController.text,
-            prevReqController.text,
-            prevGapsController.text,
-            mitiExistController.text,
-            mitiReqController.text,
-            mitiGapsController.text,
-            heExistHighController.text,
-            heReqHighController.text,
-            heGapsHighController.text,
-            nonHeExistHighController.text,
-            nonHeReqHighController.text,
-            nonHeGapsHighController.text,
-            heExistMedController.text,
-            heReqMedController.text,
-            heGapsMedController.text,
-            nonHeExistMedController.text,
-            nonHeReqMedController.text,
-            nonHeGapsMedController.text,
-            heExistLowBefController.text,
-            heReqLowBefController.text,
-            heGapsLowBefController.text,
-            nonHeExistLowBefController.text,
-            nonHeReqLowBefController.text,
-            nonHeGapsLowBefController.text,
-            heExistLowDurController.text,
-            heReqLowDurController.text,
-            heGapsLowDurController.text,
-            nonHeExistLowDurController.text,
-            nonHeReqLowDurController.text,
-            nonHeGapsLowDurController.text,
-            commReadyBefReqController.text,
-            commReadyBefGapsController.text,
-            commReadyDurReqController.text,
-            commReadyDurGapsController.text,
+            capacityT.prevExist,
+            capacityT.prevReq,
+            capacityT.prevGaps,
+            capacityT.mitiExist,
+            capacityT.mitiReq,
+            capacityT.mitiGaps,
+            capacityT.heExistHigh,
+            capacityT.heReqHigh,
+            capacityT.heGapsHigh,
+            capacityT.nonHeExistHigh,
+            capacityT.nonHeReqHigh,
+            capacityT.nonHeGapsHigh,
+            capacityT.heExistMed,
+            capacityT.heReqMed,
+            capacityT.heGapsMed,
+            capacityT.nonHeExistMed,
+            capacityT.nonHeReqMed,
+            capacityT.nonHeGapsMed,
+            capacityT.heExistLowBef,
+            capacityT.heReqLowBef,
+            capacityT.heGapsLowBef,
+            capacityT.nonHeExistLowBef,
+            capacityT.nonHeReqLowBef,
+            capacityT.nonHeGapsLowBef,
+            capacityT.heExistLowDur,
+            capacityT.heReqLowDur,
+            capacityT.heGapsLowDur,
+            capacityT.nonHeExistLowDur,
+            capacityT.nonHeReqLowDur,
+            capacityT.nonHeGapsLowDur,
+            capacityT.commReadyBefReq,
+            capacityT.commReadyBefGaps,
+            capacityT.commReadyDurReq,
+            capacityT.commReadyDurGaps,
           );
         },
         child: Icon(Icons.picture_as_pdf),
