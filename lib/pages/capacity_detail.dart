@@ -21,44 +21,89 @@ class CapacityDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     DropdownHandler prevExist = DropdownHandler(capacityT.prevExist, edit_file, prevention_list);
+    DropdownHandler prevReq= DropdownHandler(capacityT.prevReq, edit_file, prevention_list);
+    DropdownHandler prevGaps= DropdownHandler(capacityT.prevGaps, edit_file, prevention_list);
+
+    DropdownHandler mitiExist = DropdownHandler(capacityT.mitiExist, edit_file, prevention_list);
+    DropdownHandler mitiReq = DropdownHandler(capacityT.mitiReq, edit_file, prevention_list);
+    DropdownHandler mitiGaps = DropdownHandler(capacityT.mitiGaps, edit_file, prevention_list);
+
+    DropdownHandler heExistHigh = DropdownHandler(capacityT.heExistHigh, edit_file, element_at_risk);
+    DropdownHandler heReqHigh = DropdownHandler(capacityT.heReqHigh, edit_file, element_at_risk);
+    DropdownHandler heGapsHigh = DropdownHandler(capacityT.heGapsHigh, edit_file, element_at_risk);
+
+    DropdownHandler nonHeExistHigh = DropdownHandler(capacityT.nonHeExistHigh, edit_file, element_at_risk);
+    DropdownHandler nonHeReqHigh = DropdownHandler(capacityT.nonHeReqHigh, edit_file, element_at_risk);
+    DropdownHandler nonHeGapsHigh = DropdownHandler(capacityT.nonHeGapsHigh, edit_file, element_at_risk);
+
+    DropdownHandler heExistMed = DropdownHandler(capacityT.heExistMed, edit_file, element_at_risk);
+    DropdownHandler heReqMed = DropdownHandler(capacityT.heReqMed, edit_file, element_at_risk);
+    DropdownHandler heGapsMed = DropdownHandler(capacityT.heGapsMed, edit_file, element_at_risk);
+
+    DropdownHandler nonHeExistMed = DropdownHandler(capacityT.nonHeExistMed, edit_file, element_at_risk);
+    DropdownHandler nonHeReqMed = DropdownHandler(capacityT.nonHeReqMed, edit_file, element_at_risk);
+    DropdownHandler nonHeGapsMed = DropdownHandler(capacityT.nonHeGapsMed, edit_file, element_at_risk);
+
+    DropdownHandler heExistLowBef = DropdownHandler(capacityT.heExistLowBef, edit_file, element_at_risk);
+    DropdownHandler heReqLowBef = DropdownHandler(capacityT.heReqLowBef, edit_file, element_at_risk);
+    DropdownHandler heGapsLowBef = DropdownHandler(capacityT.heGapsLowBef, edit_file, element_at_risk);
+
+    DropdownHandler nonHeExistLowBef = DropdownHandler(capacityT.nonHeExistLowBef, edit_file, element_at_risk);
+    DropdownHandler nonHeReqLowBef = DropdownHandler(capacityT.nonHeReqLowBef, edit_file, element_at_risk);
+    DropdownHandler nonHeGapsLowBef = DropdownHandler(capacityT.nonHeGapsLowBef, edit_file, element_at_risk);    
+
+    DropdownHandler heExistLowDur = DropdownHandler(capacityT.heExistLowDur, edit_file, element_at_risk);
+    DropdownHandler heReqLowDur = DropdownHandler(capacityT.heReqLowDur, edit_file, element_at_risk);
+    DropdownHandler heGapsLowDur = DropdownHandler(capacityT.heGapsLowDur, edit_file, element_at_risk);
+
+    DropdownHandler nonHeExistLowDur = DropdownHandler(capacityT.nonHeExistLowDur, edit_file, element_at_risk);
+    DropdownHandler nonHeReqLowDur = DropdownHandler(capacityT.nonHeReqLowDur, edit_file, element_at_risk);
+    DropdownHandler nonHeGapsLowDur = DropdownHandler(capacityT.nonHeGapsLowDur, edit_file, element_at_risk);
+
+    DropdownHandler commReadyBefReq = DropdownHandler(capacityT.commReadyBefReq, edit_file, readiness_list);
+    DropdownHandler commReadyBefGaps = DropdownHandler(capacityT.commReadyBefGaps, edit_file, readiness_list);
+
+    DropdownHandler commReadyDurReq = DropdownHandler(capacityT.commReadyDurReq, edit_file, readiness_list);
+    DropdownHandler commReadyDurGaps =  DropdownHandler(capacityT.commReadyDurGaps, edit_file, readiness_list);             
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           //sending the data from the text controllers to the pdf handler
           capacityT.prevExist = prevExist.get_value();
-          capacityT.prevReq = prevReqController.text;
-          capacityT.prevGaps = prevGapsController.text;
-          capacityT.mitiExist = mitiExistController.text;
-          capacityT.mitiReq = mitiReqController.text;
-          capacityT.mitiGaps = mitiGapsController.text;
-          capacityT.heExistHigh = heExistHighController.text;
-          capacityT.heReqHigh = heReqHighController.text;
-          capacityT.heGapsHigh = heGapsHighController.text;
-          capacityT.nonHeExistHigh = nonHeExistHighController.text;
-          capacityT.nonHeReqHigh = nonHeReqHighController.text;
-          capacityT.nonHeGapsHigh = nonHeGapsHighController.text;
-          capacityT.heExistMed = heExistMedController.text;
-          capacityT.heReqMed = heReqMedController.text;
-          capacityT.heGapsMed = heGapsMedController.text;
-          capacityT.nonHeExistMed = nonHeExistMedController.text;
-          capacityT.nonHeReqMed = nonHeReqMedController.text;
-          capacityT.nonHeGapsMed = nonHeGapsMedController.text;
-          capacityT.heExistLowBef = heExistLowBefController.text;
-          capacityT.heReqLowBef = heReqLowBefController.text;
-          capacityT.heGapsLowBef = heGapsLowBefController.text;
-          capacityT.nonHeExistLowBef = nonHeExistLowBefController.text;
-          capacityT.nonHeReqLowBef = nonHeReqLowBefController.text;
-          capacityT.nonHeGapsLowBef = nonHeGapsLowBefController.text;
-          capacityT.heExistLowDur = heExistLowDurController.text;
-          capacityT.heReqLowDur = heReqLowDurController.text;
-          capacityT.heGapsLowDur = heGapsLowDurController.text;
-          capacityT.nonHeExistLowDur = nonHeExistLowDurController.text;
-          capacityT.nonHeReqLowDur = nonHeReqLowDurController.text;
-          capacityT.nonHeGapsLowDur = nonHeGapsLowDurController.text;
-          capacityT.commReadyBefReq = commReadyBefReqController.text;
-          capacityT.commReadyBefGaps = commReadyBefGapsController.text;
-          capacityT.commReadyDurReq = commReadyDurReqController.text;
-          capacityT.commReadyDurGaps = commReadyDurGapsController.text;
+          capacityT.prevReq = prevReq.get_value();
+          capacityT.prevGaps = prevGaps.get_value();
+          capacityT.mitiExist = mitiExist.get_value();
+          capacityT.mitiReq = mitiReq.get_value();
+          capacityT.mitiGaps = mitiGaps.get_value();
+          capacityT.heExistHigh = heExistHigh.get_value();
+          capacityT.heReqHigh = heReqHigh.get_value();
+          capacityT.heGapsHigh = heGapsHigh.get_value();
+          capacityT.nonHeExistHigh = nonHeExistHigh.get_value();
+          capacityT.nonHeReqHigh = nonHeReqHigh.get_value();
+          capacityT.nonHeGapsHigh = nonHeGapsHigh.get_value();
+          capacityT.heExistMed = heExistMed.get_value();
+          capacityT.heReqMed = heReqMed.get_value();
+          capacityT.heGapsMed = heGapsMed.get_value();
+          capacityT.nonHeExistMed = nonHeExistMed.get_value();
+          capacityT.nonHeReqMed = nonHeReqMed.get_value();
+          capacityT.nonHeGapsMed = nonHeGapsMed.get_value();
+          capacityT.heExistLowBef = heExistLowBef.get_value();
+          capacityT.heReqLowBef = heReqLowBef.get_value();
+          capacityT.heGapsLowBef = heGapsLowBef.get_value();
+          capacityT.nonHeExistLowBef = nonHeExistLowBef.get_value();
+          capacityT.nonHeReqLowBef = nonHeReqLowBef.get_value();
+          capacityT.nonHeGapsLowBef = nonHeGapsLowBef.get_value();
+          capacityT.heExistLowDur = heExistLowDur.get_value();
+          capacityT.heReqLowDur = heReqLowDur.get_value();
+          capacityT.heGapsLowDur = heGapsLowDur.get_value();
+          capacityT.nonHeExistLowDur = nonHeExistLowDur.get_value();
+          capacityT.nonHeReqLowDur = nonHeReqLowDur.get_value();
+          capacityT.nonHeGapsLowDur = nonHeGapsLowDur.get_value();
+          capacityT.commReadyBefReq = commReadyBefReq.get_value();
+          capacityT.commReadyBefGaps = commReadyBefGaps.get_value();
+          capacityT.commReadyDurReq = commReadyDurReq.get_value();
+          capacityT.commReadyDurGaps = commReadyDurGaps.get_value();
 
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -146,13 +191,13 @@ class CapacityDetailPage extends StatelessWidget {
                   flex: 1,
                 ),
                 Expanded(
-                  child: DropdownCapacity(items: prevention_list),
+                  child: prevExist,
                 ),
                 Expanded(
-                  child: DropdownCapacity(items: prevention_list),
+                  child: prevReq,
                 ),
                 Expanded(
-                  child: DropdownCapacity(items: prevention_list),
+                  child: prevGaps,
                 ),
               ],
             ),
@@ -166,13 +211,13 @@ class CapacityDetailPage extends StatelessWidget {
                     child: PaddedText("Mitigation"),
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: mitigation_list),
+                    child: mitiExist,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: mitigation_list),
+                    child: mitiReq,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: mitigation_list),
+                    child: mitiReq,
                   ),
                 ],
               ),
@@ -230,29 +275,26 @@ class CapacityDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: heExistHigh,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: heReqHigh,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: heGapsHigh,
                   ),
                 ],
               ),
               TableRow(
                 children: [
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: nonHeExistHigh,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: nonHeReqHigh,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
-                  ),
-                  Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: nonHeGapsHigh,
                   ),
                 ],
               ),
@@ -295,13 +337,13 @@ class CapacityDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: heExistMed,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: heReqMed,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: heGapsMed,
                   ),
                 ],
               ),
@@ -312,13 +354,13 @@ class CapacityDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: nonHeExistMed,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: nonHeReqMed,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: nonHeGapsMed,
                   ),
                 ],
               ),
@@ -341,15 +383,16 @@ class CapacityDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: PaddedText("Existing"),
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: PaddedText("Required"),
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: PaddedText("Gaps"),
+                    flex: 1,
                   ),
                 ],
               ),
@@ -360,13 +403,13 @@ class CapacityDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: heExistLowBef,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: heReqLowBef,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: heGapsLowBef,
                   ),
                 ],
               ),
@@ -377,13 +420,13 @@ class CapacityDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: nonHeExistLowBef,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: nonHeReqLowBef,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: nonHeGapsLowBef,
                   ),
                 ],
               ),
@@ -427,15 +470,15 @@ class CapacityDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: heExistLowDur,
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: heReqLowDur,
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: heGapsLowDur,
                     flex: 1,
                   ),
                 ],
@@ -447,15 +490,15 @@ class CapacityDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: nonHeExistLowDur,
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: nonHeReqLowDur,
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: nonHeGapsLowDur,
                     flex: 1,
                   ),
                 ],
@@ -479,11 +522,11 @@ class CapacityDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: readiness_list),
+                    child: PaddedText("Required"),
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: readiness_list),
+                    child: PaddedText("Gaps"),
                     flex: 1,
                   ),
                 ],
@@ -497,11 +540,11 @@ class CapacityDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: readiness_list),
+                    child: commReadyBefReq,
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: readiness_list),
+                    child: commReadyBefGaps,
                     flex: 1,
                   ),
                 ],
@@ -543,10 +586,12 @@ class CapacityDetailPage extends StatelessWidget {
                     flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: commReadyDurReq,
+                    flex: 1,
                   ),
                   Expanded(
-                    child: DropdownCapacity(items: element_at_risk),
+                    child: commReadyDurGaps,
+                    flex: 1,
                   ),
                 ],
               ),
