@@ -696,19 +696,19 @@ const List<String> prevention_list = <String>[
 
 const List<String> mitigation_list = <String>[
   "Air, Soil, and Groundwater Analysis"
-      "Defensible space"
-      "Ecosystem management and restoration"
-      "Enforcement"
-      "Fire Response"
-      "First/Second Responders"
-      "Generators"
-      "Incident Command System"
-      "Resilience Hubs"
-      "Shelters"
-      "Social Media communication"
-      "State Agencies"
-      "Technology (example: response apps)"
-      "OTHER"
+  "Defensible space"
+  "Ecosystem management and restoration"
+  "Enforcement"
+  "Fire Response"
+  "First/Second Responders"
+  "Generators"
+  "Incident Command System"
+  "Resilience Hubs"
+  "Shelters"
+  "Social Media communication"
+  "State Agencies"
+  "Technology (example: response apps)"
+  "OTHER"
 ];
 
 const List<String> element_at_risk = <String>[
