@@ -31,7 +31,7 @@ class HazardT {
     required this.affectCommunity
   });
 
-  static HazardT convertHazardDocument (DocumentSnapshot doc)
+  static HazardT convertHazardDocument(DocumentSnapshot doc)
   { 
     return HazardT(
       name: '',
