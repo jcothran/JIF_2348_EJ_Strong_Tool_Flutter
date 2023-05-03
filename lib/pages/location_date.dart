@@ -13,14 +13,12 @@ String date = "";
 String page_title = "Create a New Form";
 
 class LocationDatePage extends StatefulWidget {
-  State<LocationDatePage> createState() => LocationDatePageState(edit_file);
+  State<LocationDatePage> createState() => LocationDatePageState(edit_file, view_pdf);
 
   late bool edit_file;
-  LocationDatePage.filePass(this.edit_file);    // this constructor handles which form page to switch to (new or edit)
-  LocationDatePage()                            // this constructor is used to access internal methods (oop is bad)
-  {
-    edit_file = false;
-  }
+  late bool view_pdf;
+  LocationDatePage.file_mode(this.edit_file, this.view_pdf);    // this constructor handles which form page to switch to (new or edit or view)
+  LocationDatePage();                                           // this constructor is used to access internal methods (oop is bad)
 
   String getLocationString() {
     return locationString;
@@ -49,8 +47,9 @@ class LocationDatePageState extends State<LocationDatePage>{
   final TextEditingController dController = TextEditingController();
   final TextEditingController yrController = TextEditingController();
   final bool edit_file;
+  final bool view_pdf;
 
-  LocationDatePageState(this.edit_file);
+  LocationDatePageState(this.edit_file, this.view_pdf);
 
   @override
   void dispose(){
@@ -65,6 +64,10 @@ class LocationDatePageState extends State<LocationDatePage>{
   Widget build(BuildContext context) {
     if (edit_file)
       page_title = "Edit a Form";
+    else if (view_pdf)
+      page_title = "View a PDF";
+    else
+      page_title = "Create a New Form";
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.lightBlue.shade600,
