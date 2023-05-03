@@ -214,10 +214,7 @@ class DisasterDetailPage extends StatelessWidget {
           disasterT.summary = summaryController.text;
           disasterT.recommendation = recommendationController.text;
 
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => PdfPreviewDisasterPage(disasterT: disasterT),
-            ),
-          );
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => PdfPreviewDisasterPage(disasterT: disasterT)));
 
           String location_date = LocationDatePage().getLocation() + " " + LocationDatePage().getDate() + " " + LocationDatePage.getUID();
 
