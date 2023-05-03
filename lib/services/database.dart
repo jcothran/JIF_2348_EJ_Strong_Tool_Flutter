@@ -264,6 +264,7 @@ class DatabaseService {
       'heGapsLowDur': heGapsLowDur,
       'nonHeExistLowDur': nonHeExistLowDur,
       'nonHeReqLowDur': nonHeReqLowDur,
+      'nonHeGapsLowDur': nonHeGapsLowDur,
       'commReadyBefReq': commReadyBefReq,
       'commReadyBefGaps': commReadyBefGaps,
       'commReadyDurReq': commReadyDurReq,
