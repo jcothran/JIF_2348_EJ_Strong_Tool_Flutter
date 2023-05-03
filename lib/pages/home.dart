@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget
               (
                 margin: EdgeInsets.only(left: 20),
                 child: ElevatedButton.icon(
-                  label: Text("Forms"),
+                  label: Text("Create New Forms"),
                   icon: Icon(
                     Icons.assignment,
                     size: 60
@@ -42,30 +42,6 @@ class HomePage extends StatelessWidget
                   onPressed:()
                   {
                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage()));
-                  },
-                ),
-              ),
-            ),
-
-
-            Padding(padding: EdgeInsets.all(5.0)),
-
-            SizedBox(  
-              width: 340,
-              height: 170,
-              child: Container
-              (
-                margin: EdgeInsets.only(left: 20),
-                child: ElevatedButton.icon(
-                  icon: Icon(
-                    Icons.search,
-                    size: 60
-                  ),
-                  label: Text("Retrieve Forms"),
-                  style: style,
-                  onPressed:()
-                  {
-                    // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO PHOTOS PAGE
                   },
                 ),
               ),
@@ -85,11 +61,34 @@ class HomePage extends StatelessWidget
                       Icons.add_chart,
                       size: 60
                   ),
-                  label: Text("Analyze Forms"),
+                  label: Text("Edit Forms"),
                   style: style,
                   onPressed:()
                   {
-                    // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO ANALYTICS PAGE
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage()));
+                  },
+                ),
+              ),
+            ),
+
+            Padding(padding: EdgeInsets.all(5.0)),
+
+            SizedBox(  
+              width: 340,
+              height: 170,
+              child: Container
+              (
+                margin: EdgeInsets.only(left: 20),
+                child: ElevatedButton.icon(
+                  icon: Icon(
+                    Icons.search,
+                    size: 60
+                  ),
+                  label: Text("Retrieve Forms"),
+                  style: style,
+                  onPressed:()
+                  {
+                    // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO PHOTOS PAGE
                   },
                 ),
               ),
