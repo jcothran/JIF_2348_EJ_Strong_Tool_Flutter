@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:makepdfs/services/auth.dart';
-import 'package:flutter/material.dart';
 import 'package:makepdfs/models/hazardT.dart';
 import 'package:makepdfs/models/vulnerableT.dart';
 import 'package:makepdfs/models/capacityT.dart';
@@ -12,7 +10,10 @@ import 'package:makepdfs/pages/location_date.dart';
 import 'package:makepdfs/pages/vulnerability_detail.dart';
 import 'package:makepdfs/pages/capacity_detail.dart';
 import 'package:makepdfs/pages/disaster_detail.dart';
-import '../services/database.dart';
+import 'package:makepdfs/pages/pdfexport/pdfpreview.dart';
+import 'package:makepdfs/pages/pdfexport/pdfpreview_disaster.dart';
+import 'package:makepdfs/pages/pdfexport/pdfpreview_vulnerable.dart';
+import 'package:makepdfs/pages/pdfexport/pdfpreview_capacity.dart';
 
 //page for navigating to the various form pages
 
@@ -23,12 +24,18 @@ class EditFormsPage extends StatelessWidget {
   String loc = LocationDatePage().getLocation();
   String date = LocationDatePage().getDate();
   String location_date = LocationDatePage().getLocation() + " " + LocationDatePage().getDate() + " ";
+  String page_title = 'Edit Forms';
+
+  final bool view_pdf;
+  EditFormsPage(this.view_pdf);
 
   @override
   Widget build(BuildContext context) {
+    if (view_pdf)
+      page_title = "View PDFS";
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Forms'),
+        title: Text(page_title),
       ),
       body: Center(
         child: Column(
@@ -92,8 +99,11 @@ class EditFormsPage extends StatelessWidget {
                   DocumentReference data = db.collection("hazard_form").doc(location_date + uid);
                   await data.get().then(
                         (dataSnapshot) => {
-                      if (dataSnapshot.exists) {                      
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HazardDetailPage(hazardT: HazardT.convertHazardDocument(dataSnapshot), edit_file: true,)))
+                      if (dataSnapshot.exists) {
+                        if (view_pdf)
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => PdfPreviewPage(hazardT: HazardT.convertHazardDocument(dataSnapshot))))
+                        else
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HazardDetailPage(hazardT: HazardT.convertHazardDocument(dataSnapshot), edit_file: true,)))
                       }
                       else {
                         _showMyDialog(context)
@@ -179,7 +189,10 @@ class EditFormsPage extends StatelessWidget {
                   await data.get().then(
                         (dataSnapshot) => {
                       if (dataSnapshot.exists) {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: DisasterT.convertDisasterDocument(dataSnapshot))))
+                        if (view_pdf)
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => PdfPreviewDisasterPage(disasterT: DisasterT.convertDisasterDocument(dataSnapshot))))
+                        else
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: DisasterT.convertDisasterDocument(dataSnapshot))))
                       }
                       else {
                         _showMyDialog(context)
