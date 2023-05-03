@@ -94,7 +94,10 @@ class EditFormsPage extends StatelessWidget {
                         (dataSnapshot) => {
                       if (dataSnapshot.exists) {                      
                         Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HazardDetailPage(hazardT: HazardT.convertHazardDocument(dataSnapshot), edit_file: true,)))
-                      },
+                      }
+                      else {
+                        _showMyDialog(context)
+                      }
                     },
                     onError: (e) => print("Error completing: $e"),
                   );
@@ -119,12 +122,15 @@ class EditFormsPage extends StatelessWidget {
                   await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
-                        DatabaseService().addVulnerableData(location_date + uid),
+                        // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: blankV)));
+                      }
+                      else {
+                        _showMyDialog(context)
                       }
                     },
                     onError: (e) => print("Error completing: $e"),
                   );
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: blankV)));
+                  
                 },
               ),
             ),
@@ -148,6 +154,9 @@ class EditFormsPage extends StatelessWidget {
                       if (dataSnapshot.exists) {
                         Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: CapacityT.convertCapacityDocument(dataSnapshot), edit_file: true,)))    
                       }
+                      else {
+                        _showMyDialog(context)
+                      }
                     },
                     onError: (e) => print("Error completing: $e"),
                   );
@@ -170,12 +179,14 @@ class EditFormsPage extends StatelessWidget {
                   await data.get().then(
                         (dataSnapshot) => {
                       if (!dataSnapshot.exists) {
-                        DatabaseService().addDisasterData(location_date + uid),
+                        // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: blankD)));
                       }
+                      else {
+                        _showMyDialog(context)
+                      }                      
                     },
                     onError: (e) => print("Error completing: $e"),
                   );
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: blankD)));
                 },
               ),
             ),
@@ -187,4 +198,32 @@ class EditFormsPage extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<void> _showMyDialog(BuildContext form_context) async {
+  return showDialog<void>(
+    context: form_context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('AlertDialog Title'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: const <Widget>[
+              Text('You do not have an existing form for this date and location\n'),
+              Text('Make sure you have selected the appropriate date and time for your edit'),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Exit'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
 }
