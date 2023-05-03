@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:makepdfs/services/auth.dart';
@@ -132,7 +134,10 @@ class EditFormsPage extends StatelessWidget {
                   await data.get().then(
                         (dataSnapshot) => {
                       if (dataSnapshot.exists) {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: VulnerableT.convertVulnerabilityDocument(dataSnapshot))))
+                        if (view_pdf)
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => PdfPreviewVulnerablePage(vulnerableT: VulnerableT.convertVulnerabilityDocument(dataSnapshot))))
+                        else
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: VulnerableT.convertVulnerabilityDocument(dataSnapshot))))
                       }
                       else {
                         _showMyDialog(context)
@@ -162,7 +167,10 @@ class EditFormsPage extends StatelessWidget {
                   await data.get().then(
                         (dataSnapshot) => {
                       if (dataSnapshot.exists) {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: CapacityT.convertCapacityDocument(dataSnapshot), edit_file: true,)))    
+                        if (view_pdf)
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>PdfPreviewCapacityPage(capacityT: CapacityT.convertCapacityDocument(dataSnapshot))))
+                        else
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: CapacityT.convertCapacityDocument(dataSnapshot), edit_file: true,)))    
                       }
                       else {
                         _showMyDialog(context)
