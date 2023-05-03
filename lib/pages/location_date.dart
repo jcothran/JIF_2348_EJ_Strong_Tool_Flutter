@@ -46,7 +46,6 @@ class LocationDatePageState extends State<LocationDatePage>{
   void dispose(){
     stateController.dispose();
     countyController.dispose();
-    //cityController.dispose();
     dController.dispose();
     mController.dispose();
     yrController.dispose();
@@ -115,7 +114,7 @@ class LocationDatePageState extends State<LocationDatePage>{
                                 FilteringTextInputFormatter.allow(RegExp(r'^[A-Za-z]+$')),
                               ],
                               decoration: InputDecoration(
-                                hintText: 'County',
+                                hintText: 'Location',
                                 border: OutlineInputBorder(),
                                 counterText: "",
                                 contentPadding: EdgeInsets.symmetric(horizontal: 12),
