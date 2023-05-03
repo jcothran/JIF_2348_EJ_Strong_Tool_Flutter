@@ -217,7 +217,7 @@ class CapacityDetailPage extends StatelessWidget {
                     child: mitiReq,
                   ),
                   Expanded(
-                    child: mitiReq,
+                    child: mitiGaps,
                   ),
                 ],
               ),
@@ -287,6 +287,9 @@ class CapacityDetailPage extends StatelessWidget {
               ),
               TableRow(
                 children: [
+                  Expanded(
+                    child: PaddedText("Human Element"),
+                  ),
                   Expanded(
                     child: nonHeExistHigh,
                   ),
