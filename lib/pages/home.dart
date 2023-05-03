@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget
                   style: style,
                   onPressed:()
                   {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage.filePass(false)));
                   },
                 ),
               ),
@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget
                   style: style,
                   onPressed:()
                   {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage.filePass(true)));
                   },
                 ),
               ),
