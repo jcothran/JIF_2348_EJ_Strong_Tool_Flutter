@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class DropdownHandler extends StatefulWidget {
   // const DropdownHazard({super.key});
   final List<String> keywords;
-  final String saved_value;      // this is the value we retrieve from the database (it is passed from edit forms)
-  final bool use_previous_value;        // if we have come from the edit forms page this flag will be true and we use database values
+  String saved_value;      // this is the value we retrieve from the database (it is passed from edit forms)
+  bool use_previous_value;        // if we have come from the edit forms page this flag will be true and we use database values
 
   late _DropdownHandlerState state;
 
@@ -14,7 +14,13 @@ class DropdownHandler extends StatefulWidget {
   }
   
   @override
-  State<DropdownHandler> createState() => state;  // pass these values to the state class so that they can
+  State<DropdownHandler> createState()
+  {
+    String new_value = this.state.dropdownValue;
+    bool use_new_value = this.state.use_previous_value;
+    state.dispose();
+    return state = _DropdownHandlerState(new_value, use_new_value, keywords);
+  }
 
   String get_value()
   {
@@ -23,23 +29,30 @@ class DropdownHandler extends StatefulWidget {
                                                                                             
 }
 class _DropdownHandlerState extends State<DropdownHandler> {
-  final String saved_value;
+  String saved_value;
   final List<String> keywords;
   bool use_previous_value;
   late String dropdownValue;
 
   _DropdownHandlerState(this.saved_value, this.use_previous_value, this.keywords)
   {
-    dropdownValue = keywords.first;
+    if (use_previous_value)
+    {
+      dropdownValue = saved_value;
+    }
+    else
+    {
+      dropdownValue = keywords.first;
+    }      
   }
 
   @override
   Widget build(BuildContext context) {
-    if (use_previous_value)
-    {
-      dropdownValue = saved_value;       // this sets the value in the dropdown to be the value from the db
-      use_previous_value = false;               // this build function is called repeatedly, we set this value to false so the dropdown is only adjusted the first time
-    }
+    // if (use_previous_value)
+    // {
+    //   dropdownValue = saved_value;       // this sets the value in the dropdown to be the value from the db
+    //   use_previous_value = false;               // this build function is called repeatedly, we set this value to false so the dropdown is only adjusted the first time
+    // }
     return DropdownButton<String>(
       isExpanded: true,
       value: dropdownValue,
@@ -54,6 +67,7 @@ class _DropdownHandlerState extends State<DropdownHandler> {
         // This is called when the user selects an item.
         setState(() {
           dropdownValue = value!;
+          use_previous_value = true;
         });
       },
       items: keywords.map<DropdownMenuItem<String>>((String value) {
