@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget
             Padding(padding: EdgeInsets.all(26.0)),
             SizedBox(
               width: 340,
-              height: 190,
+              height: 170,
               child: Container
               (
                 margin: EdgeInsets.only(left: 20),
@@ -50,32 +50,33 @@ class HomePage extends StatelessWidget
 
             Padding(padding: EdgeInsets.all(5.0)),
 
-            // SizedBox(  
-            //   width: 340,
-            //   height: 190,
-            //   child: Container
-            //   (
-            //     // margin: EdgeInsets.only(left: 20),
-            //     child: ElevatedButton.icon(
-            //       icon: Icon(
-            //         Icons.search,
-            //         size: 60
-            //       ),
-            //       label: Text("Retrieve Forms"),
-            //       style: style,
-            //       onPressed:()
-            //       {
-            //         // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO PHOTOS PAGE
-            //       },
-            //     ),
-            //   ),
-            // ),
+            SizedBox(  
+              width: 340,
+              height: 170,
+              child: Container
+              (
+                margin: EdgeInsets.only(left: 20),
+                child: ElevatedButton.icon(
+                  icon: Icon(
+                    Icons.search,
+                    size: 60
+                  ),
+                  label: Text("Retrieve Forms"),
+                  style: style,
+                  onPressed:()
+                  {
+                    // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO PHOTOS PAGE
+                  },
+                ),
+              ),
+            ),
 
-            // Padding(padding: EdgeInsets.all(5.0)),
+            Padding(padding: EdgeInsets.all(5.0)),
 
             SizedBox(
               width: 340,
-              height: 190,
+              height: 170,
+              
               child: Container
               (
                 margin: EdgeInsets.only(left: 20),
@@ -93,22 +94,6 @@ class HomePage extends StatelessWidget
                 ),
               ),
             ),
-
-            // Container(
-            //   margin: EdgeInsets.only(top: 8),
-            //   child: ElevatedButton
-            //     (
-            //     child: Text("End Session"),
-            //     style: style2,
-            //     onPressed:() async {
-            //       await _auth.signOut();
-            //        Navigator.push(
-            //         context,
-            //         MaterialPageRoute(builder: (context) => StartPage()),
-            //       );
-            //     },
-            //   ),
-            // )
           ],
         )
     );
