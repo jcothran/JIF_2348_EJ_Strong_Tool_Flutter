@@ -25,7 +25,6 @@ class HomePage extends StatelessWidget
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>
           [
-            Padding(padding: EdgeInsets.all(26.0)),
             SizedBox(
               width: 340,
               height: 170,
@@ -41,7 +40,7 @@ class HomePage extends StatelessWidget
                   style: style,
                   onPressed:()
                   {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage.filePass(false)));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage.file_mode(false, false)));
                   },
                 ),
               ),
@@ -65,7 +64,7 @@ class HomePage extends StatelessWidget
                   style: style,
                   onPressed:()
                   {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage.filePass(true)));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage.file_mode(true, false)));
                   },
                 ),
               ),
@@ -84,11 +83,11 @@ class HomePage extends StatelessWidget
                     Icons.search,
                     size: 60
                   ),
-                  label: Text("Retrieve Forms"),
+                  label: Text("View PDFS"),
                   style: style,
                   onPressed:()
                   {
-                    // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormsPage())); SEND TO PHOTOS PAGE
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LocationDatePage.file_mode(false, true)));
                   },
                 ),
               ),
