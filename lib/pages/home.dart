@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget
               (
                 margin: EdgeInsets.only(left: 20),
                 child: ElevatedButton.icon(
-                  label: Text("Create New Forms"),
+                  label: Text("Create Forms"),
                   icon: Icon(
                     Icons.assignment,
                     size: 60
