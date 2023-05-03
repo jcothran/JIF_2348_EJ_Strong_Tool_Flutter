@@ -121,8 +121,8 @@ class EditFormsPage extends StatelessWidget {
                   DocumentReference data = db.collection("vulnerability_form").doc(location_date + uid);
                   await data.get().then(
                         (dataSnapshot) => {
-                      if (!dataSnapshot.exists) {
-                        // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: blankV)));
+                      if (dataSnapshot.exists) {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: VulnerableT.convertVulnerabilityDocument(dataSnapshot))))
                       }
                       else {
                         _showMyDialog(context)
