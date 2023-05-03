@@ -231,12 +231,15 @@ class LocationDatePageState extends State<LocationDatePage>{
                             {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => EditFormsPage()),
+                                MaterialPageRoute(builder: (context) => EditFormsPage(false)),
                               );
                             }
                             else if (view_pdf)
                             {
-
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => EditFormsPage(true)),
+                              );
                             }
                             else
                             {
@@ -247,22 +250,7 @@ class LocationDatePageState extends State<LocationDatePage>{
                             }
                           },
                         ),
-                        Spacer(),
-                        // ElevatedButton(
-                        //   child: const Text('Edit Form'),
-                        //   style: ElevatedButton.styleFrom(
-                        //     backgroundColor: Colors.lightBlue.shade600,
-                        //     textStyle: TextStyle(fontSize: 17),
-                        //     fixedSize: Size(130, 43),
-                        //   ),
-                        //   onPressed: () {
-                        //     locationString = stateController.text + ' ' + countyController.text + ' County';
-                        //     location = stateController.text + ' ' + countyController.text;                            
-                        //     date = mController.text + '-' + dController.text + '-' + yrController.text;
-
-                        //   },
-                        // ),
-                        // Spacer(),                        
+                        Spacer(),                  
                       ],
                     ),
                  
