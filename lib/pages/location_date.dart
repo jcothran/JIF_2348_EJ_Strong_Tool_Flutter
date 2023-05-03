@@ -10,9 +10,17 @@ import 'edit_forms.dart';
 String locationString = "";
 String location = "";
 String date = "";
+String page_title = "Create a New Form";
 
 class LocationDatePage extends StatefulWidget {
-  State<LocationDatePage> createState() => LocationDatePageState();
+  State<LocationDatePage> createState() => LocationDatePageState(edit_file);
+
+  late bool edit_file;
+  LocationDatePage.filePass(this.edit_file);    // this constructor handles which form page to switch to (new or edit)
+  LocationDatePage()                            // this constructor is used to access internal methods (oop is bad)
+  {
+    edit_file = false;
+  }
 
   String getLocationString() {
     return locationString;
@@ -37,10 +45,12 @@ class LocationDatePageState extends State<LocationDatePage>{
 
   final TextEditingController stateController = TextEditingController();
   final TextEditingController countyController = TextEditingController();
-  //final TextEditingController cityController = TextEditingController();
   final TextEditingController mController = TextEditingController();
   final TextEditingController dController = TextEditingController();
   final TextEditingController yrController = TextEditingController();
+  final bool edit_file;
+
+  LocationDatePageState(this.edit_file);
 
   @override
   void dispose(){
@@ -53,15 +63,17 @@ class LocationDatePageState extends State<LocationDatePage>{
 
   @override
   Widget build(BuildContext context) {
+    if (edit_file)
+      page_title = "Edit a Form";
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.lightBlue.shade600,
-          title: const Text("Location and Date"),
+          title: Text(page_title),
         ),
         body: Center(
             child: SingleChildScrollView(
               child: SizedBox(
-                height: 700,
+                height: 625,
                 child: Column(
                   children: [
                     Spacer(),
@@ -124,7 +136,7 @@ class LocationDatePageState extends State<LocationDatePage>{
                         ],
                       ),
                     ),
-                    Padding(padding: EdgeInsets.all(15.0)),
+                    // Padding(padding: EdgeInsets.all(15.0)),
                     Align(
                       alignment: Alignment(-.72, 0),
                       child: Text(
@@ -202,7 +214,7 @@ class LocationDatePageState extends State<LocationDatePage>{
                       children: [
                         Spacer(),
                         ElevatedButton(
-                          child: const Text('New Form'),
+                          child: const Text('Submit'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.lightBlue.shade600,
                             textStyle: TextStyle(fontSize: 17),
@@ -212,32 +224,38 @@ class LocationDatePageState extends State<LocationDatePage>{
                             locationString = stateController.text + ' ' + countyController.text + ' County';
                             location = stateController.text + ' ' + countyController.text;                            
                             date = mController.text + '-' + dController.text + '-' + yrController.text;
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => FormsPage()),
-                            );
+                            if (edit_file)
+                            {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => EditFormsPage()),
+                              );
+                            }
+                            else
+                            {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => FormsPage()),
+                              );
+                            }
                           },
                         ),
                         Spacer(),
+                        // ElevatedButton(
+                        //   child: const Text('Edit Form'),
+                        //   style: ElevatedButton.styleFrom(
+                        //     backgroundColor: Colors.lightBlue.shade600,
+                        //     textStyle: TextStyle(fontSize: 17),
+                        //     fixedSize: Size(130, 43),
+                        //   ),
+                        //   onPressed: () {
+                        //     locationString = stateController.text + ' ' + countyController.text + ' County';
+                        //     location = stateController.text + ' ' + countyController.text;                            
+                        //     date = mController.text + '-' + dController.text + '-' + yrController.text;
 
-                        ElevatedButton(
-                          child: const Text('Edit Form'),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.lightBlue.shade600,
-                            textStyle: TextStyle(fontSize: 17),
-                            fixedSize: Size(130, 43),
-                          ),
-                          onPressed: () {
-                            locationString = stateController.text + ' ' + countyController.text + ' County';
-                            location = stateController.text + ' ' + countyController.text;                            
-                            date = mController.text + '-' + dController.text + '-' + yrController.text;
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => EditFormsPage()),
-                            );
-                          },
-                        ),
-                        Spacer(),                        
+                        //   },
+                        // ),
+                        // Spacer(),                        
                       ],
                     ),
                  
