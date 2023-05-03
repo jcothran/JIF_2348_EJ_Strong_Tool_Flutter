@@ -224,7 +224,7 @@ class LocationDatePageState extends State<LocationDatePage>{
                             fixedSize: Size(130, 43),
                           ),
                           onPressed: () {
-                            locationString = stateController.text + ' ' + countyController.text + ' County';
+                            locationString = stateController.text + ' ' + countyController.text;
                             location = stateController.text + ' ' + countyController.text;                            
                             date = mController.text + '-' + dController.text + '-' + yrController.text;
                             if (edit_file)
@@ -233,6 +233,10 @@ class LocationDatePageState extends State<LocationDatePage>{
                                 context,
                                 MaterialPageRoute(builder: (context) => EditFormsPage()),
                               );
+                            }
+                            else if (view_pdf)
+                            {
+
                             }
                             else
                             {
