@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class VulnerableT{
   final String name;
   String hazardProf;
@@ -104,4 +106,61 @@ class VulnerableT{
     required this.essenLow,
     required this.summary,
   });
+
+  static VulnerableT convertVulnerabilityDocument(DocumentSnapshot doc)
+  {
+    return VulnerableT(
+      name:        doc.get('name'),
+      hazardProf:  doc.get('hazardProf'),
+      popHigh:     doc.get('popHigh'),
+      popMed:      doc.get('popMed'),
+      popLow:      doc.get('popLow'),
+      elderHigh:   doc.get('elderHigh'),
+      elderMed:    doc.get('elderMed'),
+      elderLow:    doc.get('elderLow'),
+      childHigh:   doc.get('childHigh'),
+      childMed:    doc.get('childMed'),
+      childLow:    doc.get('childLow'),
+      hsEdHigh:    doc.get('hsEdHigh'),
+      hsEdMed:     doc.get('hsEdMed'),
+      hsEdLow:     doc.get('hsEdLow'),
+      linIsoHigh:  doc.get('linIsoHigh'),
+      linIsoMed:   doc.get('linIsoMed'),
+      linIsoLow:   doc.get('linIsoLow'),
+      pocHigh:     doc.get('pocHigh'),
+      pocMed:      doc.get('pocMed'),
+      pocLow:      doc.get('pocLow'),
+      lincHigh:    doc.get('lincHigh'),
+      lincMed:     doc.get('lincMed'),
+      lincLow:     doc.get('lincLow'),
+      nheHigh:     doc.get('nheHigh'),
+      nheMed:      doc.get('nheMed'),
+      nheLow:      doc.get('nheLow'),
+      housingHigh: doc.get('housingHigh'),
+      housingMed:  doc.get('housingMed'),
+      housingLow:  doc.get('housingLow'),
+      schoolsHigh: doc.get('schoolsHigh'),
+      schoolsMed:  doc.get('schoolsMed'),
+      schoolsLow:  doc.get('schoolsLow'),
+      hospHigh:    doc.get('hospHigh'),
+      hospMed:     doc.get('hospMed'),
+      hospLow:     doc.get('hospLow'),
+      wasteHigh:   doc.get('wasteHigh'),
+      wasteMed:    doc.get('wasteMed'),
+      wasteLow:    doc.get('wasteLow'),
+      elecHigh:    doc.get('elecHigh'),
+      elecMed:     doc.get('elecMed'),
+      elecLow:     doc.get('elecLow'),
+      waterHigh:   doc.get('waterHigh'),
+      waterMed:    doc.get('waterMed'),
+      waterLow:    doc.get('waterLow'),
+      wasteWaterHigh: doc.get('wasteWaterHigh'),
+      wasteWaterMed: doc.get('wasteWaterMed'),
+      wasteWaterLow: doc.get('wasteWaterLow'),
+      essenHigh:    doc.get('essenHigh'),
+      essenMed:     doc.get('essenMed'),
+      essenLow:     doc.get('essenLow'),
+      summary:      doc.get('summary')
+      );
+  }
 }
