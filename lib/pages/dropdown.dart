@@ -18,7 +18,7 @@ class DropdownHandler extends StatefulWidget {
   {
     String new_value = this.state.dropdownValue;
     bool use_new_value = this.state.use_previous_value;
-    state.dispose();
+    // state.dispose();
     return state = _DropdownHandlerState(new_value, use_new_value, keywords);
   }
 
