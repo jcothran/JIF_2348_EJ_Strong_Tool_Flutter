@@ -78,13 +78,77 @@ class DisasterDetailPage extends StatelessWidget {
     required this.disasterT,
   }) : super(key: key);
 
-
-
   @override
   Widget build(BuildContext context) {
+
+    communityProfController.text = disasterT.communityProf;
+    hazardProfController.text = disasterT.hazardProf;
+    elderHighController.text = disasterT.elderHigh;
+    elderMedController.text = disasterT.elderMed;
+    elderLowController.text = disasterT.elderLow;
+    elderIndvController.text = disasterT.elderIndv;
+    childHighController.text = disasterT.childHigh;
+    childMedController.text = disasterT.childMed;
+    childLowController.text = disasterT.childLow;
+    childIndvController.text = disasterT.childIndv;
+    hsEdHighController.text = disasterT.hsEdHigh;
+    hsEdMedController.text = disasterT.hsEdMed;
+    hsEdLowController.text = disasterT.hsEdLow;
+    hsEdIndvController.text = disasterT.hsEdIndv;
+    linIsoHighController.text = disasterT.linIsoHigh;
+    linIsoMedController.text = disasterT.linIsoMed;
+    linIsoLowController.text = disasterT.linIsoLow;
+    linIsoIndvController.text = disasterT.linIsoIndv;
+    pocHighController.text = disasterT.pocHigh;
+    pocMedController.text = disasterT.pocMed;
+    pocLowController.text = disasterT.pocLow;
+    pocIndvController.text = disasterT.pocIndv;
+    lincHighController.text = disasterT.lincHigh;
+    lincMedController.text = disasterT.lincMed;
+    lincLowController.text = disasterT.lincLow;
+    lincIndvController.text = disasterT.lincIndv;
+    nheHighController.text = disasterT.nheHigh;
+    nheMedController.text = disasterT.nheMed;
+    nheLowController.text = disasterT.nheLow;
+    nheIndvController.text = disasterT.nheIndv;
+    housingHighController.text = disasterT.housingHigh;
+    housingMedController.text = disasterT.housingMed;
+    housingLowController.text = disasterT.housingLow;
+    housingIndvController.text = disasterT.housingIndv;
+    schoolsHighController.text = disasterT.schoolsHigh;
+    schoolsMedController.text = disasterT.schoolsMed;
+    schoolsLowController.text = disasterT.schoolsLow;
+    schoolsIndvController.text = disasterT.schoolsIndv;
+    hospHighController.text = disasterT.hospHigh;
+    hospMedController.text = disasterT.hospMed;
+    hospLowController.text = disasterT.hospLow;
+    hospIndvController.text = disasterT.hospIndv;
+    wasteHighController.text = disasterT.wasteHigh;
+    wasteMedController.text = disasterT.wasteMed;
+    wasteLowController.text = disasterT.wasteLow;
+    wasteIndvController.text = disasterT.wasteIndv;
+    elecHighController.text = disasterT.elecHigh;
+    elecMedController.text = disasterT.elecMed;
+    elecLowController.text = disasterT.elecLow;
+    elecIndvController.text = disasterT.elecIndv;
+    waterHighController.text = disasterT.waterHigh;
+    waterMedController.text = disasterT.waterMed;
+    waterLowController.text = disasterT.waterLow;
+    waterIndvController.text = disasterT.waterIndv;
+    wasteWaterHighController.text = disasterT.wasteWaterHigh;
+    wasteWaterMedController.text = disasterT.wasteWaterMed;
+    wasteWaterLowController.text = disasterT.wasteWaterLow;
+    wasteWaterIndvController.text = disasterT.wasteWaterIndv;
+    essenHighController.text = disasterT.essenHigh;
+    essenMedController.text = disasterT.essenMed;
+    essenLowController.text = disasterT.essenLow;
+    essenIndvController.text = disasterT.essenIndv;
+    summaryController.text = disasterT.summary;
+    recommendationController.text = disasterT.recommendation;
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: () async {
           disasterT.communityProf = communityProfController.text;
           disasterT.hazardProf = hazardProfController.text;
           disasterT.elderHigh = elderHighController.text;
@@ -151,10 +215,14 @@ class DisasterDetailPage extends StatelessWidget {
           disasterT.recommendation = recommendationController.text;
 
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => PdfPreviewDisasterPage(disasterT: disasterT),
-          ),
+              builder: (context) => PdfPreviewDisasterPage(disasterT: disasterT),
+            ),
           );
-          // rootBundle.
+
+          String location_date = LocationDatePage().getLocation() + " " + LocationDatePage().getDate() + " " + LocationDatePage.getUID();
+
+          await DatabaseService().updateDisasterData(location_date, disasterT);
+          
         },
         child: Icon(Icons.picture_as_pdf),
       ),
