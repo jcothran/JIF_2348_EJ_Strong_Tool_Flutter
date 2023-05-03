@@ -178,8 +178,8 @@ class EditFormsPage extends StatelessWidget {
                   DocumentReference data = db.collection("disaster_form").doc(location_date + uid);
                   await data.get().then(
                         (dataSnapshot) => {
-                      if (!dataSnapshot.exists) {
-                        // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: blankD)));
+                      if (dataSnapshot.exists) {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: DisasterT.convertDisasterDocument(dataSnapshot))))
                       }
                       else {
                         _showMyDialog(context)
