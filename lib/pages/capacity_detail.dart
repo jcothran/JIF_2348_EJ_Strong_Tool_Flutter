@@ -288,7 +288,7 @@ class CapacityDetailPage extends StatelessWidget {
               TableRow(
                 children: [
                   Expanded(
-                    child: PaddedText("Human Element"),
+                    child: PaddedText("Non-Human Element"),
                   ),
                   Expanded(
                     child: nonHeExistHigh,
