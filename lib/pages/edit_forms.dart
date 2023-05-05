@@ -42,6 +42,7 @@ class EditFormsPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>
           [
+            Spacer(),
             Container
               (
               child: Text
@@ -51,28 +52,15 @@ class EditFormsPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LocationDatePage())
-                );
-              },
-              icon: Icon(
-                Icons.add_location_alt,
-                size: 40.0,
-              ),
+            Padding(
+              padding: EdgeInsets.all(3),
             ),
-            Container
-              (
-              child: Text
-                (
-                "Update Loc/Date",
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
+            Icon(
+              Icons.location_on,
+              size: 50.0,
             ),
             Padding(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.all(4),
             ),
             Container
               (
@@ -85,133 +73,146 @@ class EditFormsPage extends StatelessWidget {
             Container(
               child: Divider(),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 8),
-              child: ElevatedButton(
-                child: Text(
-                  "Hazard Assessment Form",
+            Expanded(
+              flex: 3,
+              child: Container(
+                margin: EdgeInsets.only(top: 8),
+                child: ElevatedButton(
+                  child: Text(
+                    "Hazard Assessment Form",
+                  ),
+                  style: style,
+                  onPressed:() async
+                  {
+                    FirebaseFirestore db = FirebaseFirestore.instance;
+                    String uid = AuthService().getUserId().toString();
+                    DocumentReference data = db.collection("hazard_form").doc(location_date + uid);
+                    await data.get().then(
+                          (dataSnapshot) => {
+                        if (dataSnapshot.exists) {
+                          if (view_pdf)
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => PdfPreviewPage(hazardT: HazardT.convertHazardDocument(dataSnapshot))))
+                          else
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HazardDetailPage(hazardT: HazardT.convertHazardDocument(dataSnapshot), edit_file: true,)))
+                        }
+                        else {
+                          _showMyDialog(context)
+                        }
+                      },
+                      onError: (e) => print("Error completing: $e"),
+                    );
+                  },
                 ),
-                style: style,
-                onPressed:() async
-                {
-                  FirebaseFirestore db = FirebaseFirestore.instance;
-                  String uid = AuthService().getUserId().toString();
-                  DocumentReference data = db.collection("hazard_form").doc(location_date + uid);
-                  await data.get().then(
-                        (dataSnapshot) => {
-                      if (dataSnapshot.exists) {
-                        if (view_pdf)
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => PdfPreviewPage(hazardT: HazardT.convertHazardDocument(dataSnapshot))))
-                        else
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HazardDetailPage(hazardT: HazardT.convertHazardDocument(dataSnapshot), edit_file: true,)))
-                      }
-                      else {
-                        _showMyDialog(context)
-                      }
-                    },
-                    onError: (e) => print("Error completing: $e"),
-                  );
-                },
               ),
             ),
             Container(
               child: Divider(),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 8),
-              child: ElevatedButton(
-                child: Text(
-                  "Vulnerability Assessment Form",
+            Expanded(
+              flex: 3,
+              child: Container(
+                margin: EdgeInsets.only(top: 8),
+                child: ElevatedButton(
+                  child: Text(
+                    "Vulnerability Assessment Form",
+                  ),
+                  style: style,
+                  onPressed:() async
+                  {
+                    FirebaseFirestore db = FirebaseFirestore.instance;
+                    String uid = AuthService().getUserId().toString();
+                    DocumentReference data = db.collection("vulnerability_form").doc(location_date + uid);
+                    await data.get().then(
+                          (dataSnapshot) => {
+                        if (dataSnapshot.exists) {
+                          if (view_pdf)
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => PdfPreviewVulnerablePage(vulnerableT: VulnerableT.convertVulnerabilityDocument(dataSnapshot))))
+                          else
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: VulnerableT.convertVulnerabilityDocument(dataSnapshot))))
+                        }
+                        else {
+                          _showMyDialog(context)
+                        }
+                      },
+                      onError: (e) => print("Error completing: $e"),
+                    );
+
+                  },
                 ),
-                style: style,
-                onPressed:() async
-                {
-                  FirebaseFirestore db = FirebaseFirestore.instance;
-                  String uid = AuthService().getUserId().toString();
-                  DocumentReference data = db.collection("vulnerability_form").doc(location_date + uid);
-                  await data.get().then(
-                        (dataSnapshot) => {
-                      if (dataSnapshot.exists) {
-                        if (view_pdf)
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => PdfPreviewVulnerablePage(vulnerableT: VulnerableT.convertVulnerabilityDocument(dataSnapshot))))
-                        else
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> VulnerabilityDetailPage(vulnerableT: VulnerableT.convertVulnerabilityDocument(dataSnapshot))))
-                      }
-                      else {
-                        _showMyDialog(context)
-                      }
-                    },
-                    onError: (e) => print("Error completing: $e"),
-                  );
-                  
-                },
               ),
             ),
             Container(
               child: Divider(),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 8),
-              child: ElevatedButton(
-                child: Text(
-                  "Capacity Assessment Form",
+            Expanded(
+              flex: 3,
+              child: Container(
+                margin: EdgeInsets.only(top: 8),
+                child: ElevatedButton(
+                  child: Text(
+                    "Capacity Assessment Form",
+                  ),
+                  style: style,
+                  onPressed:() async
+                  {
+                    FirebaseFirestore db = FirebaseFirestore.instance;
+                    String uid = AuthService().getUserId().toString();
+                    DocumentReference data = db.collection("capacity_form").doc(location_date + uid);
+                    await data.get().then(
+                          (dataSnapshot) => {
+                        if (dataSnapshot.exists) {
+                          if (view_pdf)
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) =>PdfPreviewCapacityPage(capacityT: CapacityT.convertCapacityDocument(dataSnapshot))))
+                          else
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: CapacityT.convertCapacityDocument(dataSnapshot), edit_file: true,)))
+                        }
+                        else {
+                          _showMyDialog(context)
+                        }
+                      },
+                      onError: (e) => print("Error completing: $e"),
+                    );
+                  },
                 ),
-                style: style,
-                onPressed:() async
-                {
-                  FirebaseFirestore db = FirebaseFirestore.instance;
-                  String uid = AuthService().getUserId().toString();
-                  DocumentReference data = db.collection("capacity_form").doc(location_date + uid);
-                  await data.get().then(
-                        (dataSnapshot) => {
-                      if (dataSnapshot.exists) {
-                        if (view_pdf)
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>PdfPreviewCapacityPage(capacityT: CapacityT.convertCapacityDocument(dataSnapshot))))
-                        else
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CapacityDetailPage(capacityT: CapacityT.convertCapacityDocument(dataSnapshot), edit_file: true,)))    
-                      }
-                      else {
-                        _showMyDialog(context)
-                      }
-                    },
-                    onError: (e) => print("Error completing: $e"),
-                  );
-                },
               ),
             ),
             Container(
               child: Divider(),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 8),
-              child: ElevatedButton(
-                child: Text("Disaster Risk Analysis Form"),
-                style: style,
-                onPressed:() async
-                {
-                  FirebaseFirestore db = FirebaseFirestore.instance;
-                  String uid = AuthService().getUserId().toString();
-                  DocumentReference data = db.collection("disaster_form").doc(location_date + uid);
-                  await data.get().then(
-                        (dataSnapshot) => {
-                      if (dataSnapshot.exists) {
-                        if (view_pdf)
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => PdfPreviewDisasterPage(disasterT: DisasterT.convertDisasterDocument(dataSnapshot))))
-                        else
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: DisasterT.convertDisasterDocument(dataSnapshot))))
-                      }
-                      else {
-                        _showMyDialog(context)
-                      }                      
-                    },
-                    onError: (e) => print("Error completing: $e"),
-                  );
-                },
+            Expanded(
+              flex: 3,
+              child: Container(
+                margin: EdgeInsets.only(top: 8),
+                child: ElevatedButton(
+                  child: Text("Disaster Risk Analysis Form"),
+                  style: style,
+                  onPressed:() async
+                  {
+                    FirebaseFirestore db = FirebaseFirestore.instance;
+                    String uid = AuthService().getUserId().toString();
+                    DocumentReference data = db.collection("disaster_form").doc(location_date + uid);
+                    await data.get().then(
+                          (dataSnapshot) => {
+                        if (dataSnapshot.exists) {
+                          if (view_pdf)
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => PdfPreviewDisasterPage(disasterT: DisasterT.convertDisasterDocument(dataSnapshot))))
+                          else
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisasterDetailPage(disasterT: DisasterT.convertDisasterDocument(dataSnapshot))))
+                        }
+                        else {
+                          _showMyDialog(context)
+                        }
+                      },
+                      onError: (e) => print("Error completing: $e"),
+                    );
+                  },
+                ),
               ),
             ),
             Container(
               child: Divider(),
             ),
+            Spacer(),
           ],
         ),
       ),
