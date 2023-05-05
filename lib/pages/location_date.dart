@@ -237,7 +237,12 @@ class LocationDatePageState extends State<LocationDatePage>{
                               locationString = stateController.text + ' ' + countyController.text;
                               location = stateController.text + ' ' + countyController.text;
                               date = mController.text + '-' + dController.text + '-' + yrController.text;
-                              if (edit_file)
+
+                              if (stateController.text == '' || countyController.text == '' || mController.text == '' || dController.text == '' || yrController.text == '') {
+                                _showMyDialog(context);
+                              }
+
+                              else if (edit_file)
                               {
                                 Navigator.push(
                                   context,
@@ -258,6 +263,7 @@ class LocationDatePageState extends State<LocationDatePage>{
                                   MaterialPageRoute(builder: (context) => FormsPage()),
                                 );
                               }
+
                             },
                           ),
                           Spacer(),
@@ -272,4 +278,33 @@ class LocationDatePageState extends State<LocationDatePage>{
         )
     );
   }
+}
+
+
+Future<void> _showMyDialog(BuildContext form_context) async {
+  return showDialog<void>(
+    context: form_context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Error'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: const <Widget>[
+              Text('Blank input detected\n'),
+              Text('You cannot leave any of the location or date text fields blank\n'),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Exit'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
 }
