@@ -226,12 +226,12 @@ Future<void> _showMyDialog(BuildContext form_context) async {
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text('AlertDialog Title'),
+        title: const Text('Error'),
         content: SingleChildScrollView(
           child: ListBody(
             children: const <Widget>[
               Text('You do not have an existing form for this date and location\n'),
-              Text('Make sure you have selected the appropriate date and time for your edit'),
+              Text('Make sure you have selected the appropriate date and time for the chosen form'),
             ],
           ),
         ),
