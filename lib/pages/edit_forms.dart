@@ -51,28 +51,15 @@ class EditFormsPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LocationDatePage())
-                );
-              },
-              icon: Icon(
-                Icons.add_location_alt,
-                size: 40.0,
-              ),
+            Padding(
+              padding: EdgeInsets.all(3),
             ),
-            Container
-              (
-              child: Text
-                (
-                "Update Loc/Date",
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
+            Icon(
+              Icons.location_on,
+              size: 50.0,
             ),
             Padding(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.all(4),
             ),
             Container
               (
