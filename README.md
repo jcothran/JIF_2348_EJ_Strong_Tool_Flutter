@@ -160,7 +160,9 @@ For more information on the installation process, visit https://docs.flutter.dev
 
 <h1> Running the Application </h1>
 
-Review the steps above and download the Github in order to run it locally, or use Github Desktop. Open in either IntelliJ, VSCode or Android Studio (for Android development). 
+For Android Development:
+
+Review the steps above and download the Github in order to run it locally, or use Github Desktop. Open in either IntelliJ, VSCode or Android Studio. 
 
 Navigate to the general folder in terminal and in order for the flutter commands to work, you can do:  
 
@@ -178,7 +180,9 @@ This will start the application and gives you an option to run it as
 
 When you press either 1 or 2 the application should appear! 
 
-For iOS development, run the app on Xcode (this applies to Mac users). To do this, navigate to the main project folder and then click on the iOS folder. Click on Runner.xcworkspace. This is where you wll run the application on iOS simulators and devices
+For iOS development: 
+
+Run the app on Xcode (this applies to Mac users). To do this, navigate to the main project folder and then click on the iOS folder. Click on Runner.xcworkspace. This is where you wll run the application on iOS simulators and devices
 
 For more information on how to set up and run the application for iOS through Runner.xcworkspace, refer to this link: https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device
 
