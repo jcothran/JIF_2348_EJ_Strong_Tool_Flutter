@@ -18,19 +18,19 @@ class HomePage extends StatelessWidget
     (
       appBar: AppBar
       (
-        title: Text('Communtiy Assessment Tool'),
+        title: Text('Community Assessment Tool'),
       ),
       body: Column
         (
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>
           [
-            SizedBox(
-              width: 340,
-              height: 170,
+            Center(
               child: Container
               (
-                margin: EdgeInsets.only(left: 20),
+                height:MediaQuery.of(context).size.height/4,
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.only(left: 20, right: 20),
                 child: ElevatedButton.icon(
                   label: Text("Create Forms"),
                   icon: Icon(
@@ -48,13 +48,12 @@ class HomePage extends StatelessWidget
 
             Padding(padding: EdgeInsets.all(5.0)),
 
-            SizedBox(
-              width: 340,
-              height: 170,
-              
+            Center(
               child: Container
               (
-                margin: EdgeInsets.only(left: 20),
+                height:MediaQuery.of(context).size.height/4,
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.only(left: 20, right: 20),
                 child: ElevatedButton.icon(
                   icon: Icon(
                       Icons.add_chart,
@@ -72,12 +71,12 @@ class HomePage extends StatelessWidget
 
             Padding(padding: EdgeInsets.all(5.0)),
 
-            SizedBox(  
-              width: 340,
-              height: 170,
+            Center(
               child: Container
               (
-                margin: EdgeInsets.only(left: 20),
+                height:MediaQuery.of(context).size.height/4,
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.only(left: 20, right: 20),
                 child: ElevatedButton.icon(
                   icon: Icon(
                     Icons.search,
