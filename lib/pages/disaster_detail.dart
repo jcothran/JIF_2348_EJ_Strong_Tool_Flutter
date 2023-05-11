@@ -280,51 +280,21 @@ class DisasterDetailPage extends StatelessWidget {
             children: [
 
               TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText(""),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("High Vul."),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Med. Vul."),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Low Vul."),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Indv. Vul."),
-                    flex: 1,
-                  ),
+                children: [                    
+                  PaddedText(""),
+                  PaddedText("High Vul."),
+                  PaddedText("Med. Vul."),
+                  PaddedText("Low Vul."),
+                  PaddedText("Indv. Vul."),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText(""),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("< 0.5 mi."),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("0.5 - 1.0 mi."),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("> 1.0 mi."),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Indv \n Survivability"),
-                    flex: 1,
-                  ),
+                  PaddedText(""),
+                  PaddedText("< 0.5 mi."),
+                  PaddedText("0.5 - 1.0 mi."),
+                  PaddedText("> 1.0 mi."),
+                  PaddedText("Indv \n Survivability"),
                 ],
               ),
             ]
@@ -344,266 +314,176 @@ class DisasterDetailPage extends StatelessWidget {
             children: [
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Elderly(65+)"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: elderHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                      controller: elderMedController,
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [
-                        FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                      ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: elderLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: elderIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("Elderly(65+)"),
+                  TextField(
+                    controller: elderHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: elderMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: elderLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: elderIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Children <5"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: childHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: childMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: childLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: childIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("Children <5"),
+                  TextField(
+                    controller: childHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: childMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: childLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: childIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("<HS Education"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: hsEdHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: hsEdMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: hsEdLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: hsEdIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("<HS Education"),
+                  TextField(
+                    controller: hsEdHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: hsEdMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: hsEdLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: hsEdIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Linguistic isolation"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: linIsoHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: linIsoMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: linIsoLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: linIsoIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("Linguistic isolation"),
+                  TextField(
+                    controller: linIsoHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: linIsoMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: linIsoLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: linIsoIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("People of color"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: pocHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: pocMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: pocLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: pocIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("People of color"),
+                  TextField(
+                    controller: pocHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: pocMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: pocLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: pocIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
                 ],
               ),
               TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText("Low income"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: lincHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: lincMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: lincLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: lincIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                children: [                    
+                  PaddedText("Low income"),
+                  TextField(
+                    controller: lincHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: lincMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: lincLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: lincIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
                 ],
               ),
             ]
@@ -623,354 +503,234 @@ class DisasterDetailPage extends StatelessWidget {
             children: [
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Housing units"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: housingHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: housingMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: housingLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: housingIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("Housing units"),
+                  TextField(
+                    controller: housingHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: housingMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: housingLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: housingIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Schools"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: schoolsHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: schoolsMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: schoolsLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: schoolsIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("Schools"),
+                  TextField(
+                    controller: schoolsHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: schoolsMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: schoolsLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: schoolsIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Hospitals/Clinics"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: hospHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: hospMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: hospLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: hospIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("Hospitals/Clinics"),
+                  TextField(
+                    controller: hospHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: hospMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: hospLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: hospIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("S-fund/hazardous waste sites"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: wasteHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: wasteMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: wasteLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: wasteIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("S-fund/hazardous waste sites"),
+                  TextField(
+                    controller: wasteHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: wasteMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: wasteLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: wasteIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Electric supply center"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: elecHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: elecMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: elecLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: elecIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("Electric supply center"),
+                  TextField(
+                    controller: elecHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: elecMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: elecLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),              
+                  TextField(
+                    controller: elecIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),                
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Water supply center"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: waterHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: waterMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: waterLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: waterIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("Water supply center"),
+                  TextField(
+                    controller: waterHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: waterMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: waterLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),                    
+                  TextField(
+                    controller: waterIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Wastewater center"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: wasteWaterHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: wasteWaterMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: wasteWaterLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: wasteWaterIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("Wastewater center"),                  
+                  TextField(
+                    controller: wasteWaterHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: wasteWaterMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: wasteWaterLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: wasteWaterIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Essential bussinesses"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: essenHighController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: essenMedController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: essenLowController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: TextField(
-                        controller: essenIndvController,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp('[0-9]'))
-                        ]),
-                    flex: 1,
-                  ),
+                  PaddedText("Essential bussinesses"),
+                  TextField(
+                    controller: essenHighController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: essenMedController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: essenLowController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),
+                  TextField(
+                    controller: essenIndvController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ]),                  
                 ],
               ),
             ],
