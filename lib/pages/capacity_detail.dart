@@ -164,22 +164,10 @@ class CapacityDetailPage extends StatelessWidget {
           Table(children: [
             TableRow(
               children: [
-                Expanded(
-                  child: PaddedText(""),
-                  flex: 1,
-                ),
-                Expanded(
-                  child: PaddedText("Existing"),
-                  flex: 1,
-                ),
-                Expanded(
-                  child: PaddedText("Required"),
-                  flex: 1,
-                ),
-                Expanded(
-                  child: PaddedText("Gaps"),
-                  flex: 1,
-                ),
+                  PaddedText(""),
+                  PaddedText("Existing"),
+                  PaddedText("Required"),                
+                  PaddedText("Gaps"),
               ],
             ),
           ]),
