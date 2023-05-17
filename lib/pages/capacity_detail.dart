@@ -164,41 +164,20 @@ class CapacityDetailPage extends StatelessWidget {
           Table(children: [
             TableRow(
               children: [
-                Expanded(
-                  child: PaddedText(""),
-                  flex: 1,
-                ),
-                Expanded(
-                  child: PaddedText("Existing"),
-                  flex: 1,
-                ),
-                Expanded(
-                  child: PaddedText("Required"),
-                  flex: 1,
-                ),
-                Expanded(
-                  child: PaddedText("Gaps"),
-                  flex: 1,
-                ),
+                PaddedText(""),
+                PaddedText("Existing"),
+                PaddedText("Required"),                
+                PaddedText("Gaps"),
               ],
             ),
           ]),
           Table(children: [
             TableRow(
-              children: [
-                Expanded(
-                  child: PaddedText("Prevention"),
-                  flex: 1,
-                ),
-                Expanded(
-                  child: prevExist,
-                ),
-                Expanded(
-                  child: prevReq,
-                ),
-                Expanded(
-                  child: prevGaps,
-                ),
+              children: [              
+                PaddedText("Prevention"),
+                prevExist,
+                prevReq,
+                prevGaps,
               ],
             ),
           ]),
@@ -207,18 +186,10 @@ class CapacityDetailPage extends StatelessWidget {
             children: [
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Mitigation"),
-                  ),
-                  Expanded(
-                    child: mitiExist,
-                  ),
-                  Expanded(
-                    child: mitiReq,
-                  ),
-                  Expanded(
-                    child: mitiGaps,
-                  ),
+                  PaddedText("Mitigation"),
+                  mitiExist,
+                  mitiReq,
+                  mitiGaps,
                 ],
               ),
             ],
@@ -227,13 +198,10 @@ class CapacityDetailPage extends StatelessWidget {
             children: [
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText(
-                        "Note: When carrying out survivability assessment"
-                        "all elements at risk assessed for level of vulnerability during "
-                        "the vulnerability assessment should be considered here"),
-                    flex: 1,
-                  ),
+                  PaddedText(
+                    "Note: When carrying out survivability assessment"
+                    "all elements at risk assessed for level of vulnerability during "
+                    "the vulnerability assessment should be considered here"),
                 ],
               ),
             ],
@@ -250,55 +218,26 @@ class CapacityDetailPage extends StatelessWidget {
             children: [
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Element At Risk"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Existing"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Required"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Gaps"),
-                    flex: 1,
-                  ),
+                  PaddedText("Element At Risk"),
+                  PaddedText("Existing"),
+                  PaddedText("Required"),
+                  PaddedText("Gaps"),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Human Element"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: heExistHigh,
-                  ),
-                  Expanded(
-                    child: heReqHigh,
-                  ),
-                  Expanded(
-                    child: heGapsHigh,
-                  ),
+                  PaddedText("Human Element"),
+                  heExistHigh,
+                  heReqHigh,
+                  heGapsHigh,
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Non-Human Element"),
-                  ),
-                  Expanded(
-                    child: nonHeExistHigh,
-                  ),
-                  Expanded(
-                    child: nonHeReqHigh,
-                  ),
-                  Expanded(
-                    child: nonHeGapsHigh,
-                  ),
+                  PaddedText("Non-Human Element"),
+                  nonHeExistHigh,
+                  nonHeReqHigh,
+                  nonHeGapsHigh,                  
                 ],
               ),
             ],
@@ -315,56 +254,26 @@ class CapacityDetailPage extends StatelessWidget {
             children: [
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Element At Risk"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Existing"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Required"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Gaps"),
-                    flex: 1,
-                  ),
+                  PaddedText("Element At Risk"),
+                  PaddedText("Existing"),
+                  PaddedText("Required"),
+                  PaddedText("Gaps"),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Human Element"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: heExistMed,
-                  ),
-                  Expanded(
-                    child: heReqMed,
-                  ),
-                  Expanded(
-                    child: heGapsMed,
-                  ),
+                  PaddedText("Human Element"),
+                  heExistMed,
+                  heReqMed,
+                  heGapsMed,              
                 ],
               ),
               TableRow(
-                children: [
-                  Expanded(
-                    child: PaddedText("Non-Human Element"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: nonHeExistMed,
-                  ),
-                  Expanded(
-                    child: nonHeReqMed,
-                  ),
-                  Expanded(
-                    child: nonHeGapsMed,
-                  ),
+                children: [                  
+                  PaddedText("Non-Human Element"),                  
+                  nonHeExistMed,    
+                  nonHeReqMed,                  
+                  nonHeGapsMed,
                 ],
               ),
             ],
@@ -381,56 +290,26 @@ class CapacityDetailPage extends StatelessWidget {
             children: [
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Element At Risk"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Existing"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Required"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Gaps"),
-                    flex: 1,
-                  ),
+                  PaddedText("Element At Risk"),
+                  PaddedText("Existing"),
+                  PaddedText("Required"),
+                  PaddedText("Gaps"),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Human Element"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: heExistLowBef,
-                  ),
-                  Expanded(
-                    child: heReqLowBef,
-                  ),
-                  Expanded(
-                    child: heGapsLowBef,
-                  ),
+                  PaddedText("Human Element"),
+                  heExistLowBef,
+                  heReqLowBef,
+                  heGapsLowBef,
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Non-Human Element"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: nonHeExistLowBef,
-                  ),
-                  Expanded(
-                    child: nonHeReqLowBef,
-                  ),
-                  Expanded(
-                    child: nonHeGapsLowBef,
-                  ),
+                  PaddedText("Non-Human Element"),
+                  nonHeExistLowBef,
+                  nonHeReqLowBef,
+                  nonHeGapsLowBef,
                 ],
               ),
             ],
@@ -448,62 +327,26 @@ class CapacityDetailPage extends StatelessWidget {
             children: [
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Element At Risk"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Existing"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Required"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Gaps"),
-                    flex: 1,
-                  ),
+                  PaddedText("Element At Risk"),
+                  PaddedText("Existing"),
+                  PaddedText("Required"),
+                  PaddedText("Gaps"),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Human Element"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: heExistLowDur,
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: heReqLowDur,
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: heGapsLowDur,
-                    flex: 1,
-                  ),
+                  PaddedText("Human Element"),
+                  heExistLowDur,
+                  heReqLowDur,
+                  heGapsLowDur,
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Non-Human Element"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: nonHeExistLowDur,
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: nonHeReqLowDur,
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: nonHeGapsLowDur,
-                    flex: 1,
-                  ),
+                  PaddedText("Non-Human Element"),
+                  nonHeExistLowDur,
+                  nonHeReqLowDur,
+                  nonHeGapsLowDur,
                 ],
               ),
             ],
@@ -520,36 +363,18 @@ class CapacityDetailPage extends StatelessWidget {
             children: [
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Existing"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Required"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Gaps"),
-                    flex: 1,
-                  ),
+                  PaddedText("Existing"),
+                  PaddedText("Required"),
+                  PaddedText("Gaps"),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Institutions, systems\n"
-                        "(THE CIELO ProTEC)\n"
-                        "..."),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: commReadyBefReq,
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: commReadyBefGaps,
-                    flex: 1,
-                  ),
+                  PaddedText("Institutions, systems\n"
+                                          "(THE CIELO ProTEC)\n"
+                                          "..."),
+                  commReadyBefReq,
+                  commReadyBefGaps,
                 ],
               ),
             ],
@@ -566,36 +391,18 @@ class CapacityDetailPage extends StatelessWidget {
             children: [
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Existing"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Required"),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: PaddedText("Gaps"),
-                    flex: 1,
-                  ),
+                  PaddedText("Existing"),
+                  PaddedText("Required"),
+                  PaddedText("Gaps"),
                 ],
               ),
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText("Institutions, systems\n"
-                        "(THE CIELO ProTEC)\n"
-                        "..."),
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: commReadyDurReq,
-                    flex: 1,
-                  ),
-                  Expanded(
-                    child: commReadyDurGaps,
-                    flex: 1,
-                  ),
+                  PaddedText("Institutions, systems\n"
+                                          "(THE CIELO ProTEC)\n"
+                                          "..."),
+                  commReadyDurReq,
+                  commReadyDurGaps,                    
                 ],
               ),
             ],

@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-
 import 'package:makepdfs/models/disasterT.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
@@ -80,8 +79,17 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                 ),
               ],
             ),
+          ],
+        );
+      },
+    ),
+  );
 
-
+  pdf.addPage(
+    Page(
+      build: (context) {
+        return Column(
+          children: [
             Table(
               border: TableBorder.all(color: PdfColors.black),
               children: [
@@ -376,12 +384,13 @@ Future<Uint8List> makePdfDisaster(DisasterT disasterT) async {
                   ],
                 ),
               ],
-            ),
-          ],
+            ),        
+          ]
         );
-      },
-    ),
+      }
+    )
   );
+
   pdf.addPage(
     Page(
       build: (context) {

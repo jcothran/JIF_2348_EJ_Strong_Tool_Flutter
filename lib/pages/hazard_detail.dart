@@ -145,155 +145,78 @@ class HazardDetailPage extends StatelessWidget {
 
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText('Cause/Origin'),
-                    flex: 3,
-                  ),
-
-                  Expanded(
-                    child: origin,
-                    flex: 2,
-                  ),
+                  PaddedText('Cause/Origin'),
+                  origin,
                 ],
               ),
 
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText('Force'),
-                    flex: 3,
-                  ),
-
-                  Expanded(
-                    child: force,
-                    flex: 2,
-                  ),
+                  PaddedText('Force'),
+                  force,                
                 ],
               ),
 
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText('Warning Signs and Signals'),
-                    flex: 3,
-                  ),
-
-                  Expanded(
-                    child: warning,
-                    flex: 2,
-                  ),
+                  PaddedText('Warning Signs and Signals'),
+                  warning,
                 ],
               ),
 
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText('Forewarning'),
-                    flex: 3,
-                  ),
-
-                  Expanded(
-                    child: forewarning,
-                    flex: 2,
-                  ),
+                  PaddedText('Forewarning'),
+                  forewarning,
                 ],
               ),
 
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText('Speed of Onset'),
-                    flex: 3,
-                  ),
-
-                  Expanded(
-                    child: speed,
-                    flex: 2,
-                  ),
+                  PaddedText('Speed of Onset'),
+                  speed,
                 ],
               ),
 
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText('Frequency'),
-                    flex: 3,
-                  ),
-
-                  Expanded(
-                    child: freq,
-                    flex: 2,
-                  ),
+                  PaddedText('Frequency'),
+                  freq,
                 ],
               ),
 
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText('Period of Occurence'),
-                    flex: 3,
-                  ),
-
-                  Expanded(
-                    child: period,
-                    flex: 2,
-                  ),
+                  PaddedText('Period of Occurence'),
+                  period,
                 ],
               ),
 
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText('Duration'),
-                    flex: 3,
-                  ),
-
-                  Expanded(
-                    child: duration,
-                    flex: 2,
-                  ),
+                  PaddedText('Duration'),
+                  duration,
                 ],
               ),
 
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText('Analytical description of the hazard:'),
-                    flex: 3,
-                  ),
-
-                  Expanded(
-                    child: TextField(controller: descController,),
-                    flex: 2,
-                  ),
+                  PaddedText('Analytical description of the hazard:'),
+                  TextField(controller: descController,),
                 ],
               ),
 
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText('How will it affect me?'),
-                    flex: 2,
-                  ),
-
-                  Expanded(
-                    child: TextField(controller: affectMeController,),
-                    flex: 2,
-                  ),
+                  PaddedText('How will it affect me?'),
+                  TextField(controller: affectMeController,),
                 ],
               ),
 
               TableRow(
                 children: [
-                  Expanded(
-                    child: PaddedText('How will it affect my community?'),
-                    flex: 2,
-                  ),
-
-                  Expanded(
-                    child: TextField(controller: affectCommunityController,),
-                    flex: 2,
-                  ),
+                  PaddedText('How will it affect my community?'),
+                  TextField(controller: affectCommunityController,),
                 ],
               ),
             ],
