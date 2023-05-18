@@ -11,9 +11,6 @@ workflows:
       cocoapods: default
       flutter: stable
     scripts:
-      - name: Install CocoaPods dependencies
-        script: | 
-          pod install
       - name: Build the .app
         script: | 
           xcodebuild build \
