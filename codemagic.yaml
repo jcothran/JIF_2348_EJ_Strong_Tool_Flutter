@@ -5,8 +5,8 @@ workflows:
     instance_type: mac_mini_m1
     environment:
       vars:
-        XCODE_WORKSPACE: "your_workspace_name.xcworkspace"
-        XCODE_SCHEME: "your_workspace_name"
+        XCODE_WORKSPACE: "test_fred.xcworkspace"
+        XCODE_SCHEME: "test_fred"
       xcode: 13.3
       cocoapods: default
       flutter: stable
