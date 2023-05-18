@@ -1,15 +1,31 @@
 workflows:
-  ios-workflow:
-    name: iOS Workflow
-    instance_type: mac_mini_m1
+  simulator-native-ios:
+    name: iOS simulator build
     max_build_duration: 120
+    instance_type: mac_mini_m1
     environment:
+      vars:
+        XCODE_WORKSPACE: "your_workspace_name.xcworkspace"
+        XCODE_SCHEME: "your_workspace_name"
+      xcode: 13.0
+      cocoapods: default
       flutter: stable
-      xcode: latest
     scripts:
-      - name: Build iOS unsigned   # for building iOS (.app)
-        script: |
-          flutter build ios --debug --no-codesign
+      - name: Install CocoaPods dependencies
+        script: | 
+          pod install
+      - name: Build the .app
+        script: | 
+          xcodebuild build \
+            -workspace "$XCODE_WORKSPACE" \
+            -scheme "$XCODE_SCHEME" \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2' \
+            -configuration Debug \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO 
     artifacts:
       - /tmp/xcodebuild_logs/*.log
-      - flutter_drive.log
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
