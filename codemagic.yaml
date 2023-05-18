@@ -5,8 +5,8 @@ workflows:
     instance_type: mac_mini_m1
     environment:
       vars:
-        XCODE_WORKSPACE: "CodemagicSample.xcworkspace"
-        XCODE_SCHEME: "CodemagicSample"
+        XCODE_WORKSPACE: "Runner.xcworkspace"
+        XCODE_SCHEME: "Runner"
       xcode: 13.3
       cocoapods: default
       flutter: stable
@@ -14,8 +14,8 @@ workflows:
       - name: Build the .app
         script: | 
           xcodebuild build \
-            -workspace "$XCODE_WORKSPACE" \
-            -scheme "$XCODE_SCHEME" \
+            -workspace "ios\$XCODE_WORKSPACE" \
+            -scheme "ios\$XCODE_SCHEME" \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2' \
             -configuration Debug \
