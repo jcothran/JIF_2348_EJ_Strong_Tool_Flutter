@@ -11,14 +11,6 @@ workflows:
       - name: Build the .app
         script: |
           xcodebuild -list
-        script: | 
-          xcodebuild build \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2' \
-            -configuration Debug \
-            CODE_SIGN_IDENTITY="" \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO 
     artifacts:
       - /tmp/xcodebuild_logs/*.log
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
