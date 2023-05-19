@@ -8,12 +8,6 @@ workflows:
       flutter: stable
 
     scripts:
-      - name: Install dependencies
-        script: |
-          # Install CocoaPods dependencies
-          gem install cocoapods
-          pod install
-
       - name: Build
         script: |
           # Build the iOS project
