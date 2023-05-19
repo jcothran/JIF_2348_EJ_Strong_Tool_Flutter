@@ -1,17 +1,25 @@
 workflows:
-  simulator-native-ios:
-    name: iOS simulator build
+  main:
+    name: iOS Build Unsigned IPA
     max_build_duration: 120
-    instance_type: mac_mini_m1
+    instance_type: mac_mini_m1    
     environment:
-      xcode: 13.3
-      cocoapods: default
+      xcode: latest
       flutter: stable
+
     scripts:
-      - name: Build the .app
+      - name: Install dependencies
         script: |
-          xcodebuild -list
-    artifacts:
-      - /tmp/xcodebuild_logs/*.log
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+          # Install CocoaPods dependencies
+          gem install cocoapods
+          pod install
+
+      - name: Build
+        script: |
+          # Build the iOS project
+          xcodebuild -workspace Runner.xcworkspace -scheme Runner -configuration Release clean build CODE_SIGNING_ALLOWED=NO
+
+      - name: Create IPA
+        script: |
+          # Create an unsigned IPA file
+          xcodebuild -exportArchive -archivePath "build/Runner.xcarchive" -exportPath "build/Runner.ipa" -exportOptionsPlist exportOptions.plist
