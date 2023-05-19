@@ -9,6 +9,8 @@ workflows:
       flutter: stable
     scripts:
       - name: Build the .app
+        script: |
+          xcodebuild -list
         script: | 
           xcodebuild build \
             -sdk iphonesimulator \
